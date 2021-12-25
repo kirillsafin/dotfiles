@@ -1,0 +1,6 @@
+{
+  "border-radius": {
+    "prefix": "border-radius",
+    "body": "border-radius: $1;"
+  }
+}

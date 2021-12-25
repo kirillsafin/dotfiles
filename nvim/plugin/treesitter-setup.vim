@@ -1,0 +1,4 @@
+lua require("treesitter-setup")
+
+set foldmethod=expr                                                  
+set foldexpr=nvim_treesitter#foldexpr()   

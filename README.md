@@ -1,4 +1,4 @@
 # Contents
 
 * nvim
-* tmux (comming soon)
+* tmux

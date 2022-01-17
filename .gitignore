@@ -1,3 +1,7 @@
 /nvim/plugged/
 /nvim/undodir/
+/nvim/spell/
 
+test.*
+Test.*
+TEST.*

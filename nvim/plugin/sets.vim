@@ -1,6 +1,8 @@
 " VIM SETTINGS------------------------- {{{
-" source .vimrc in the project filder
+" source .nvimrc in the project filder
 set exrc
+set secure
+
 set hidden
 
 " Disable Sound on error
@@ -9,12 +11,6 @@ set noerrorbells
 " Disable compatibility with vi
 set nocompatible
 
-" Enable type file detection
-filetype on
-" Enable plugins and load plugins for detected file type
-filetype plugin on
-" Load an indent file for the detected file type
-filetype indent on
 
 syntax on
 set number
@@ -34,7 +30,7 @@ set nocursorline
 set nocursorcolumn
 
 " Don't let cursor scroll below or above N lines
-set scrolloff=5
+set scrolloff=8
 
 " Enable softwrap + don't cut the word (unset list)
 set wrap
@@ -83,4 +79,12 @@ set nocursorbind
 
 set updatetime=50
 
+set foldlevel=99
+
+" Enable type file detection
+set filetype=on
+" Enable plugins and load plugins for detected file type
+filetype plugin on
+" Load an indent file for the detected file type
+filetype indent on
 " }}}

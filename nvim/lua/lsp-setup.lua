@@ -44,20 +44,20 @@ cmp.setup({
     format = lspkind.cmp_format({
       with_text = true,
       presets = 'codicons',
-      maxwidht = 50,
+      maxwidth = 50,
       --[[
       symbol_map = {
         Text = "",
         Method = "",
         Function = "",
         Constructor = "",
-        Field = "",
+        Field = "ﰠ",
         Variable = "",
-        Class = "",
+        Class = "ﴯ",
         Interface = "",
         Module = "",
-        Property = "Property",
-        Unit = "",
+        Property = "ﰠ",
+        Unit = "塞",
         Value = "",
         Enum = "",
         Keyword = "",
@@ -74,7 +74,6 @@ cmp.setup({
         TypeParameter = ""
       },
       ]]--
-
       before = function (entry, vim_item)
         return vim_item
       end
@@ -151,8 +150,31 @@ require'lspconfig'.jsonls.setup {
   capabilities = capabilities
 }
 
+require'lspconfig'.cssls.setup {
+  capabilities = capabilities,
+}
+
+-- seems not to be useful
+require'lspconfig'.html.setup {
+  capabilities = capabilities,
+}
+
+require'lspconfig'.pylsp.setup{
+  cmd = { "pyls" },
+  capabilities = capabilities
+}
+
+require'lspconfig'.bashls.setup{
+  capabilities = capabilities
+}
+
+require'lspconfig'.volar.setup{
+  capabilities = capabilities
+}
+
 -- load snippets
 require('luasnip/loaders/from_vscode').load()
 require('luasnip/loaders/from_vscode').load({
   paths = '~/.config/nvim/my-snippets'
 })
+

@@ -1,21 +1,6 @@
 set completeopt=menu,menuone,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
-nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>                   
-nnoremap <silent> <C-]> <cmd>lua vim.lsp.buf.definition()<CR>                   
-nnoremap <silent> gD    <cmd>lua vim.lsp.buf.declaration()<CR>                  
-nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>                   
-nnoremap <silent> gi    <cmd>lua vim.lsp.buf.implementation()<CR>               
-nnoremap <silent> K     <cmd>Lspsaga hover_doc<CR>                              
-nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>               
-"nnoremap <silent> <C-p> <cmd>Lspsaga diagnostic_jump_prev<CR>                   
-"nnoremap <silent> <C-n> <cmd>Lspsaga diagnostic_jump_next<CR>                   
-nnoremap <silent> gf    <cmd>lua vim.lsp.buf.formatting()<CR>                   
-nnoremap <silent> gn    <cmd>lua vim.lsp.buf.rename()<CR>                       
-nnoremap <silent> ga    <cmd>Lspsaga code_action<CR>                            
-noremap <silent> ga    <cmd>Lspsaga range_code_action<CR>                      
-nnoremap <silent> gs    <cmd>Lspsaga signature_help<CR> 
-
 "let g:compe = {}
 "let g:compe.enabled = v:true
 "let g:compe.autocomplete = v:true
@@ -40,7 +25,7 @@ nnoremap <silent> gs    <cmd>Lspsaga signature_help<CR>
 "let g:compe.source.ultisnips = v:true
 "let g:compe.source.luasnip = v:true
 
-highlight LspDiagnosticsDefaultError guifg=BrightRed
+highlight LspDiagnosticsDefaultError guifg=DarkRed
 
 " autoformat on save
 augroup Format
@@ -48,4 +33,4 @@ augroup Format
   autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()
 augroup End
 
-  
+lua vim.diagnostic.open_float()  

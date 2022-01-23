@@ -1,7 +1,7 @@
 " PLUGINS ------------------------------- {{{
 " Plugin Manager ist vim-plug 
 call plug#begin('~/.config/nvim/plugged')
-  " Color Schemes
+  " Color Scheme 
   Plug 'gruvbox-community/gruvbox'
   Plug 'overcache/NeoSolarized'
   Plug 'NLKNguyen/papercolor-theme'
@@ -27,10 +27,14 @@ call plug#begin('~/.config/nvim/plugged')
   " Plug 'mortepau/codicons.nvim'
 
   "Plug 'akinsho/bufferline.nvim'
+  Plug 'romgrk/barbar.nvim'
+  
   " ccs 
   Plug 'norcalli/nvim-colorizer.lua'
 
   Plug 'airblade/vim-gitgutter'
+
+  Plug 'rcarriga/nvim-notify'
 
   " LSP 
   Plug 'neovim/nvim-lspconfig'
@@ -74,7 +78,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 
-  " Plug 'rcarriga/nvim-notify'
   " fast grep
   " Plug 'jremmen/vim-ripgrep'
   " git blame, diff, log
@@ -114,7 +117,9 @@ lua require("lualine-statusline-setup")
 set termguicolors
 lua require("css-colorizer-setup")
 
-lua require('nvim-autopairs').setup{}
+lua require('nvim-autopairs').setup()
+
+lua require('notify-setup')
 " }}}
 
 " UNMAP---------------------------------{{{

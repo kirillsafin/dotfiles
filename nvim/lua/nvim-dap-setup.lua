@@ -79,6 +79,7 @@ dap.configurations.python = {
     name = "Attach",
     request = "attach",
     mode = "remote",
+    subProcess = false,
     connect = {
       port = 5678,
       host = '127.0.0.1',

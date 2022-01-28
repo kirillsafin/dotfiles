@@ -2,6 +2,31 @@
 "global
 nnoremap <CR> o<Esc>
 
+" install brwoser-sync via npm: npm install -g browser-sync
+function OpenLifeServer()
+  :!start-live-server
+  
+  if v:shell_error == 0
+    lua require('notify')('Life Sever started', 'info')
+  else
+    lua require('notify')('Life Sever not started', 'error')
+  endif
+
+endfunction
+
+function CloseLifeServer()
+  :!stop-live-server
+
+  if v:shell_error == 0
+    lua require('notify')('Life Sever stopped', 'info')
+  else
+    lua require('notify')('Life Sever not stopped', 'error')
+  endif
+endfunction
+
+nnoremap <silent> <leader>ols :call OpenLifeServer()<CR><CR>
+nnoremap <silent> <leader>dls :call CloseLifeServer()<CR><CR>
+
 "fzf
 map <C-p> :Files<CR>
 

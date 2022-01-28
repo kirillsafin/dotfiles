@@ -159,6 +159,7 @@ require'lspconfig'.html.setup {
   capabilities = capabilities,
 }
 
+-- install python lsp: python3 -m pip install --user 'python-language-server[all]'
 require'lspconfig'.pylsp.setup{
   cmd = { "pyls" },
   capabilities = capabilities

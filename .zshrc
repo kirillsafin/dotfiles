@@ -119,3 +119,13 @@ unsetopt extended_history
 if [ -f ~/.bash_aliases ]; then
   source $HOME/.bash_aliases
 fi
+
+function start-live-server(){
+  browser-sync start --server --files . --port 5000 1>/dev/null &
+}
+
+function stop-live-server(){
+  browserSyncProc=$(ps -ef | grep 'node /usr/local/bin/browser-sync' | grep -v grep)
+
+  [ -z $browserSyncProc ] && return  || echo ${browserSyncProc} | awk -F" " 'system("kill "$2"")'
+}

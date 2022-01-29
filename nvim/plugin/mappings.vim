@@ -2,50 +2,34 @@
 "global
 nnoremap <CR> o<Esc>
 
-" install brwoser-sync via npm: npm install -g browser-sync
-function OpenLifeServer()
-  :!start-live-server
-  
-  if v:shell_error == 0
-    lua require('notify')('Life Sever started', 'info')
-  else
-    lua require('notify')('Life Sever not started', 'error')
-  endif
-
-endfunction
-
-function CloseLifeServer()
-  :!stop-live-server
-
-  if v:shell_error == 0
-    lua require('notify')('Life Sever stopped', 'info')
-  else
-    lua require('notify')('Life Sever not stopped', 'error')
-  endif
-endfunction
 
 nnoremap <silent> <leader>ols :call OpenLifeServer()<CR><CR>
 nnoremap <silent> <leader>dls :call CloseLifeServer()<CR><CR>
 
-"fzf
+" FZF
 map <C-p> :Files<CR>
 
-"lsp
+" LSP
 nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
-nnoremap <leader>gD    <cmd>lua vim.lsp.buf.declaration()<CR>                  
+nnoremap <leader>gD :lua vim.lsp.buf.declaration()<CR>                  
 nnoremap <leader>vrr :lua vim.lsp.buf.references()<CR>
 nnoremap <leader>vi :lua vim.lsp.buf.implementation()<CR>
 nnoremap <leader>vsh :lua vim.lsp.buf.signature_help()<CR>
-nnoremap <leader>gf    <cmd>lua vim.lsp.buf.formatting()<CR>                   
+nnoremap <leader>gf :lua vim.lsp.buf.formatting()<CR>                   
 nnoremap <leader>vrn :lua vim.lsp.buf.rename()<CR>
 nnoremap <leader>vh :lua vim.lsp.buf.hover()<CR>
 nnoremap <leader>vca :lua vim.lsp.buf.code_action()<CR>
-nnoremap <leader>vsd :lua vim.lsp.diagnostic.show_line_diagnostics(); vim.lsp.util.show_line_diagnostics()<CR>
-nnoremap <leader>vn :lua vim.lsp.diagnostic.goto_next()<CR>
-nnoremap <leader>vp :lua vim.lsp.diagnostic.goto_previous()<CR>
+nnoremap <leader>vsd :lua vim.lsp.util.show_line_diagnostics()<CR>
+nnoremap <leader>vsf :lua vim.diagnostic.open_float()<CR>
+nnoremap <leader>vn :lua vim.diagnostic.goto_next()<CR>
+nnoremap <leader>vp :lua vim.diagnostic.goto_prev()<CR>
 nnoremap <leader>vll :call LspLocationList()<CR>
 
-"lspsaga
+" vim.diagnostic.config({
+"   virtual_text = false, -- Turn off inline diagnostics
+" })
+
+" LSPSAGA
 nnoremap gh :Lspsaga lsp_finder<CR>
 nnoremap <leader>ca :Lspsaga code_action<CR>
 vnoremap <leader>ca :<C-U>Lspsaga range_code_action<CR>
@@ -55,14 +39,14 @@ nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_sag
 nnoremap gs :Lspsaga signature_help<CR>
 nnoremap <silent> gd :Lspsaga preview_definition<CR>
 
-"luasnip
+" LUASNIP
 imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
 " inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
 snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
 snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
 imap <silent> <expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 
-"nvim-dap
+" NVIM-DAP
 " nnoremap <silent> <leader>dh :lua require'dap'.toggle_breakpoint()<CR>
 nnoremap <silent> <leader>db :lua require'dap'.toggle_breakpoint()<CR>`
 nnoremap <silent> <S-k> :lua require'dap'.step_out()<CR>
@@ -95,19 +79,19 @@ nnoremap <leader>duo :lua require'dapui'.open()<CR>
 nnoremap <leader>duc :lua require'dapui'.close()<CR>
 nnoremap <leader>dut :lua require'dapui'.toggle()<CR>
 
-"nvim-tree
+" NVIM-TREE
 nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 
-"telescope
+" TELESCOPE
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-" barbar
+" BARBAR
 " Move to previous/next
 nnoremap <silent> <A-,> :BufferPrevious<CR>
 nnoremap <silent> <A-.> :BufferNext<CR>
@@ -138,8 +122,8 @@ nnoremap <silent> <A-c> :BufferClose<CR>
 " Magic buffer-picking mode
 nnoremap <silent> <C-s> :BufferPick<CR>
 " Sort automatically by...
-nnoremap <silent> <Space>bb :BufferOrderByBufferNumber<CR>
-nnoremap <silent> <Space>bd :BufferOrderByDirectory<CR>
-nnoremap <silent> <Space>bl :BufferOrderByLanguage<CR>
-nnoremap <silent> <Space>bw :BufferOrderByWindowNumber<CR>
+nnoremap <silent> <leader>bb :BufferOrderByBufferNumber<CR>
+nnoremap <silent> <leader>bd :BufferOrderByDirectory<CR>
+nnoremap <silent> <leader>bl :BufferOrderByLanguage<CR>
+nnoremap <silent> <leader>bw :BufferOrderByWindowNumber<CR>
 " }}} 

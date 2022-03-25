@@ -173,6 +173,14 @@ require'lspconfig'.volar.setup{
   capabilities = capabilities
 }
 
+--install jdtls LSP server
+-- clone repository git clone https://github.com/eclipse/eclipse.jdt.ls.git
+-- mvn clean verify -DskipTests=true
+-- set JDTLS_HOME to .../eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository
+require'lspconfig'.jdtls.setup{
+  capabilities = capabilities
+}
+
 -- load snippets
 require('luasnip/loaders/from_vscode').load()
 require('luasnip/loaders/from_vscode').load({

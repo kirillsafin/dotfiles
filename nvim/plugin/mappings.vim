@@ -30,34 +30,28 @@ nnoremap <leader>vll :call LspLocationList()<CR>
 " })
 
 " LSPSAGA
-nnoremap gh :Lspsaga lsp_finder<CR>
-nnoremap <leader>ca :Lspsaga code_action<CR>
-vnoremap <leader>ca :<C-U>Lspsaga range_code_action<CR>
-nnoremap K :Lspsaga hover_doc<CR>
-nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
-nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
-nnoremap gs :Lspsaga signature_help<CR>
+nnoremap <silent> gh :Lspsaga lsp_finder<CR>
+nnoremap <silent> <leader>ca :Lspsaga code_action<CR>
+vnoremap <silent> <leader>ca :<C-U>Lspsaga range_code_action<CR>
+nnoremap <silent> <leader>gk :Lspsaga hover_doc<CR>
+nnoremap <silent> <C-f> :lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
+nnoremap <silent> <C-b> :lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
+nnoremap <silent> gs :Lspsaga signature_help<CR>
 nnoremap <silent> gd :Lspsaga preview_definition<CR>
 
 " LUASNIP
 imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
-" inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
 snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
 snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
 imap <silent> <expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 
 " NVIM-DAP
-" nnoremap <silent> <leader>dh :lua require'dap'.toggle_breakpoint()<CR>
 nnoremap <silent> <leader>db :lua require'dap'.toggle_breakpoint()<CR>`
 nnoremap <silent> <S-k> :lua require'dap'.step_out()<CR>
-" nnoremap <silent> <F12> :lua require'dap'.step_out()<CR>`
 nnoremap <silent> <S-l> :lua require'dap'.step_into()<CR>
-" nnoremap <silent> <F11> :lua require'dap'.step_into()<CR>`
 nnoremap <silent> <S-j> :lua require'dap'.step_over()<CR>
-" nnoremap <silent> <F10> :lua require'dap'.step_over()<CR>`
 nnoremap <silent> <leader>ds :lua require'dap'.stop()<CR>
 nnoremap <silent> <leader>dn :lua require'dap'.continue()<CR>
-" nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
 nnoremap <silent> <leader>dk :lua require'dap'.up()<CR>
 nnoremap <silent> <leader>dj :lua require'dap'.down()<CR>
 nnoremap <silent> <leader>dd_ :lua require'dap'.disconnect();require'dap'.stop();require'dap'.run_last()<CR>
@@ -66,8 +60,6 @@ nnoremap <silent> <leader>di :lua require'dap.ui.variables'.hover()<CR>
 vnoremap <silent> <leader>di :lua require'dap.ui.variables'.visual_hover()<CR>
 nnoremap <silent> <leader>d? :lua require'dap.ui.variables'.scopes()<CR>
 nnoremap <silent> <leader>de :lua require'dap'.set_exception_breakpoints({"all"})<CR>
-" nnoremap <leader>da :lua require'debugHelper'.attach()<CR>
-" nnoremap <leader>dA :lua require'debugHelper'.attachToRemote()<CR>
 nnoremap <leader>dI :lua require'dap.ui.widgets'.hover()<CR>
 nnoremap <leader>d? :lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>
 

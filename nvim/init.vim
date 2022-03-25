@@ -1,4 +1,5 @@
 " PLUGINS ------------------------------- {{{
+"
 " Plugin Manager ist vim-plug 
 call plug#begin('~/.config/nvim/plugged')
   " Color Scheme 
@@ -15,6 +16,7 @@ call plug#begin('~/.config/nvim/plugged')
   " Markdown Highlighter
   " Plug 'godlygeek/tabular'
   Plug 'plasticboy/vim-markdown'
+  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
 
   " Indenter
   " Plug 'junegunn/limelight.vim'
@@ -49,6 +51,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'onsails/lspkind-nvim' " VS Code Autocompletion like Pictograms  
   "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  
+  " Java LSP
+  Plug 'mfussenegger/nvim-jdtls'
 
   " User Experience
   " Snippts

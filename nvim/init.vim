@@ -51,6 +51,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'onsails/lspkind-nvim' " VS Code Autocompletion like Pictograms  
   "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'mfussenegger/nvim-lint'
   
   " Java LSP
   Plug 'mfussenegger/nvim-jdtls'
@@ -78,7 +79,7 @@ call plug#begin('~/.config/nvim/plugged')
   
   " File Browsing
   Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
+  " Plug 'nvim-telescope/telescope.nvim'
   
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'

@@ -170,7 +170,12 @@ require'lspconfig'.bashls.setup{
 }
 
 require'lspconfig'.volar.setup{
-  capabilities = capabilities
+  capabilities = capabilities,
+  init_options = {
+    typescript = {
+      serverPath = '/usr/local/lib/node_modules/typescript/lib/tsserverlibrary.js'
+    }
+  }
 }
 
 --install jdtls LSP server

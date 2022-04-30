@@ -2,9 +2,9 @@
 set background=dark
 
 colorscheme gruvbox
-"colorscheme duckbones "doesn't work
-"colorscheme papercolor
-"colorscheme molokai
+" colorscheme duckbones "doesn't work
+" colorscheme papercolor
+" colorscheme molokai
 
 "au ColorScheme * hi Normal ctermbg=none guibg=none
 highlight Normal guibg=None ctermbg=None
@@ -13,5 +13,10 @@ highlight Normal guibg=None ctermbg=None
 
 "au ColorScheme * hi ColorColumn ctermbg=88 guibg=#870000
 highlight ColorColumn ctermbg=88 guibg=#757575
+
+
+" nvim-tree colors
+highlight NvimTreeBg guibg=None cterm=None
+highlight NvimTreeFolderIcon guibg=None ctermbg=None
 " }}}
 

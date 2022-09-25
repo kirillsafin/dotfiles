@@ -52,6 +52,7 @@ call plug#begin('~/.config/nvim/plugged')
   "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   "Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'mfussenegger/nvim-lint'
+  " Plug 'dense-analysis/ale'
   
   " Java LSP
   Plug 'mfussenegger/nvim-jdtls'
@@ -79,10 +80,10 @@ call plug#begin('~/.config/nvim/plugged')
   
   " File Browsing
   Plug 'nvim-lua/plenary.nvim'
-  " Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
   
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
+  " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  " Plug 'junegunn/fzf.vim'
 
   " fast grep
   " Plug 'jremmen/vim-ripgrep'
@@ -103,6 +104,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'mfussenegger/nvim-dap' 
   Plug 'rcarriga/nvim-dap-ui'
   Plug 'theHamsta/nvim-dap-virtual-text'
+
+  " Others
+  Plug 'liuchengxu/vim-which-key'
 call plug#end()
 " }}}
 
@@ -113,10 +117,12 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 "}}}
 
 " PLUGIN SETTINGS-----------------------{{{
-let mapleader = ' ' " is space
+let mapleader = ' ' " SPACE
 
 lua require("lsp-setup")
 lua require("nvim-dap-setup")
+
+lua require("nvim-lint-setup")
 
 lua require("lualine-statusline-setup")
 
@@ -126,6 +132,7 @@ lua require("css-colorizer-setup")
 lua require('nvim-autopairs').setup()
 
 lua require('notify-setup')
+lua require('telescope-setup')
 " }}}
 
 " UNMAP---------------------------------{{{

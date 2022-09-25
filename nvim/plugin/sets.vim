@@ -1,7 +1,7 @@
 " VIM SETTINGS------------------------- {{{
 " source .nvimrc in the project filder
-set exrc
-set secure
+" set exrc
+" set secure
 
 set hidden
 
@@ -9,31 +9,25 @@ set shell=/usr/bin/zsh
 set shellcmdflag=-ic
 " Disable Sound on error
 set noerrorbells
-
 " Disable compatibility with vi
 set nocompatible
-
 
 syntax on
 set number
 set relativenumber
 set numberwidth=1
 set signcolumn=yes
-
 " Tab Settings
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab " Space Chars statt Tabs
 set smartindent
-
 " Highlight cursor
 set nocursorline
 set nocursorcolumn
-
 " Don't let cursor scroll below or above N lines
 set scrolloff=8
-
 " Enable softwrap + don't cut the word (unset list)
 set wrap
 set linebreak
@@ -55,9 +49,9 @@ set incsearch
 set history=1000
 
 " Enable auto completion menu after pressing TAB
-set wildmenu
-set wildmode=list:longest " bash similar autocomplition behaviour
-" Files für vim verbieten
+" set wildmenu
+" set wildmode=list:longest " bash similar autocomplition behaviour
+" wildmenu ignore
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx  
 
 " Don't create swap file

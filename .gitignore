@@ -2,6 +2,10 @@
 /nvim/undodir/
 /nvim/spell/
 
+/vim/plugged/
+/vim/undodir/
+/vim/spell/
+
 test.*
 Test.*
 TEST.*

@@ -2,12 +2,20 @@
 "global
 nnoremap <CR> o<Esc>
 
+" embedded terminal
+tnoremap <Esc> <C-\><C-n>
 
 nnoremap <silent> <leader>ols :call OpenLifeServer()<CR><CR>
 nnoremap <silent> <leader>dls :call CloseLifeServer()<CR><CR>
 
 " FZF
 map <C-p> :Files<CR>
+
+" TELESCOPE
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " LSP
 nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
@@ -76,13 +84,6 @@ nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 
-" TELESCOPE
-" Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
 " BARBAR
 " Move to previous/next
 nnoremap <silent> <A-,> :BufferPrevious<CR>
@@ -117,5 +118,6 @@ nnoremap <silent> <C-s> :BufferPick<CR>
 nnoremap <silent> <leader>bb :BufferOrderByBufferNumber<CR>
 nnoremap <silent> <leader>bd :BufferOrderByDirectory<CR>
 nnoremap <silent> <leader>bl :BufferOrderByLanguage<CR>
-nnoremap <silent> <leader>bw :BufferOrderByWindowNumber<CR>
+nnoremap <silent> <leader>bw :BufPferOrderByWindowNumber<CR>
 " }}} 
+"

@@ -126,9 +126,10 @@ cmp.setup.cmdline(':', {
 
 
 -- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
--- LUA LSP see official installation guide for sumneko_lua
+-- Lua LSP
+-- install lua lsp server; official installation guide for sumneko_lua
 require'lspconfig'.sumneko_lua.setup {
   cmd = { os.getenv('HOME') .. '/prog/language_server/lua-language-server/bin/lua-language-server' },
   settings = {
@@ -148,13 +149,15 @@ require'lspconfig'.sumneko_lua.setup {
   capabilities = capabilities,
 }
 
+-- Typescript LSP
 -- install typescript LSP (tsserver) npm install -g typescript-language-server
 require'lspconfig'.tsserver.setup {
   capabilities = capabilities
 }
 
--- install c/c++ LSP (ccls) apt install ccls
-require'lspconfig'.ccls.setup {
+-- C/C++ LSP
+-- install c/c++ LSP (clangd) apt install clangd
+require'lspconfig'.clangd.setup{
   single_file_support = true,
   root_dir = function ()
     return vim.loop.cwd()
@@ -162,31 +165,37 @@ require'lspconfig'.ccls.setup {
   capabilities = capabilities
 }
 
+-- Json LSP
 -- install json LSP npm install -g vscode-json-languageserver
 require'lspconfig'.jsonls.setup {
   cmd = { "vscode-json-languageserver", "--stdio" },
   capabilities = capabilities
 }
 
+-- css LSP
 require'lspconfig'.cssls.setup {
   capabilities = capabilities,
 }
 
+-- html LSP
 -- seems not to be useful
 require'lspconfig'.html.setup {
   capabilities = capabilities,
 }
 
+-- python LSP
 -- install python lsp: python3 -m pip install --user 'python-language-server[all]'
 require'lspconfig'.pylsp.setup{
-  cmd = { "pyls" },
+  cmd = { 'pylsp' },
   capabilities = capabilities
 }
 
+-- Bash LSP
 require'lspconfig'.bashls.setup{
   capabilities = capabilities
 }
 
+-- Vue LSP
 require'lspconfig'.volar.setup{
   capabilities = capabilities,
   init_options = {
@@ -196,10 +205,8 @@ require'lspconfig'.volar.setup{
   }
 }
 
---install jdtls LSP server
--- clone repository git clone https://github.com/eclipse/eclipse.jdt.ls.git
--- mvn clean verify -DskipTests=true
--- set JDTLS_HOME to .../eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository
+-- Java LSP
+--install jdtls LSP server: 1: clone repository git clone https://github.com/eclipse/eclipse.jdt.ls.git, 2: mvn clean verify -DskipTests=true 3: set JDTLS_HOME to .../eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository
 require'lspconfig'.jdtls.setup{
   capabilities = capabilities
 }

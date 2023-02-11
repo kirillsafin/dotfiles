@@ -135,3 +135,7 @@ export JDTLS_HOME=${HOME}/prog/language_server/eclipse.jdt.ls/org.eclipse.jdt.ls
 NPM_PACKAGES="${HOME}/.npm-packages"
 NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 PATH="$NPM_PACKAGES/bin:$PATH"
+
+autoload bashcompinit
+bashcompinit
+source /home/kirill/prog/vcpkg/scripts/vcpkg_completion.zsh

@@ -1,4 +1,4 @@
-" PLUGINS ------------------------------- {{{
+ " PLUGINS ------------------------------- {{{
 "
 " Plugin Manager ist vim-plug 
 call plug#begin('~/.config/nvim/plugged')
@@ -9,95 +9,92 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'mcchrish/zenbones.nvim'
 
   "Vim StatusBar
-  "Plug 'itchyny/lightline.vim'
-  Plug 'nvim-lualine/lualine.nvim'
+  " Plug 'itchyny/lightline.vim'
   " Plug 'gelguy/wilder.nvim'
-  "
+  Plug 'nvim-lualine/lualine.nvim'
+  
   " Markdown Highlighter
   " Plug 'godlygeek/tabular'
   Plug 'plasticboy/vim-markdown'
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
 
-  " Indenter
-  " Plug 'junegunn/limelight.vim'
-  Plug 'lukas-reineke/indent-blankline.nvim'
-  
-  " Project tree
-  " Plug 'preservim/nerdtree'
-  Plug 'kyazdani42/nvim-web-devicons' " for file icons
-  Plug 'kyazdani42/nvim-tree.lua'
-  " Plug 'mortepau/codicons.nvim'
-
-  "Plug 'akinsho/bufferline.nvim'
-  Plug 'romgrk/barbar.nvim'
-  
-  " ccs 
-  Plug 'norcalli/nvim-colorizer.lua'
-
-  Plug 'airblade/vim-gitgutter'
-
-  Plug 'rcarriga/nvim-notify'
-
   " LSP 
   Plug 'neovim/nvim-lspconfig'
   Plug 'tami5/lspsaga.nvim'
-
   " Autocompletion
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/cmp-path'
   Plug 'hrsh7th/cmp-cmdline'
-  Plug 'hrsh7th/nvim-cmp' " required by LuaSnip
-  Plug 'onsails/lspkind-nvim' " VS Code Autocompletion like Pictograms  
-  "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  " required by LuaSnip
+  Plug 'hrsh7th/nvim-cmp' 
+  " VS Code Autocompletion like Pictograms 
+  Plug 'onsails/lspkind-nvim' 
   Plug 'mfussenegger/nvim-lint'
+  " Java advanced LSP
+  Plug 'mfussenegger/nvim-jdtls' 
+  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " Plug 'dense-analysis/ale'
-  
-  " Java LSP
-  Plug 'mfussenegger/nvim-jdtls'
-
-  " User Experience
   " Snippts
-  Plug 'L3MON4D3/LuaSnip' " required by friendly-snippets
-  Plug 'rafamadriz/friendly-snippets' " HTML, 
+  " required by friendly-snippets
+  Plug 'L3MON4D3/LuaSnip' 
+  " HTML, 
+  Plug 'rafamadriz/friendly-snippets' 
   Plug 'saadparwaiz1/cmp_luasnip'
   Plug 'mattn/emmet-vim'
-  
-  " Treesitter for better code completion
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'nvim-treesitter/playground'
+  " manage LSP/Lint/Debug/Formatters servers
+  " Plug 'williamboman/mason.nvim' 
+  " better intelisense 
+  " Plug 'folke/trouble.nvim'
+
+  " User Experience
+  " CSS 
+  Plug 'norcalli/nvim-colorizer.lua'
+  " Project tree
+  " Plug 'preservim/nerdtree'
+  " for file icons
+  Plug 'nvim-tree/nvim-web-devicons'
+  Plug 'nvim-tree/nvim-tree.lua'
+  " Plug 'mortepau/codicons.nvim'
+  " Plug 'akinsho/bufferline.nvim'
+  " General 
+  Plug 'romgrk/barbar.nvim'
+  Plug 'rcarriga/nvim-notify'
   Plug 'windwp/nvim-ts-autotag'
-  "Plug 'jiangmiao/auto-pairs'
-
-  "General
   Plug 'windwp/nvim-autopairs'
-
+  " Plug 'junegunn/limelight.vim'
+  Plug 'lukas-reineke/indent-blankline.nvim'
+  Plug 'folke/todo-comments.nvim'
   " Autoclosing bracket and parenthesis
   Plug 'p00f/nvim-ts-rainbow'
   Plug 'tpope/vim-commentary' " Comments (gc, gcc)
   Plug 'tpope/vim-surround'
+  " Git
+  Plug 'airblade/vim-gitgutter'
+  
+  " Treesitter for better code completion
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'nvim-treesitter/playground'
+  "Plug 'jiangmiao/auto-pairs'
   
   " File Browsing
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
-  
   " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   " Plug 'junegunn/fzf.vim'
 
-  " fast grep
+  " Fast grep
   " Plug 'jremmen/vim-ripgrep'
-  " git blame, diff, log
+  " Git - blame, diff, log
   " Plug 'tpope/vim-fugitive'
-  " syntax for ts
+  " Syntax for ts
   " Plug 'leafgarland/typescript-vim'
-  "
+  
   " Plug 'vim-utils/vim-man'
-  " for c++
+  " C++
   " Plug 'lyuts/vim-rtags'
-  " file finding
-  " Plug 'git@github.com:kien/ctrlp.vim.git'
-  "
+  
   " Plug 'mbbill/undotree'
   
   " Debugging
@@ -121,18 +118,14 @@ let mapleader = ' ' " SPACE
 
 lua require("lsp-setup")
 lua require("nvim-dap-setup")
-
 lua require("nvim-lint-setup")
-
 lua require("lualine-statusline-setup")
-
 set termguicolors
 lua require("css-colorizer-setup")
-
 lua require('nvim-autopairs').setup()
-
 lua require('notify-setup')
 lua require('telescope-setup')
+lua require("todo-comments").setup()
 " }}}
 
 " UNMAP---------------------------------{{{

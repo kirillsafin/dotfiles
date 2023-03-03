@@ -5,7 +5,7 @@
 
 set hidden
 
-set shell=/usr/bin/zsh
+set shell=/bin/zsh
 set shellcmdflag=-ic
 " Disable Sound on error
 set noerrorbells

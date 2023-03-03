@@ -8,11 +8,8 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap <silent> <leader>ols :call OpenLifeServer()<CR><CR>
 nnoremap <silent> <leader>dls :call CloseLifeServer()<CR><CR>
 
-" FZF
-map <C-p> :Files<CR>
-
 " TELESCOPE
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <silent><C-p> <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
@@ -80,7 +77,7 @@ nnoremap <leader>duc :lua require'dapui'.close()<CR>
 nnoremap <leader>dut :lua require'dapui'.toggle()<CR>
 
 " NVIM-TREE
-nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <silent> <C-b> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 

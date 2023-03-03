@@ -14,6 +14,7 @@
 #### Markdown
 
 * Vim-markdown <https://github.com/plasticboy/vim-markdown>
+* Markdown Preview <https://github.com/iamcco/markdown-preview.nvim>
 
 ### User Experience
 

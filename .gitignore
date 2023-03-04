@@ -2,9 +2,11 @@
 /nvim/undodir/
 /nvim/spell/
 
-/vim/plugged/
-/vim/undodir/
-/vim/spell/
+/vim/.vim/plugged/
+/vim/.vim/undodir/
+/vim/.vim/spell/
+/vim/.vim/autoload/
+/vim/.vim/colors/
 
 test.*
 Test.*

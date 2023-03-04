@@ -9,7 +9,7 @@ nnoremap <silent> <leader>ols :call OpenLifeServer()<CR><CR>
 nnoremap <silent> <leader>dls :call CloseLifeServer()<CR><CR>
 
 " TELESCOPE
-nnoremap <silent><C-p> <cmd>Telescope find_files<cr>
+nnoremap <silent><C-p> <cmd>Telescope find_files hidden=true<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>

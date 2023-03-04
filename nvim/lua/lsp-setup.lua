@@ -109,19 +109,16 @@ cmp.setup({
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
-  sources = {
-    { name = 'buffer' }
-  }
+  sources = { { name = 'buffer' } }
 })
 
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
-  sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    { name = 'cmdline' }
-  })
+  sources = cmp.config.sources(
+    { { name = 'path' } },
+    { { name = 'cmdline' } }
+  )
 })
 
 
@@ -130,7 +127,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 
 -- Lua LSP
 -- install lua lsp server; official installation guide for sumneko_lua
-require'lspconfig'.sumneko_lua.setup {
+require'lspconfig'.lua_ls.setup {
   cmd = { os.getenv('HOME') .. '/prog/language_server/lua-language-server/bin/lua-language-server' },
   settings = {
     Lua = {
@@ -166,13 +163,12 @@ require'lspconfig'.clangd.setup{
 }
 
 -- Json LSP
--- install json LSP npm install -g vscode-json-languageserver
+-- install json LSP npm install -g vscode-langservers-extracted
 require'lspconfig'.jsonls.setup {
   cmd = { "vscode-json-languageserver", "--stdio" },
   capabilities = capabilities
 }
 
--- css LSP
 require'lspconfig'.cssls.setup {
   capabilities = capabilities,
 }
@@ -190,7 +186,7 @@ require'lspconfig'.pylsp.setup{
   capabilities = capabilities
 }
 
--- Bash LSP
+-- Bash LSP npm install -g bash-language-server
 require'lspconfig'.bashls.setup{
   capabilities = capabilities
 }

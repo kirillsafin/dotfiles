@@ -32,8 +32,9 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 "CONFIG ------------------------ {{{
 " Theme
 set termguicolors
+set background=dark
 colorscheme gruvbox
-highlight Normal guibg=None ctermbg=None
+highlight Normal ctermbg=NONE guibg=NONE
 highlight ColorColumn ctermbg=88 guibg=#757575
 
 " Status Line
@@ -98,7 +99,6 @@ set noswapfile
 set shellcmdflag=-ic
 " undo settings
 set undodir =~/.vim/undodir
-set undodir
 " Spell check
 set encoding=UTF-8
 set spell

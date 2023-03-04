@@ -130,12 +130,22 @@ function stop-live-server(){
   [ -z $browserSyncProc ] && return  || echo ${browserSyncProc} | awk -F" " 'system("kill "$2"")'
 }
 
-export JDTLS_HOME=${HOME}/prog/language_server/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository
+JAVA_HOME="/usr/lib/jvm/java-1.17.0-openjdk-amd64/bin" 
+JDTLS_HOME=${HOME}/prog/language_server/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/bin
+PATH=$PATH:$JDTLS_HOME
 
 NPM_PACKAGES="${HOME}/.npm-packages"
 NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 PATH="$NPM_PACKAGES/bin:$PATH"
 
-autoload bashcompinit
-bashcompinit
-source /home/kirill/prog/vcpkg/scripts/vcpkg_completion.zsh
+# Python Executable
+PIP_BIN="$HOME/.local/bin/"
+PATH=$PATH:$PIP_BIN
+
+if [ -d $HOME/prog/vcpkg ]; then
+  autoload bashcompinit
+  bashcompinit
+  source $HOME/prog/vcpkg/scripts/vcpkg_completion.zsh
+fi
+
+alias luamake=$HOME/prog/lua-language-server/3rd/luamake/luamake

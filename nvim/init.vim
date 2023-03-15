@@ -47,6 +47,7 @@ call plug#begin('~/.config/nvim/plugged')
   " Plug 'williamboman/mason.nvim' 
   " better intelisense 
   " Plug 'folke/trouble.nvim'
+  Plug 'dense-analysis/ale'
 
   " User Experience
   " CSS 

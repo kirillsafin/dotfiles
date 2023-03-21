@@ -1,4 +1,4 @@
- " PLUGINS ------------------------------- {{{
+" PLUGINS ------------------------------- {{{
 "
 " Plugin Manager ist vim-plug 
 call plug#begin('~/.config/nvim/plugged')
@@ -16,7 +16,7 @@ call plug#begin('~/.config/nvim/plugged')
   " Markdown Highlighter
   " Plug 'godlygeek/tabular'
   Plug 'plasticboy/vim-markdown'
-  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
+  Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': ['markdown', 'vim-plug'] }
 
   " LSP 
   Plug 'neovim/nvim-lspconfig'
@@ -42,7 +42,7 @@ call plug#begin('~/.config/nvim/plugged')
   " HTML, 
   Plug 'rafamadriz/friendly-snippets' 
   Plug 'saadparwaiz1/cmp_luasnip'
-  Plug 'mattn/emmet-vim'
+  " Plug 'mattn/emmet-vim'
   " manage LSP/Lint/Debug/Formatters servers
   " Plug 'williamboman/mason.nvim' 
   " better intelisense 
@@ -73,6 +73,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-surround'
   " Git
   Plug 'airblade/vim-gitgutter'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'sindrets/diffview.nvim'
   
   " Treesitter for better code completion
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -81,6 +83,7 @@ call plug#begin('~/.config/nvim/plugged')
   
   " File Browsing
   Plug 'nvim-lua/plenary.nvim'
+  " also install ripgrep( please apt install ripgrep)
   Plug 'nvim-telescope/telescope.nvim'
   " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   " Plug 'junegunn/fzf.vim'
@@ -102,6 +105,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'mfussenegger/nvim-dap' 
   Plug 'rcarriga/nvim-dap-ui'
   Plug 'theHamsta/nvim-dap-virtual-text'
+  Plug 'mxsdev/nvim-dap-vscode-js'
 
   " Others
   Plug 'liuchengxu/vim-which-key'

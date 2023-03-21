@@ -1,47 +1,16 @@
 local dap = require('dap')
 
-dap.adapters.node2 = {
-  type = 'executable',
-  command = 'node',
-  args = {os.getenv('HOME') .. '/prog/vscode-node-debug-2/out/src/nodeDebug.js'},
-}
+dap.set_log_level('TRACE')
 
-dap.configurations.node2 = {
-  {
-    name = 'Launch',
-    type = 'node2',
-    request = 'launch',
-    program = '${file}',
-    cwd = vim.fn.getcwd(),
-    sourceMaps = true,
-    protocol = 'inspector',
-    console = 'integratedTerminal',
-  },
-  {
-    -- For this to work you need to make sure the node process is started with the `--inspect` flag.
-    name = 'Attach',
-    type = 'node2',
-    request = 'attach',
-    cwd = vim.fn.getcwd(),
-    localRoot = vim.fn.getcwd(),
-    remoteRoot = '/app',
-    processId = require'dap.utils'.pick_process,
-    sourceMaps = true,
-    skipFiles = {
-      "**/node_modules/**",
-			"<node_internals>/**",
-    }
-  },
-}
-
+-- PYTHON
 local function get_python_exec()
-      local cwd = vim.fn.getcwd()
+  local cwd = vim.fn.getcwd()
 
-      if vim.fn.executable(cwd .. '/venv/bin/python') == 1 then
-        return cwd .. '/venv/bin/python'
-      else
-        return 'python'
-      end
+  if vim.fn.executable(cwd .. '/venv/bin/python') == 1 then
+    return cwd .. '/venv/bin/python'
+  else
+    return 'python'
+  end
 end
 
 local python_exec = get_python_exec()
@@ -68,13 +37,6 @@ dap.adapters.remote_python = {
 
 dap.configurations.python = {
   {
-    type = 'python',
-    name = 'Launch File',
-    request = 'launch',
-    program = '${file}',
-    pythonPath = python_exec
-  },
-  {
     type = 'remote_python' ,
     name = "Attach",
     request = "attach",
@@ -88,36 +50,24 @@ dap.configurations.python = {
     pathMappings = {
       {
         localRoot = vim.fn.getcwd(),
-        -- localRoot = '/media/kirill/WindowsD/Programmieren/Training/PLAYAREA2/fastapi/src-backend',
         remoteRoot = "/app",
       },
     },
   }
 }
 
+-- C++ & C
 dap.adapters.cppdbg = {
+  id = 'cppdbg',
   type = 'executable',
-  command = os.getenv('HOME') .. '/prog/vscode-cpptools/extension/debugAdapters/bin/OpenDebugAD7',
+  -- TODO: create function which grabs the latest vscode cpptools folder
+  command = os.getenv('HOME') .. '/.vscode/extensions/ms-vscode.cpptools-1.14.4-linux-x64/debugAdapters/bin/OpenDebugAD7',
+  options = {
+    detached = false
+  },
 }
 
 dap.configurations.cpp = {
-  {
-    name = "Launch file",
-    type = "cppdbg",
-    request = "launch",
-    program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-    end,
-    cwd = '${workspaceFolder}',
-    stopOnEntry = true,
-    setupCommands = {
-      {
-         text = '-enable-pretty-printing',
-         description =  'enable pretty printing',
-         ignoreFailures = false 
-      },
-    },
-  },
   {
     name = 'Attach to gdbserver :1234',
     type = 'cppdbg',
@@ -133,13 +83,52 @@ dap.configurations.cpp = {
       {
          text = '-enable-pretty-printing',
          description =  'enable pretty printing',
-         ignoreFailures = false 
+         ignoreFailures = false
       },
     },
   },
 }
 
-dap.configurations.c = dap.configurations.cpp
+-- TODO:
+
+-- JAVA
+-- local config = {
+--     cmd = {os.getenv('HOME') .. 'jdtls'},
+--     root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
+-- }
+-- require('jdtls').start_or_attach(config)
+
+
+
+-- TYPESCRIPT AND JAVASCRIPT
+local dap_vscode = require("dap-vscode-js")
+dap_vscode.setup({
+  debugger_path = os.getenv('HOME')  .. '/prog/debug-server/vscode-js-debug-X',     -- Path to vscode-js-debug installation.
+  adapters = { 'pwa-node', 'pwa-chrome' },                                          -- which adapters to register in nvim-dap
+  -- node_path = "node",                                                            -- Path of node executable. Defaults to $NODE_PATH, and then "node"
+  -- debugger_cmd = { "js-debug-adapter" },                                         -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
+  -- log_file_path = "(stdpath cache)/dap_vscode_js.log"                            -- Path for file logging
+  -- log_file_level = false                                                         -- Logging level for output to file. Set to false to disable file logging.
+  -- log_console_level = vim.log.levels.ERROR                                       -- Logging level for output to console. Set to false to disable console output.
+})
+
+-- for _, language in ipairs({ "typescript", "javascript" }) do
+--   dap.configurations[language] = {
+--     {
+--       type = "pwa-node",
+--       request = "attach",
+--       name = "Attach",
+--       processId = require'dap.utils'.pick_process,
+--       cwd = "${workspaceFolder}",
+--     }
+--   }
+-- end
+
+require('dap.ext.vscode').load_launchjs(nil,
+{
+  ['pwa-node'] = { 'javascript', 'typescript' },
+  cppdbg = { 'cpp', 'c'}
+})
 
 require("dapui").setup()
 require("nvim-dap-virtual-text").setup()

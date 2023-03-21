@@ -12,7 +12,6 @@ set noerrorbells
 " Disable compatibility with vi
 set nocompatible
 
-syntax on
 set number
 set relativenumber
 set numberwidth=1
@@ -50,7 +49,7 @@ set history=1000
 
 " Enable auto completion menu after pressing TAB
 " set wildmenu
-" set wildmode=list:longest " bash similar autocomplition behaviour
+" set wildmode=list:longest " bash similar auto completion behavior
 " wildmenu ignore
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx  
 
@@ -67,6 +66,7 @@ set undofile
 set encoding=UTF-8
 set spell
 set spelllang=en_us,de_de
+set syntax=off
 
 set termguicolors
 

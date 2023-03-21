@@ -18,5 +18,8 @@ highlight ColorColumn ctermbg=88 guibg=#757575
 " nvim-tree colors
 highlight NvimTreeBg guibg=None cterm=None
 highlight! NvimTreeFolderIcon guibg=None ctermbg=None
+
+" Bad Spell color
+highlight SpellBad ctermbg=72 gui=undercurl guisp=#5faf87
 " }}}
 

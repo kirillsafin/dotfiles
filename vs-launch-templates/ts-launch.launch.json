@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "Launch Program",
+      "program": "main.ts",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "tsc: build - tsconfig.json",
+      "outFiles": ["${workspaceFolder}/build/**/*.js"],
+      "skipFiles": ["<node_internals>/**"]
+    }
+  ]
+}

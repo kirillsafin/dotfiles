@@ -37,7 +37,7 @@ nnoremap <leader>vll :call LspLocationList()<CR>
 " LSPSAGA
 nnoremap <silent> gh :Lspsaga lsp_finder<CR>
 nnoremap <silent> <leader>ca :Lspsaga code_action<CR>
-vnoremap <silent> <leader>ca :<C-U>Lspsaga range_code_action<CR>
+vnoremap <silent> <leader>cb :<C-U>Lspsaga range_code_action<CR>
 nnoremap <silent> <leader>gk :Lspsaga hover_doc<CR>
 nnoremap <silent> <C-f> :lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
 nnoremap <silent> <C-b> :lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
@@ -55,11 +55,12 @@ nnoremap <silent> <leader>db :lua require'dap'.toggle_breakpoint()<CR>`
 nnoremap <silent> <S-k> :lua require'dap'.step_out()<CR>
 nnoremap <silent> <S-l> :lua require'dap'.step_into()<CR>
 nnoremap <silent> <S-j> :lua require'dap'.step_over()<CR>
-nnoremap <silent> <leader>ds :lua require'dap'.stop()<CR>
+nnoremap <silent> <leader>ds :lua require'dap'.close()<CR>
 nnoremap <silent> <leader>dn :lua require'dap'.continue()<CR>
 nnoremap <silent> <leader>dk :lua require'dap'.up()<CR>
 nnoremap <silent> <leader>dj :lua require'dap'.down()<CR>
-nnoremap <silent> <leader>dd_ :lua require'dap'.disconnect();require'dap'.stop();require'dap'.run_last()<CR>
+nnoremap <silent> <leader>dd_ :lua require'dap'.disconnect();require'dap'.close();require'dap'.run_last()<CR>
+nnoremap <silent> <leader>dd= :lua require'dap'.disconnect({restart=false, terminateDebugee = false});require'dap'.close();require'dap'.run_last()<CR>
 nnoremap <silent> <leader>dr :lua require'dap'.repl.open({}, 'vsplit')<CR><C-w>l
 nnoremap <silent> <leader>di :lua require'dap.ui.variables'.hover()<CR>
 vnoremap <silent> <leader>di :lua require'dap.ui.variables'.visual_hover()<CR>
@@ -116,5 +117,10 @@ nnoremap <silent> <leader>bb :BufferOrderByBufferNumber<CR>
 nnoremap <silent> <leader>bd :BufferOrderByDirectory<CR>
 nnoremap <silent> <leader>bl :BufferOrderByLanguage<CR>
 nnoremap <silent> <leader>bw :BufPferOrderByWindowNumber<CR>
+
+" WhichKey
+let g:mapleader = "\<Space>"
+let g:maplocalleader = ','
+nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 " }}} 
-"

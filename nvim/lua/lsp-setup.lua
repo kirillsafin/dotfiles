@@ -128,7 +128,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 -- Lua LSP
 -- install lua lsp server; official installation guide for sumneko_lua
 require'lspconfig'.lua_ls.setup {
-  cmd = { os.getenv('HOME') .. '/prog/language_server/lua-language-server/bin/lua-language-server' },
+  cmd = { os.getenv('HOME') .. '/prog/language-server/lua-language-server/bin/lua-language-server' },
   settings = {
     Lua = {
       runtime = {
@@ -183,6 +183,7 @@ require'lspconfig'.html.setup {
 -- install python lsp: python3 -m pip install --user 'python-language-server[all]'
 require'lspconfig'.pylsp.setup{
   cmd = { 'pylsp' },
+  single_file_support = true,
   capabilities = capabilities
 }
 

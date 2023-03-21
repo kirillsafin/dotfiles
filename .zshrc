@@ -130,8 +130,8 @@ function stop-live-server(){
   [ -z $browserSyncProc ] && return  || echo ${browserSyncProc} | awk -F" " 'system("kill "$2"")'
 }
 
-JAVA_HOME="/usr/lib/jvm/java-1.17.0-openjdk-amd64/bin" 
-JDTLS_HOME=${HOME}/prog/language_server/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/bin
+JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
+JDTLS_HOME=${HOME}/prog/language-server/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/bin
 PATH=$PATH:$JDTLS_HOME
 
 NPM_PACKAGES="${HOME}/.npm-packages"

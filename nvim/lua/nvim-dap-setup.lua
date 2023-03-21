@@ -38,7 +38,7 @@ dap.adapters.remote_python = {
 dap.configurations.python = {
   {
     type = 'remote_python' ,
-    name = "Attach",
+    name = "Attach (DAP Config)",
     request = "attach",
     mode = "remote",
     subProcess = false,
@@ -69,11 +69,11 @@ dap.adapters.cppdbg = {
 
 dap.configurations.cpp = {
   {
-    name = 'Attach to gdbserver :1234',
+    name = 'Attach (DAP Config)',
     type = 'cppdbg',
     request = 'launch',
     MIMode = 'gdb',
-    miDebuggerServerAddress = 'localhost:1234',
+    miDebuggerServerAddress = 'localhost:9091',
     miDebuggerPath = '/usr/bin/gdb',
     cwd = '${workspaceFolder}',
     program = function()
@@ -112,17 +112,17 @@ dap_vscode.setup({
   -- log_console_level = vim.log.levels.ERROR                                       -- Logging level for output to console. Set to false to disable console output.
 })
 
--- for _, language in ipairs({ "typescript", "javascript" }) do
---   dap.configurations[language] = {
---     {
---       type = "pwa-node",
---       request = "attach",
---       name = "Attach",
---       processId = require'dap.utils'.pick_process,
---       cwd = "${workspaceFolder}",
---     }
---   }
--- end
+for _, language in ipairs({ "typescript", "javascript" }) do
+  dap.configurations[language] = {
+    {
+      type = "pwa-node",
+      request = "attach",
+      name = "Attach (DAP Config)",
+      processId = require'dap.utils'.pick_process,
+      cwd = "${workspaceFolder}",
+    }
+  }
+end
 
 require('dap.ext.vscode').load_launchjs(nil,
 {

@@ -29,8 +29,8 @@ highlight LspDiagnosticsDefaultError guifg=DarkRed
 
 " autoformat on save
 augroup Format
-  autocmd! * <buffer>
-  autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()
+  autocmd! *
+  autocmd BufWritePre * lua vim.lsp.buf.format()
 augroup End
 
 lua vim.diagnostic.open_float()  

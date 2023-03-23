@@ -188,23 +188,42 @@ require'lspconfig'.pylsp.setup{
 }
 
 -- Bash LSP npm install -g bash-language-server
+-- install spellcheck: apt install spellcheck, brew install shellcheck
 require'lspconfig'.bashls.setup{
   capabilities = capabilities
 }
 
--- Vue LSP
+-- Vue3 LSP
 require'lspconfig'.volar.setup{
   capabilities = capabilities,
   init_options = {
     typescript = {
-      serverPath = '/usr/local/lib/node_modules/typescript/lib/tsserverlibrary.js'
+      serverPath = { os.getenv('HOME') .. '.npm-packages/lib/node_modules/typescript/lib/tsserverlibrary.js' }
     }
   }
 }
 
+-- Vue 2
+-- npm install -g vls
+-- require'lspconfig'.vuels.setup{
+--   capabilities = capabilities,
+-- }
+
 -- Java LSP
 --install jdtls LSP server: 1: clone repository git clone https://github.com/eclipse/eclipse.jdt.ls.git, 2: mvn clean verify -DskipTests=true 3: set JDTLS_HOME to .../eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository
 require'lspconfig'.jdtls.setup{
+  capabilities = capabilities
+}
+
+-- Docker-Compose
+-- npm install -g @microsoft/compose-language-service
+require'lspconfig'.docker_compose_language_service.setup{
+  capabilities = capabilities
+}
+
+-- Docker
+-- npm install -g dockerfile-language-server-nodejs
+require'lspconfig'.dockerls.setup{
   capabilities = capabilities
 }
 

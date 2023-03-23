@@ -123,4 +123,8 @@ let g:mapleader = "\<Space>"
 let g:maplocalleader = ','
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+
+" DiffviewOpen
+nnoremap <silent> <leader>gh :DiffviewOpen<CR>
+nnoremap <silent> <leader>gc :DiffviewClose<CR>
 " }}} 

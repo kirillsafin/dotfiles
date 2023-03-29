@@ -27,10 +27,5 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 highlight LspDiagnosticsDefaultError guifg=DarkRed
 
-" autoformat on save
-augroup Format
-  autocmd! *
-  autocmd BufWritePre * lua vim.lsp.buf.format()
-augroup End
+autocmd BufNewFile,BufRead *docker-compose*.yml,*docker-compose*.yaml set ft=yaml.docker-compose
 
-lua vim.diagnostic.open_float()  

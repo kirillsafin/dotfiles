@@ -127,7 +127,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 
 -- Lua LSP
 -- install lua lsp server; official installation guide for sumneko_lua
-require'lspconfig'.lua_ls.setup {
+require'lspconfig'.lua_ls.setup{
   cmd = { os.getenv('HOME') .. '/prog/language-server/lua-language-server/bin/lua-language-server' },
   settings = {
     Lua = {
@@ -148,7 +148,7 @@ require'lspconfig'.lua_ls.setup {
 
 -- Typescript LSP
 -- install typescript LSP (tsserver) npm install -g typescript-language-server
-require'lspconfig'.tsserver.setup {
+require'lspconfig'.tsserver.setup{
   capabilities = capabilities
 }
 
@@ -162,20 +162,24 @@ require'lspconfig'.clangd.setup{
   capabilities = capabilities
 }
 
+require'lspconfig'.cmake.setup{
+  capabilities = capabilities
+}
+
 -- Json LSP
 -- install json LSP npm install -g vscode-langservers-extracted
-require'lspconfig'.jsonls.setup {
+require'lspconfig'.jsonls.setup{
   cmd = { "vscode-json-languageserver", "--stdio" },
   capabilities = capabilities
 }
 
-require'lspconfig'.cssls.setup {
+require'lspconfig'.cssls.setup{
   capabilities = capabilities,
 }
 
 -- html LSP
 -- seems not to be useful
-require'lspconfig'.html.setup {
+require'lspconfig'.html.setup{
   capabilities = capabilities,
 }
 
@@ -205,9 +209,9 @@ require'lspconfig'.volar.setup{
 
 -- Vue 2
 -- npm install -g vls
--- require'lspconfig'.vuels.setup{
---   capabilities = capabilities,
--- }
+require'lspconfig'.vuels.setup{
+  capabilities = capabilities,
+}
 
 -- Java LSP
 --install jdtls LSP server: 1: clone repository git clone https://github.com/eclipse/eclipse.jdt.ls.git, 2: mvn clean verify -DskipTests=true 3: set JDTLS_HOME to .../eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository
@@ -218,7 +222,8 @@ require'lspconfig'.jdtls.setup{
 -- Docker-Compose
 -- npm install -g @microsoft/compose-language-service
 require'lspconfig'.docker_compose_language_service.setup{
-  capabilities = capabilities
+  capabilities = capabilities,
+  filetypes = { 'yaml.docker-compose' }
 }
 
 -- Docker
@@ -227,9 +232,33 @@ require'lspconfig'.dockerls.setup{
   capabilities = capabilities
 }
 
+-- YAML
+require'lspconfig'.yamlls.setup{
+  capabilities = capabilities,
+  filetypes = { 'yaml' }
+}
+
+-- Salt
+require'lspconfig'.salt_ls.setup{
+  capabilities = capabilities,
+}
+
+-- Arduino
+-- go install github.com/arduino/arduino-language-server@latest
+-- install arduino-cli
+local fqbn = "esp8266:esp8266:d1_mini_pro"
+
+require'lspconfig'.arduino_language_server.setup{
+  capabilities = capabilities,
+  cmd = {
+    "arduino-language-server",
+    "-cli-config", os.getenv('HOME') .. '.arduino15/arduino-cli.yml',
+    "-fqbn", fqbn
+  }
+}
+
 -- load snippets
 require('luasnip/loaders/from_vscode').load()
 require('luasnip/loaders/from_vscode').load({
   paths = '~/.config/nvim/my-snippets'
 })
-

@@ -2,8 +2,7 @@
 set background=dark
 
 colorscheme gruvbox
-" colorscheme duckbones "doesn't work
-" colorscheme papercolor
+" colorscheme rose-pine
 " colorscheme molokai
 
 "au ColorScheme * hi Normal ctermbg=none guibg=none

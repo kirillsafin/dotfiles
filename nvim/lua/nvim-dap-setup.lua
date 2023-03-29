@@ -1,6 +1,6 @@
 local dap = require('dap')
 
-dap.set_log_level('TRACE')
+-- dap.set_log_level('TRACE')
 
 -- PYTHON
 local function get_python_exec()

@@ -5,8 +5,7 @@ call plug#begin('~/.config/nvim/plugged')
   " Color Scheme 
   Plug 'gruvbox-community/gruvbox'
   Plug 'overcache/NeoSolarized'
-  Plug 'NLKNguyen/papercolor-theme'
-  Plug 'mcchrish/zenbones.nvim'
+  Plug 'rose-pine/neovim' 
 
   "Vim StatusBar
   " Plug 'itchyny/lightline.vim'
@@ -45,9 +44,8 @@ call plug#begin('~/.config/nvim/plugged')
   " Plug 'mattn/emmet-vim'
   " manage LSP/Lint/Debug/Formatters servers
   " Plug 'williamboman/mason.nvim' 
-  " better intelisense 
-  " Plug 'folke/trouble.nvim'
-  Plug 'dense-analysis/ale'
+  " Better Intelisense 
+  Plug 'folke/trouble.nvim'
 
   " User Experience
   " CSS 
@@ -91,7 +89,9 @@ call plug#begin('~/.config/nvim/plugged')
   " Fast grep
   " Plug 'jremmen/vim-ripgrep'
   " Git - blame, diff, log
-  " Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-fugitive'
+  " Plug 'lewis6991/gitsigns.nvim'
+  
   " Syntax for ts
   " Plug 'leafgarland/typescript-vim'
   
@@ -125,12 +125,13 @@ lua require("lsp-setup")
 lua require("nvim-dap-setup")
 lua require("nvim-lint-setup")
 lua require("lualine-statusline-setup")
+lua require("nvim-autopairs").setup()
+lua require("notify-setup")
+lua require("telescope-setup")
+lua require("todo-comments").setup()
+
 set termguicolors
 lua require("css-colorizer-setup")
-lua require('nvim-autopairs').setup()
-lua require('notify-setup')
-lua require('telescope-setup')
-lua require("todo-comments").setup()
 " }}}
 
 " UNMAP---------------------------------{{{

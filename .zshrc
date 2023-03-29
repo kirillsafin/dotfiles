@@ -149,3 +149,10 @@ if [ -d $HOME/prog/vcpkg ]; then
 fi
 
 alias luamake=$HOME/prog/lua-language-server/3rd/luamake/luamake
+
+# PIPX autocompletion
+"autoload -U bashcompinit
+"bashcompinit
+
+# ARDUINO
+PATH="$PATH:$HOME/prog/arduino/arduino-cli"

@@ -20,7 +20,7 @@ nnoremap <leader>gD :lua vim.lsp.buf.declaration()<CR>
 nnoremap <leader>vrr :lua vim.lsp.buf.references()<CR>
 nnoremap <leader>vi :lua vim.lsp.buf.implementation()<CR>
 nnoremap <leader>vsh :lua vim.lsp.buf.signature_help()<CR>
-nnoremap <leader>gf :lua vim.lsp.buf.formatting()<CR>                   
+nnoremap <leader>gf :lua vim.lsp.buf.format({async = true})<CR>                   
 nnoremap <leader>vrn :lua vim.lsp.buf.rename()<CR>
 nnoremap <leader>vh :lua vim.lsp.buf.hover()<CR>
 nnoremap <leader>vca :lua vim.lsp.buf.code_action()<CR>
@@ -45,9 +45,9 @@ nnoremap <silent> gs :Lspsaga signature_help<CR>
 nnoremap <silent> gd :Lspsaga preview_definition<CR>
 
 " LUASNIP
-imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
-snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
-snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
+imap <silent> <expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
+snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<CR>
+snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<CR>
 imap <silent> <expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 
 " NVIM-DAP
@@ -111,20 +111,23 @@ nnoremap <silent> <A-c> :BufferClose<CR>
 "                          :BufferCloseBuffersLeft<CR>
 "                          :BufferCloseBuffersRight<CR>
 " Magic buffer-picking mode
-nnoremap <silent> <C-s> :BufferPick<CR>
+nnoremap <silent> <C-y> :BufferPick<CR>
 " Sort automatically by...
 nnoremap <silent> <leader>bb :BufferOrderByBufferNumber<CR>
 nnoremap <silent> <leader>bd :BufferOrderByDirectory<CR>
 nnoremap <silent> <leader>bl :BufferOrderByLanguage<CR>
 nnoremap <silent> <leader>bw :BufPferOrderByWindowNumber<CR>
 
-" WhichKey
+" WHICHKEY
 let g:mapleader = "\<Space>"
 let g:maplocalleader = ','
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 
-" DiffviewOpen
+" DIFFVIEWOPEN
 nnoremap <silent> <leader>gh :DiffviewOpen<CR>
 nnoremap <silent> <leader>gc :DiffviewClose<CR>
+
+" OTHER
+nnoremap <C-s> :lua require('override-setup').format_on_save()<CR> \| :w<CR>
 " }}} 

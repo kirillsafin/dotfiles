@@ -5,30 +5,37 @@ nnoremap <CR> o<Esc>
 " embedded terminal
 tnoremap <Esc> <C-\><C-n>
 
-nnoremap <silent> <leader>ols :call OpenLifeServer()<CR><CR>
-nnoremap <silent> <leader>dls :call CloseLifeServer()<CR><CR>
+nnoremap <silent> <leader>lso :call OpenLifeServer()<CR><CR>
+nnoremap <silent> <leader>lsc :call CloseLifeServer()<CR><CR>
 
 " TELESCOPE
-nnoremap <silent><C-p> <cmd>Telescope find_files hidden=true<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <silent> <C-p> <cmd>Telescope find_files hidden=true<CR>
+nnoremap <silent> <leader>fg <cmd>Telescope live_grep<CR>
+nnoremap <silent> <leader>fb <cmd>Telescope buffers<CR>
+nnoremap <silent> <leader>fh <cmd>Telescope help_tags<CR>
+nnoremap <silent> <leader>fw :Telescope grep_string <CR>
+nnoremap <silent> <leader>sd :Telescope diagnostics <CR>
+nnoremap <silent> <leader>ff :Telescope current_buffer_fuzzy_find
+
+" TOGGLE_TERMINAL
+nnoremap <silent> <leader>j :ToggleTerm<CR>
 
 " LSP
-nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
-nnoremap <leader>gD :lua vim.lsp.buf.declaration()<CR>                  
-nnoremap <leader>vrr :lua vim.lsp.buf.references()<CR>
-nnoremap <leader>vi :lua vim.lsp.buf.implementation()<CR>
-nnoremap <leader>vsh :lua vim.lsp.buf.signature_help()<CR>
-nnoremap <leader>gf :lua vim.lsp.buf.format({async = true})<CR>                   
-nnoremap <leader>vrn :lua vim.lsp.buf.rename()<CR>
-nnoremap <leader>vh :lua vim.lsp.buf.hover()<CR>
-nnoremap <leader>vca :lua vim.lsp.buf.code_action()<CR>
-nnoremap <leader>vsd :lua vim.lsp.util.show_line_diagnostics()<CR>
-nnoremap <leader>vsf :lua vim.diagnostic.open_float()<CR>
-nnoremap <leader>vn :lua vim.diagnostic.goto_next()<CR>
-nnoremap <leader>vp :lua vim.diagnostic.goto_prev()<CR>
-nnoremap <leader>vll :call LspLocationList()<CR>
+nnoremap <silent> <leader>vd :lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> <leader>gD :lua vim.lsp.buf.declaration()<CR>                  
+nnoremap <silent> <leader>vrr :lua vim.lsp.buf.references()<CR>
+nnoremap <silent> <leader>vi :lua vim.lsp.buf.implementation()<CR>
+inoremap <C-h> :lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> <leader>gf :lua vim.lsp.buf.format({async = true})<CR>                   
+nnoremap <silent> <leader>vrn :lua vim.lsp.buf.rename()<CR>
+nnoremap <silent> <leader>vh :lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <leader>vca :lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent> <leader>vsd :lua vim.lsp.util.show_line_diagnostics()<CR>
+nnoremap <silent> <leader>vsf :lua vim.diagnostic.open_float()<CR>
+nnoremap <silent> <leader>vn :lua vim.diagnostic.goto_next()<CR>
+nnoremap <silent> <leader>vp :lua vim.diagnostic.goto_prev()<CR>
+nnoremap <silent> <leader>vll :call LspLocationList()<CR>
+nnoremap <silent> <leader>vll :call LspLocationList()<CR>
 
 " vim.diagnostic.config({
 "   virtual_text = false, -- Turn off inline diagnostics
@@ -43,6 +50,9 @@ nnoremap <silent> <C-f> :lua require('lspsaga.action').smart_scroll_with_saga(1)
 nnoremap <silent> <C-b> :lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
 nnoremap <silent> gs :Lspsaga signature_help<CR>
 nnoremap <silent> gd :Lspsaga preview_definition<CR>
+
+" UNDOTREE
+nnoremap <silent> <leader>u :UndotreeToggle<CR>
 
 " LUASNIP
 imap <silent> <expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
@@ -66,16 +76,16 @@ nnoremap <silent> <leader>di :lua require'dap.ui.variables'.hover()<CR>
 vnoremap <silent> <leader>di :lua require'dap.ui.variables'.visual_hover()<CR>
 nnoremap <silent> <leader>d? :lua require'dap.ui.variables'.scopes()<CR>
 nnoremap <silent> <leader>de :lua require'dap'.set_exception_breakpoints({"all"})<CR>
-nnoremap <leader>dI :lua require'dap.ui.widgets'.hover()<CR>
-nnoremap <leader>d? :lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>
+nnoremap <silent> <leader>dI :lua require'dap.ui.widgets'.hover()<CR>
+nnoremap <silent> <leader>d? :lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>
 
 nnoremap <silent> <leader>dB :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>`
 nnoremap <silent> <leader>dlp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>`
 nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>`
 
-nnoremap <leader>duo :lua require'dapui'.open()<CR>
-nnoremap <leader>duc :lua require'dapui'.close()<CR>
-nnoremap <leader>dut :lua require'dapui'.toggle()<CR>
+nnoremap <silent> <leader>duo :lua require'dapui'.open()<CR>
+nnoremap <silent> <leader>duc :lua require'dapui'.close()<CR>
+nnoremap <silent> <leader>dut :lua require'dapui'.toggle()<CR>
 
 " NVIM-TREE
 nnoremap <silent> <C-b> :NvimTreeToggle<CR>
@@ -129,5 +139,30 @@ nnoremap <silent> <leader>gh :DiffviewOpen<CR>
 nnoremap <silent> <leader>gc :DiffviewClose<CR>
 
 " OTHER
-nnoremap <C-s> :lua require('override-setup').format_on_save()<CR> \| :w<CR>
+nnoremap <silent> <C-s> :lua require('override-setup').format_on_save()<CR> \| :w<CR>
+
+" Alt-Up/Down in VS Code
+vnoremap <silent> J :m '>+1<CR>gv=gv
+vnoremap <silent> K :m '<-2<CR>gv=gv
+
+" cursor in the middle for <C-d>, <C-u>
+nnoremap <silent> <C-d> <C-d>zz
+nnoremap <silent> <C-u> <C-u>zz
+
+" searched word moves to the middle
+nnoremap <silent> n nzzzv
+nnoremap <silent> N Nzzzv
+
+" copy-paste mappings
+xnoremap <silent> <leader>p \"_dP
+
+nnoremap <silent> <leader>y \"+y
+vnoremap <silent> <leader>y \"+y
+nnoremap <silent> <leader>Y \"+Y
+
+nnoremap <silent> <leader>d \"_d
+vnoremap <silent> <leader>d \"_d
+
+" replace
+nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 " }}} 

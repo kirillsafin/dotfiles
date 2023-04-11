@@ -6,13 +6,6 @@
 "   autocmd FileType vim setlocal foldmethod=marker
 " augroup filetype_vim
 
-" Display cursorline and cursorcolumn ONLY in active window.
-"augroup cursor_off
-"    autocmd!
-"    autocmd WinLeave * set nocursorline nocursorcolumn
-"    autocmd WinEnter * set cursorline cursorcolumn
-"augroup END
-"
 " REQUIRE: install brwoser-sync via npm: npm install -g browser-sync
 function OpenLifeServer()
   :!start-live-server

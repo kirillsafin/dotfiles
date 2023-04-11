@@ -69,6 +69,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'p00f/nvim-ts-rainbow'
   Plug 'tpope/vim-commentary' " Comments (gc, gcc)
   Plug 'tpope/vim-surround'
+  Plug 'mbbill/undotree'
   " Git
   Plug 'airblade/vim-gitgutter'
   Plug 'nvim-lua/plenary.nvim'
@@ -109,6 +110,8 @@ call plug#begin('~/.config/nvim/plugged')
 
   " Others
   Plug 'liuchengxu/vim-which-key'
+  Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
+
 call plug#end()
 " }}}
 
@@ -129,6 +132,7 @@ lua require("nvim-autopairs").setup()
 lua require("notify-setup")
 lua require("telescope-setup")
 lua require("todo-comments").setup()
+lua require("toggleterm").setup({direction = "horizontal", size = 15})
 
 set termguicolors
 lua require("css-colorizer-setup")

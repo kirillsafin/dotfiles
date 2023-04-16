@@ -15,7 +15,7 @@ nnoremap <silent> <leader>fb <cmd>Telescope buffers<CR>
 nnoremap <silent> <leader>fh <cmd>Telescope help_tags<CR>
 nnoremap <silent> <leader>fw :Telescope grep_string <CR>
 nnoremap <silent> <leader>sd :Telescope diagnostics <CR>
-nnoremap <silent> <leader>ff :Telescope current_buffer_fuzzy_find
+nnoremap <silent> <leader>ff :Telescope current_buffer_fuzzy_find<CR>
 
 " TOGGLE_TERMINAL
 nnoremap <silent> <leader>j :ToggleTerm<CR>
@@ -154,14 +154,14 @@ nnoremap <silent> n nzzzv
 nnoremap <silent> N Nzzzv
 
 " copy-paste mappings
-xnoremap <silent> <leader>p \"_dP
+xnoremap <silent> <leader>p "_dP
 
-nnoremap <silent> <leader>y \"+y
-vnoremap <silent> <leader>y \"+y
-nnoremap <silent> <leader>Y \"+Y
-
-nnoremap <silent> <leader>d \"_d
-vnoremap <silent> <leader>d \"_d
+nnoremap <silent> <leader>y "+y
+vnoremap <silent> <leader>y "+y
+nnoremap <silent> <leader>Y "+Y
+ 
+nnoremap <silent> <leader>d "_d
+vnoremap <silent> <leader>d "_d
 
 " replace
 nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>

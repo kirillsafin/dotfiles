@@ -6,6 +6,11 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'gruvbox-community/gruvbox'
   Plug 'overcache/NeoSolarized'
   Plug 'rose-pine/neovim' 
+  Plug 'thedenisnikulin/vim-cyberpunk'  "Cyperpunk Theme
+  Plug 'ray-x/aurora' 
+  Plug 'Shatur/neovim-ayu'
+  Plug 'savq/melange-nvim'
+  Plug 'rebelot/kanagawa.nvim'
 
   "Vim StatusBar
   " Plug 'itchyny/lightline.vim'

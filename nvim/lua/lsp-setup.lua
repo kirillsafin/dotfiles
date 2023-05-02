@@ -3,6 +3,7 @@ local lspkind = require('lspkind')
 local luasnip = require('luasnip')
 local cmp = require('cmp')
 
+
 cmp.setup({
   snippet = {
 		expand = function(args)
@@ -100,6 +101,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'luasnip' }, -- For luasnip users.
+    { name = 'nvim_lsp_signature_help' }
   }, {
     { name = 'buffer' },
     { name = 'path' },
@@ -108,13 +110,15 @@ cmp.setup({
 
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline('/', {
+cmp.setup.cmdline({ '/', '?'}, {
+  mapping = cmp.mapping.preset.cmdline(),
   sources = { { name = 'buffer' } }
 })
 
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources(
     { { name = 'path' } },
     { { name = 'cmdline' } }
@@ -123,7 +127,7 @@ cmp.setup.cmdline(':', {
 
 
 -- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Lua LSP
 -- install lua lsp server; official installation guide for sumneko_lua
@@ -159,7 +163,7 @@ require'lspconfig'.clangd.setup{
   root_dir = function ()
     return vim.loop.cwd()
   end,
-  capabilities = capabilities
+  capabilities = capabilities,
 }
 
 require'lspconfig'.cmake.setup{
@@ -213,6 +217,11 @@ require'lspconfig'.vuels.setup{
   capabilities = capabilities,
 }
 
+-- npm install -g emmet-ls
+require'lspconfig'.emmet_ls.setup{
+  capabilities = capabilities
+}
+
 -- Java LSP
 --install jdtls LSP server: 1: clone repository git clone https://github.com/eclipse/eclipse.jdt.ls.git, 2: mvn clean verify -DskipTests=true 3: set JDTLS_HOME to .../eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository
 require'lspconfig'.jdtls.setup{
@@ -233,9 +242,20 @@ require'lspconfig'.dockerls.setup{
 }
 
 -- YAML
+-- npm install -g yaml-language-server
 require'lspconfig'.yamlls.setup{
   capabilities = capabilities,
-  filetypes = { 'yaml' }
+  filetypes = { 'yaml' },
+  settings = {
+    yaml = {
+        keyOrdering = false
+    },
+    redhat = {
+      telemetry = {
+        enabled = false
+      }
+    }
+  }
 }
 
 -- Salt

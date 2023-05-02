@@ -30,6 +30,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/cmp-path'
   Plug 'hrsh7th/cmp-cmdline'
+  Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
   " required by LuaSnip
   Plug 'hrsh7th/nvim-cmp' 
   " VS Code Autocompletion like Pictograms 
@@ -89,6 +90,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'nvim-lua/plenary.nvim'
   " also install ripgrep( please apt install ripgrep)
   Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-telescope/telescope-live-grep-args.nvim'
   " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   " Plug 'junegunn/fzf.vim'
 
@@ -98,20 +100,17 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-fugitive'
   " Plug 'lewis6991/gitsigns.nvim'
   
-  " Syntax for ts
-  " Plug 'leafgarland/typescript-vim'
-  
   " Plug 'vim-utils/vim-man'
   " C++
   " Plug 'lyuts/vim-rtags'
-  
-  " Plug 'mbbill/undotree'
   
   " Debugging
   Plug 'mfussenegger/nvim-dap' 
   Plug 'rcarriga/nvim-dap-ui'
   Plug 'theHamsta/nvim-dap-virtual-text'
   Plug 'mxsdev/nvim-dap-vscode-js'
+  Plug 'David-Kunz/jester'
+  Plug 'Weissle/persistent-breakpoints.nvim'
 
   " Others
   Plug 'liuchengxu/vim-which-key'
@@ -138,6 +137,7 @@ lua require("notify-setup")
 lua require("telescope-setup")
 lua require("todo-comments").setup()
 lua require("toggleterm").setup({direction = "horizontal", size = 15})
+lua require("persist-breakpoint-setup")
 
 set termguicolors
 lua require("css-colorizer-setup")

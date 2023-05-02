@@ -27,4 +27,11 @@ function CloseLifeServer()
     lua require('notify')('Life Sever not stopped', 'error')
   endif
 endfunction
+
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave *.* mkview
+  autocmd BufWinEnter *.* silent! loadview
+augroup END
+
 " }}}

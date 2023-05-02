@@ -16,6 +16,7 @@ nnoremap <silent> <leader>fh <cmd>Telescope help_tags<CR>
 nnoremap <silent> <leader>fw :Telescope grep_string <CR>
 nnoremap <silent> <leader>sd :Telescope diagnostics <CR>
 nnoremap <silent> <leader>ff :Telescope current_buffer_fuzzy_find<CR>
+nnoremap <silent> <leader>fG :Telescope live_grep_args<CR>
 
 " TOGGLE_TERMINAL
 nnoremap <silent> <leader>j :ToggleTerm<CR>
@@ -25,7 +26,7 @@ nnoremap <silent> <leader>vd :lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> <leader>gD :lua vim.lsp.buf.declaration()<CR>                  
 nnoremap <silent> <leader>vrr :lua vim.lsp.buf.references()<CR>
 nnoremap <silent> <leader>vi :lua vim.lsp.buf.implementation()<CR>
-inoremap <C-h> :lua vim.lsp.buf.signature_help()<CR>
+inoremap <C-h> <CMD>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> <leader>gf :lua vim.lsp.buf.format({async = true})<CR>                   
 nnoremap <silent> <leader>vrn :lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <leader>vh :lua vim.lsp.buf.hover()<CR>
@@ -61,7 +62,8 @@ snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<CR>
 imap <silent> <expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 
 " NVIM-DAP
-nnoremap <silent> <leader>db :lua require'dap'.toggle_breakpoint()<CR>`
+nnoremap <silent> <leader>dc :lua require'dap'.toggle_breakpoint()<CR>`
+nnoremap <silent> <leader>db :PBToggleBreakpoint<CR>`
 nnoremap <silent> <S-k> :lua require'dap'.step_out()<CR>
 nnoremap <silent> <S-l> :lua require'dap'.step_into()<CR>
 nnoremap <silent> <S-j> :lua require'dap'.step_over()<CR>
@@ -86,6 +88,9 @@ nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>`
 nnoremap <silent> <leader>duo :lua require'dapui'.open()<CR>
 nnoremap <silent> <leader>duc :lua require'dapui'.close()<CR>
 nnoremap <silent> <leader>dut :lua require'dapui'.toggle()<CR>
+
+nnoremap <silent> <leader>jr :lua require"jester".run()<CR>
+nnoremap <silent> <leader>jd :lua require"jester".debug()<CR>
 
 " NVIM-TREE
 nnoremap <silent> <C-b> :NvimTreeToggle<CR>
@@ -138,6 +143,11 @@ nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 nnoremap <silent> <leader>gh :DiffviewOpen<CR>
 nnoremap <silent> <leader>gc :DiffviewClose<CR>
 
+" MARKDOWNPREVIEW
+nnoremap <silent> <leader>mt :MarkdownPreviewToggle<CR>
+nnoremap <silent> <leader>mo :MarkdownPreview<CR>
+nnoremap <silent> <leader>ms :MarkdownPreviewStop<CR>
+
 " OTHER
 nnoremap <silent> <C-s> :lua require('override-setup').format_on_save()<CR> \| :w<CR>
 
@@ -165,4 +175,5 @@ vnoremap <silent> <leader>d "_d
 
 " replace
 nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+
 " }}} 

@@ -61,7 +61,7 @@ dap.adapters.cppdbg = {
   id = 'cppdbg',
   type = 'executable',
   -- TODO: create function which grabs the latest vscode cpptools folder
-  command = os.getenv('HOME') .. '/.vscode/extensions/ms-vscode.cpptools-1.14.4-linux-x64/debugAdapters/bin/OpenDebugAD7',
+  command = os.getenv('HOME') .. '/.vscode/extensions/ms-vscode.cpptools-1.14.5-linux-x64/debugAdapters/bin/OpenDebugAD7',
   options = {
     detached = false
   },

@@ -62,8 +62,8 @@ snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<CR>
 imap <silent> <expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 
 " NVIM-DAP
-nnoremap <silent> <leader>dc :lua require'dap'.toggle_breakpoint()<CR>`
-nnoremap <silent> <leader>db :PBToggleBreakpoint<CR>`
+nnoremap <silent> <leader>dc :lua require'dap'.toggle_breakpoint()<CR>
+nnoremap <silent> <leader>db :PBToggleBreakpoint<CR>
 nnoremap <silent> <S-k> :lua require'dap'.step_out()<CR>
 nnoremap <silent> <S-l> :lua require'dap'.step_into()<CR>
 nnoremap <silent> <S-j> :lua require'dap'.step_over()<CR>
@@ -89,6 +89,7 @@ nnoremap <silent> <leader>duo :lua require'dapui'.open()<CR>
 nnoremap <silent> <leader>duc :lua require'dapui'.close()<CR>
 nnoremap <silent> <leader>dut :lua require'dapui'.toggle()<CR>
 
+" JESTER 
 nnoremap <silent> <leader>jr :lua require"jester".run()<CR>
 nnoremap <silent> <leader>jd :lua require"jester".debug()<CR>
 
@@ -147,6 +148,12 @@ nnoremap <silent> <leader>gc :DiffviewClose<CR>
 nnoremap <silent> <leader>mt :MarkdownPreviewToggle<CR>
 nnoremap <silent> <leader>mo :MarkdownPreview<CR>
 nnoremap <silent> <leader>ms :MarkdownPreviewStop<CR>
+
+" COPILOT
+inoremap <silent><script><expr> <C-O> copilot#Accept('\<CR>')
+
+" CHATGPT
+nnoremap <silent> <leader>cg :ChatGPT<CR>
 
 " OTHER
 nnoremap <silent> <C-s> :lua require('override-setup').format_on_save()<CR> \| :w<CR>

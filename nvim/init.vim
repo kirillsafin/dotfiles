@@ -37,21 +37,23 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'onsails/lspkind-nvim' 
   Plug 'mfussenegger/nvim-lint'
   " Java advanced LSP
-  Plug 'mfussenegger/nvim-jdtls' 
-  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'mfussenegger/nvim-jdtls'  
   " Plug 'dense-analysis/ale'
+  "
   " Snippts
   " required by friendly-snippets
   Plug 'L3MON4D3/LuaSnip' 
-  " HTML, 
   Plug 'rafamadriz/friendly-snippets' 
   Plug 'saadparwaiz1/cmp_luasnip'
-  " Plug 'mattn/emmet-vim'
+
   " manage LSP/Lint/Debug/Formatters servers
   " Plug 'williamboman/mason.nvim' 
-  " Better Intelisense 
+ 
+  " Others
   Plug 'folke/trouble.nvim'
+  Plug 'github/copilot.vim' 
+  Plug 'jackMort/ChatGPT.nvim'
+  Plug 'MunifTanjim/nui.nvim'
 
   " User Experience
   " CSS 
@@ -84,6 +86,7 @@ call plug#begin('~/.config/nvim/plugged')
   " Treesitter for better code completion
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'nvim-treesitter/playground'
+  Plug 'nvim-treesitter/nvim-treesitter-context'
   "Plug 'jiangmiao/auto-pairs'
   
   " File Browsing
@@ -111,6 +114,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'mxsdev/nvim-dap-vscode-js'
   Plug 'David-Kunz/jester'
   Plug 'Weissle/persistent-breakpoints.nvim'
+  Plug 'rcarriga/cmp-dap'
 
   " Others
   Plug 'liuchengxu/vim-which-key'
@@ -138,6 +142,8 @@ lua require("telescope-setup")
 lua require("todo-comments").setup()
 lua require("toggleterm").setup({direction = "horizontal", size = 15})
 lua require("persist-breakpoint-setup")
+lua require("jester-setup")
+lua require("chatGPT-setup")
 
 set termguicolors
 lua require("css-colorizer-setup")

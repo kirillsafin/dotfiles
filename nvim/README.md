@@ -160,17 +160,29 @@
 * `nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>`
 * `nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>`
 
-### FzF
-
-* to search for occurences in project tree
- * install `apt-get install silversearcher-ag`
- * `:Ag` 
-
-* `CTRL+P` - open File Finder
-
 ### Telescope
 
 * <https://github.com/nvim-lua/plenary.nvim>
 * <https://github.com/nvim-telescope/telescope.nvim>
+
+
+### chatGPT
+
+* <https://github.com/jackMort/ChatGPT.nvim>
+
+** Shortcuts **
+
+* `C-Enter` to submit.
+* `C-y` copy/yank last answer.
+* `C-o` Toggle settings window.
+* `Tab` Cycle over windows.
+* `C-m` Cycle over modes (center, stick to right).
+* `C-c` to close chat window.
+* `C-u` scroll up chat window.
+* `C-d` scroll down chat window.
+* `C-k` copy/yank code from last answer.
+* `C-n` Start new session.
+* `C-i` use response as input.
+* `C-d` view the diff between left and right panes and use diff-mode commands
 
 * TODO commands

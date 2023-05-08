@@ -101,7 +101,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'luasnip' }, -- For luasnip users.
-    { name = 'nvim_lsp_signature_help' }
+    { name = 'nvim_lsp_signature_help' },
   }, {
     { name = 'buffer' },
     { name = 'path' },
@@ -127,7 +127,10 @@ cmp.setup.cmdline(':', {
 
 
 -- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = { 
+  require('cmp_nvim_lsp').default_capabilities(),
+  capabilities = { offsetEncoding = "utf-8" },
+}
 
 -- Lua LSP
 -- install lua lsp server; official installation guide for sumneko_lua

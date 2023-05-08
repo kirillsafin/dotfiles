@@ -105,30 +105,30 @@ local dap_vscode = require("dap-vscode-js")
 dap_vscode.setup({
   debugger_path = os.getenv('HOME')  .. '/prog/debug-server/vscode-js-debug-X',     -- Path to vscode-js-debug installation.
   adapters = { 'pwa-node', 'pwa-chrome' },                                          -- which adapters to register in nvim-dap
-  -- node_path = "node",                                                            -- Path of node executable. Defaults to $NODE_PATH, and then "node"
-  -- debugger_cmd = { "js-debug-adapter" },                                         -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
-  -- log_file_path = "(stdpath cache)/dap_vscode_js.log"                            -- Path for file logging
+  log_file_path = "(stdpath cache)/dap_vscode_js.log"                            -- Path for file logging
   -- log_file_level = false                                                         -- Logging level for output to file. Set to false to disable file logging.
   -- log_console_level = vim.log.levels.ERROR                                       -- Logging level for output to console. Set to false to disable console output.
 })
 
-for _, language in ipairs({ "typescript", "javascript" }) do
-  dap.configurations[language] = {
-    {
-      type = "pwa-node",
-      request = "attach",
-      name = "Attach (DAP Config)",
-      processId = require'dap.utils'.pick_process,
-      cwd = "${workspaceFolder}",
-    }
-  }
-end
-
-require('dap.ext.vscode').load_launchjs(nil,
+require('dap.ext.vscode').load_launchjs('.nvim/launch.json',
 {
   ['pwa-node'] = { 'javascript', 'typescript' },
   cppdbg = { 'cpp', 'c'}
 })
 
+
 require("dapui").setup()
 require("nvim-dap-virtual-text").setup()
+
+require("cmp").setup({
+  enabled = function()
+    return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
+        or require("cmp_dap").is_dap_buffer()
+  end
+})
+
+require("cmp").setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+  sources = {
+    { name = "dap" },
+  },
+})

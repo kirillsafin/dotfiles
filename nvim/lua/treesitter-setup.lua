@@ -57,11 +57,11 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     filetypes = { 'html', 'javascript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'lua', 'vim' },
   },
-  rainbow = {
-    enable = true,
-    extended_mode = true,
-    max_file_lines = nil,
-  },
+  -- rainbow = {
+  --   enable = true,
+  --   extended_mode = true,
+  --   max_file_lines = nil,
+  -- },
   playground = {
     enable = true,
     disable = {},

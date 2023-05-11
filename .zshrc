@@ -131,7 +131,7 @@ function stop-live-server(){
 }
 
 JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
-JDTLS_HOME=${HOME}/prog/language-server/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/bin
+JDTLS_HOME=${HOME}/prog/language-servers/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/bin
 PATH=$PATH:$JDTLS_HOME
 
 NPM_PACKAGES="${HOME}/.npm-packages"
@@ -148,7 +148,7 @@ if [ -d $HOME/prog/vcpkg ]; then
   source $HOME/prog/vcpkg/scripts/vcpkg_completion.zsh
 fi
 
-alias luamake=$HOME/prog/lua-language-server/3rd/luamake/luamake
+alias luamake=$HOME/prog/language-servers/lua-language-server/3rd/luamake/luamake
 
 # PIPX autocompletion
 autoload -U bashcompinit

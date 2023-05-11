@@ -30,7 +30,7 @@ set scrolloff=8
 " Enable softwrap + don't cut the word (unset list)
 set wrap
 set linebreak
-set nolist
+" set nolist
 " Color Line 
 set colorcolumn=80
 " Show partial command during typing in the last line of the screen

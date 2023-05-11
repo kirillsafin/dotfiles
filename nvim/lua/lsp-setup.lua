@@ -127,15 +127,13 @@ cmp.setup.cmdline(':', {
 
 
 -- Setup lspconfig.
-local capabilities = { 
-  require('cmp_nvim_lsp').default_capabilities(),
-  capabilities = { offsetEncoding = "utf-8" },
-}
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+capabilities.offsetEncoding = "utf-8"
 
 -- Lua LSP
 -- install lua lsp server; official installation guide for sumneko_lua
 require'lspconfig'.lua_ls.setup{
-  cmd = { os.getenv('HOME') .. '/prog/language-server/lua-language-server/bin/lua-language-server' },
+  cmd = { os.getenv('HOME') .. '/prog/language-servers/lua-language-server/bin/lua-language-server' },
   settings = {
     Lua = {
       runtime = {
@@ -228,8 +226,79 @@ require'lspconfig'.emmet_ls.setup{
 -- Java LSP
 --install jdtls LSP server: 1: clone repository git clone https://github.com/eclipse/eclipse.jdt.ls.git, 2: mvn clean verify -DskipTests=true 3: set JDTLS_HOME to .../eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository
 require'lspconfig'.jdtls.setup{
-  capabilities = capabilities
+  cmd = {
+    'java', -- or '/path/to/java17_or_newer/bin/java'
+    '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+    '-Dosgi.bundles.defaultStartLevel=4',
+    '-Declipse.product=org.eclipse.jdt.ls.core.product',
+    '-Dlog.protocol=true',
+    '-Dlog.level=ALL',
+    '-Xmx1g',
+    '--add-modules=ALL-SYSTEM',
+    '--add-opens', 'java.base/java.util=ALL-UNNAMED',
+    '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
+    '-jar', os.getenv('HOME') .. '/prog/language-servers/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+    '-configuration', os.getenv('HOME') .. '/prog/language-servers/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/config_linux',
+    '-data', os.getenv('HOME') .. '/.cache/jdtls/workspace' ..  vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+  },
+  capabilities = capabilities,
+  init_options = {
+    bundles = {
+      os.getenv('HOME') .. '/prog/debug-servers/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.45.0.jar'
+    }
+  },
+  on_attach = function(client, bufnr)
+    require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+  end,
 }
+--
+-- local config = {
+--   capabilities = capabilities,
+--   autostart = true,
+--   cmd = {
+--     'java', -- or '/path/to/java17_or_newer/bin/java'
+--     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+--     '-Dosgi.bundles.defaultStartLevel=4',
+--     '-Declipse.product=org.eclipse.jdt.ls.core.product',
+--     '-Dlog.protocol=true',
+--     '-Dlog.level=ALL',
+--     '-Xmx1g',
+--     '--add-modules=ALL-SYSTEM',
+--     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
+--     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
+--     '-jar', os.getenv('HOME') .. '/prog/language-servers/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+--     '-configuration', os.getenv('HOME') .. '/prog/language-servers/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/config_linux',
+--     '-data', os.getenv('HOME') .. '/.cache/jdtls/workspace' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+--   },
+--   filetypes = { 'java' },
+--   root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew', 'pom.xml'}),
+--   settings = {
+--     java = {
+--       configuration = {
+--         runtimes = {
+--           {
+--             name = "JavaSE-11",
+--             path = "/usr/lib/jvm/java-11-openjdk-amd64/",
+--           },
+--           {
+--             name = "JavaSE-17",
+--             path = "/usr/lib/jvm/java-17-openjdk-amd64/",
+--           },
+--         }
+--       }
+--     }
+--   },
+--   init_options = {
+--     bundles = {
+--       os.getenv('HOME') .. '/prog/debug-servers/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.45.0.jar'
+--     }
+--   },
+--   on_attach = function(client, bufnr)
+--     require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+--   end,
+-- }
+
+-- require('jdtls').start_or_attach(config)
 
 -- Docker-Compose
 -- npm install -g @microsoft/compose-language-service

@@ -36,11 +36,6 @@ nnoremap <silent> <leader>vsf :lua vim.diagnostic.open_float()<CR>
 nnoremap <silent> <leader>vn :lua vim.diagnostic.goto_next()<CR>
 nnoremap <silent> <leader>vp :lua vim.diagnostic.goto_prev()<CR>
 nnoremap <silent> <leader>vll :call LspLocationList()<CR>
-nnoremap <silent> <leader>vll :call LspLocationList()<CR>
-
-" vim.diagnostic.config({
-"   virtual_text = false, -- Turn off inline diagnostics
-" })
 
 " LSPSAGA
 nnoremap <silent> gh :Lspsaga lsp_finder<CR>
@@ -119,13 +114,6 @@ nnoremap <silent> <A-9> :BufferLast<CR>
 nnoremap <silent> <A-p> :BufferPin<CR>
 " Close buffer
 nnoremap <silent> <A-c> :BufferClose<CR>
-" Wipeout buffer
-"                          :BufferWipeout<CR>
-" Close commands
-"                          :BufferCloseAllButCurrent<CR>
-"                          :BufferCloseAllButPinned<CR>
-"                          :BufferCloseBuffersLeft<CR>
-"                          :BufferCloseBuffersRight<CR>
 " Magic buffer-picking mode
 nnoremap <silent> <C-y> :BufferPick<CR>
 " Sort automatically by...
@@ -183,4 +171,7 @@ vnoremap <silent> <leader>d "_d
 " replace
 nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 
+
+nnoremap <leader>bp :bp<CR>
+nnoremap <leader>bn :bp<CR>
 " }}} 

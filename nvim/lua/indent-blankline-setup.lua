@@ -4,21 +4,13 @@ require("indent_blankline").setup {
   space_char_blankline = " ",
   show_current_context = true,
   show_current_context_start = true,
-  show_trainling_blankline_indent = false,
+  show_trailing_blankline_indent = false,
   filetype_exclude = {
     "help",
     "terminal",
     "txt",
     "dashobard",
     "lspinfo",
-  },
-  char_highlight_list = {
-    "IndentBlanklineIndent1",
-    "IndentBlanklineIndent2",
-    "IndentBlanklineIndent3",
-    "IndentBlanklineIndent4",
-    "IndentBlanklineIndent5",
-    "IndentBlanklineIndent6",
   },
   context_patterns = {
     "abstract_class_declaration", "abstract_method_signature",

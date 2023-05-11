@@ -12,15 +12,12 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'savq/melange-nvim'
   Plug 'rebelot/kanagawa.nvim'
 
-  "Vim StatusBar
-  " Plug 'itchyny/lightline.vim'
-  " Plug 'gelguy/wilder.nvim'
-  Plug 'nvim-lualine/lualine.nvim'
-  
   " Markdown Highlighter
   " Plug 'godlygeek/tabular'
   Plug 'plasticboy/vim-markdown'
   Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': ['markdown', 'vim-plug'] }
+  " CSS 
+  Plug 'norcalli/nvim-colorizer.lua'
 
   " LSP 
   Plug 'neovim/nvim-lspconfig'
@@ -49,36 +46,31 @@ call plug#begin('~/.config/nvim/plugged')
   " manage LSP/Lint/Debug/Formatters servers
   " Plug 'williamboman/mason.nvim' 
  
-  " Others
-  Plug 'folke/trouble.nvim'
-  Plug 'github/copilot.vim' 
-  Plug 'jackMort/ChatGPT.nvim'
-  Plug 'MunifTanjim/nui.nvim'
-
   " User Experience
-  " CSS 
-  Plug 'norcalli/nvim-colorizer.lua'
-  " Project tree
-  " Plug 'preservim/nerdtree'
-  " for file icons
-  Plug 'nvim-tree/nvim-web-devicons'
+  
+  " Vim StatusBar
+  " Plug 'itchyny/lightline.vim'
+  " Plug 'gelguy/wilder.nvim'
+  Plug 'nvim-lualine/lualine.nvim'
+  
+  " Project tree (File icons)
+  Plug 'nvim-tree/nvim-web-devicons' 
   Plug 'nvim-tree/nvim-tree.lua'
-  " Plug 'mortepau/codicons.nvim'
-  " Plug 'akinsho/bufferline.nvim'
+
   " General 
+  " Plug 'junegunn/limelight.vim'
+  Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'romgrk/barbar.nvim'
   Plug 'rcarriga/nvim-notify'
   Plug 'windwp/nvim-ts-autotag'
   Plug 'windwp/nvim-autopairs'
-  " Plug 'junegunn/limelight.vim'
-  Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'folke/todo-comments.nvim'
-  " Autoclosing bracket and parenthesis
-  Plug 'p00f/nvim-ts-rainbow'
-  Plug 'tpope/vim-commentary' " Comments (gc, gcc)
+  Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
   Plug 'mbbill/undotree'
+
   " Git
+  Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'sindrets/diffview.nvim'
@@ -87,25 +79,14 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'nvim-treesitter/playground'
   Plug 'nvim-treesitter/nvim-treesitter-context'
-  "Plug 'jiangmiao/auto-pairs'
   
   " File Browsing
   Plug 'nvim-lua/plenary.nvim'
-  " also install ripgrep( please apt install ripgrep)
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-telescope/telescope-live-grep-args.nvim'
-  " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  " Plug 'junegunn/fzf.vim'
 
-  " Fast grep
-  " Plug 'jremmen/vim-ripgrep'
-  " Git - blame, diff, log
-  Plug 'tpope/vim-fugitive'
-  " Plug 'lewis6991/gitsigns.nvim'
-  
   " Plug 'vim-utils/vim-man'
-  " C++
-  " Plug 'lyuts/vim-rtags'
+  " Plug 'lyuts/vim-rtags' (C++)
   
   " Debugging
   Plug 'mfussenegger/nvim-dap' 
@@ -119,7 +100,10 @@ call plug#begin('~/.config/nvim/plugged')
   " Others
   Plug 'liuchengxu/vim-which-key'
   Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
-
+  Plug 'folke/trouble.nvim'
+  Plug 'github/copilot.vim' 
+  Plug 'jackMort/ChatGPT.nvim'
+  Plug 'MunifTanjim/nui.nvim'
 call plug#end()
 " }}}
 

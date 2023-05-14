@@ -19,7 +19,7 @@ nnoremap <silent> <leader>ff :Telescope current_buffer_fuzzy_find<CR>
 nnoremap <silent> <leader>fG :Telescope live_grep_args<CR>
 
 " TOGGLE_TERMINAL
-nnoremap <silent> <leader>j :ToggleTerm<CR>
+nnoremap <silent> <leader>jj :ToggleTerm<CR>
 
 " LSP
 nnoremap <silent> <leader>vd :lua vim.lsp.buf.definition()<CR>

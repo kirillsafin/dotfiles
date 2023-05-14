@@ -83,4 +83,6 @@ set filetype=on
 filetype plugin on
 " Load an indent file for the detected file type
 filetype indent on
+
+set splitright
 " }}}

@@ -117,6 +117,7 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 let mapleader = ' ' " SPACE
 
 lua require("lsp-setup")
+lua require('lspsaga-setup')
 lua require("nvim-dap-setup")
 lua require("nvim-lint-setup")
 lua require("lualine-statusline-setup")

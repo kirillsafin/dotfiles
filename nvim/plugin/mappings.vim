@@ -144,7 +144,7 @@ inoremap <silent><script><expr> <C-O> copilot#Accept('\<CR>')
 nnoremap <silent> <leader>cg :ChatGPT<CR>
 
 " OTHER
-nnoremap <silent> <C-s> :lua require('override-setup').format_on_save()<CR> \| :w<CR>
+nnoremap <silent> <C-s> :lua require('nvim-helper-functions').formatOnSave()<CR> \| :w<CR>
 
 " Alt-Up/Down in VS Code
 vnoremap <silent> J :m '>+1<CR>gv=gv

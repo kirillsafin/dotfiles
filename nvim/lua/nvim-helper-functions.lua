@@ -21,9 +21,25 @@ function M.findVsCodeCppTools ()
     end
   end
 
+  if #(cpp_tools_versions) == 0 then
+    return nil
+  end
   table.sort(cpp_tools_versions)
 
   return cpp_tools_versions[#cpp_tools_versions]
+end
+
+M.formatOnSave = function ()
+  vim.lsp.buf.format ({
+    filter = function(client)
+      if client.name == 'docker_compose_language_service' then
+        return false
+      end
+
+      return true
+    end,
+    async = false
+  })
 end
 
 return M

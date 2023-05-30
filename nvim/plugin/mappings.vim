@@ -27,6 +27,7 @@ nnoremap <silent> <leader>gD :lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> <leader>vrr :lua vim.lsp.buf.references()<CR>
 nnoremap <silent> <leader>vi :lua vim.lsp.buf.implementation()<CR>
 inoremap <C-h> <CMD>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <C-h> <CMD>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> <leader>gf :lua vim.lsp.buf.format({async = true})<CR>                   
 nnoremap <silent> <leader>vrn :lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <leader>vh :lua vim.lsp.buf.hover()<CR>
@@ -47,6 +48,12 @@ nnoremap <silent> <C-b> :lua require('lspsaga.action').smart_scroll_with_saga(-1
 nnoremap <silent> gs :Lspsaga signature_help<CR>
 nnoremap <silent> gd :Lspsaga preview_definition<CR>
 
+" SPECTRE serach and replace
+nnoremap <silent> <leader>so <cmd>lua require("spectre").open()<CR>
+nnoremap <silent> <leader>sw <cmd>lua require("spectre").open_visual({select_word=true})<CR>
+vnoremap <silent> <leader>sw <esc><cmd>lua require("spectre").open_visual()<CR>
+nnoremap <silent> <leader>sp <cmd>lua require("spectre").open_file_search({select_word=true})<CR> 
+
 " UNDOTREE
 nnoremap <silent> <leader>u :UndotreeToggle<CR>
 
@@ -57,8 +64,11 @@ snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<CR>
 imap <silent> <expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 
 " NVIM-DAP
-nnoremap <silent> <leader>dc :lua require'dap'.toggle_breakpoint()<CR>
+nnoremap <silent> <leader>dB :lua require'dap'.toggle_breakpoint()<CR>
 nnoremap <silent> <leader>db :PBToggleBreakpoint<CR>
+nnoremap <silent> <leader>dP1 :lua require'dap'.set_exception_breakpoints({"all"})<CR>
+nnoremap <silent> <leader>dP2 :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>`
+nnoremap <silent> <leader>dP3 :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>`
 nnoremap <silent> <S-k> :lua require'dap'.step_out()<CR>
 nnoremap <silent> <S-l> :lua require'dap'.step_into()<CR>
 nnoremap <silent> <S-j> :lua require'dap'.step_over()<CR>
@@ -66,19 +76,17 @@ nnoremap <silent> <leader>ds :lua require'dap'.close()<CR>
 nnoremap <silent> <leader>dn :lua require'dap'.continue()<CR>
 nnoremap <silent> <leader>dk :lua require'dap'.up()<CR>
 nnoremap <silent> <leader>dj :lua require'dap'.down()<CR>
-nnoremap <silent> <leader>dd_ :lua require'dap'.disconnect();require'dap'.close();require'dap'.run_last()<CR>
-nnoremap <silent> <leader>dd= :lua require'dap'.disconnect({restart=false, terminateDebugee = false});require'dap'.close();require'dap'.run_last()<CR>
-nnoremap <silent> <leader>dr :lua require'dap'.repl.open({}, 'vsplit')<CR><C-w>l
-nnoremap <silent> <leader>di :lua require'dap.ui.variables'.hover()<CR>
-vnoremap <silent> <leader>di :lua require'dap.ui.variables'.visual_hover()<CR>
-nnoremap <silent> <leader>d? :lua require'dap.ui.variables'.scopes()<CR>
-nnoremap <silent> <leader>de :lua require'dap'.set_exception_breakpoints({"all"})<CR>
-nnoremap <silent> <leader>dI :lua require'dap.ui.widgets'.hover()<CR>
-nnoremap <silent> <leader>d? :lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>
+nnoremap <silent> <leader>ddc :lua require'dap'.disconnect();require'dap'.close()
+nnoremap <silent> <leader>ddx :lua require'dap'.disconnect({restart=false, terminateDebugee = false})
 
-nnoremap <silent> <leader>dB :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>`
-nnoremap <silent> <leader>dlp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>`
+nnoremap <silent> <leader>dr :lua require'dap'.repl.open({}, 'vsplit')<CR><C-w>l
+nnoremap <silent> <leader>dv :lua require'dap'.repl.open()<CR><C-w>l
 nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>`
+
+nnoremap <silent> <leader>dI :lua require'dap.ui.widgets'.hover()<CR>
+nnoremap <silent> <leader>di :lua require'dap.ui.widgets'.preview()<CR>
+nnoremap <silent> <leader>dh :lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>
+nnoremap <silent> <leader>dp :lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.frames)<CR>
 
 nnoremap <silent> <leader>duo :lua require'dapui'.open()<CR>
 nnoremap <silent> <leader>duc :lua require'dapui'.close()<CR>

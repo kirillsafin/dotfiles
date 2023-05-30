@@ -22,7 +22,7 @@ function M.findVsCodeCppTools ()
   end
 
   if #(cpp_tools_versions) == 0 then
-    return nil
+    return ''
   end
   table.sort(cpp_tools_versions)
 

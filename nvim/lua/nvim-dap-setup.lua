@@ -36,18 +36,22 @@ dap.adapters.cppdbg = {
 -- TODO: JAVA
 
 -- TYPESCRIPT AND JAVASCRIPT
-local dap_vscode = require("dap-vscode-js")
-dap_vscode.setup({
-  debugger_path = os.getenv('HOME')  .. '/prog/debug-servers/vscode-js-debug',
-  adapters = { 'pwa-node', 'pwa-chrome' },
-  log_file_path = "(stdpath cache)/dap_vscode_js.log"
-  -- log_file_level = false
-  -- log_console_level = vim.log.levels.ERROR
-})
+for _, adapter in ipairs({'pwa-node', 'pwa-chrome'}) do
+  require('dap').adapters[adapter] = {
+    type = 'server',
+    host = 'localhost',
+    port = '${port}',
+    executable = {
+      command = 'node',
+      args = { os.getenv('HOME') .. '/prog/debug-servers/vscode-js-debug/src/dapDebugServer.js', '${port}' },
+    }
+  }
+end
 
 require('dap.ext.vscode').load_launchjs('.nvim/launch.json',
 {
   ['pwa-node'] = { 'javascript', 'typescript' },
+  ['pwa-chrome'] = { 'javascript', 'typescript' },
   cppdbg = { 'cpp', 'c'}
 })
 

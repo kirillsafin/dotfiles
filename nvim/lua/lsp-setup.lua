@@ -174,7 +174,7 @@ require'lspconfig'.cmake.setup{
 -- Json LSP
 -- install json LSP npm install -g vscode-langservers-extracted
 require'lspconfig'.jsonls.setup{
-  cmd = { "vscode-json-languageserver", "--stdio" },
+  cmd = { "vscode-json-language-server", "--stdio" },
   capabilities = capabilities
 }
 
@@ -216,7 +216,13 @@ require'lspconfig'.volar.setup{
 -- npm install -g vls
 require'lspconfig'.vuels.setup{
   capabilities = capabilities,
+  init_options = {
+    typescript = {
+      serverPath = { os.getenv('HOME') .. '.npm-packages/lib/node_modules/typescript/lib/tsserverlibrary.js' }
+    }
+  }
 }
+
 
 -- npm install -g emmet-ls
 require'lspconfig'.emmet_ls.setup{

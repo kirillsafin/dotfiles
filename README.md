@@ -287,9 +287,16 @@ Mappings:
 * `C-i` use response as input.
 * `C-d` view the diff between left and right panes and use diff-mode commands
 `MunifTanjim/nui.nvim`  
+[`m4xshen/hardtime.nvim`](https://github.com/m4xshen/hardtime.nvim)
+[`nvim-pack/nvim-spectrel`](https://github.com/nvim-pack/nvim-spectre)
+Mappings:
+* `leader so` - open Spectre
+* `leader sw` - open Spectre visual
+* `leader sw` - open Spectre visual in visual mode
+* `leader sp` - open Spectre file search
 
 ### Live Server
-
+* [`ray-x/web-tools.nvim`](https://github.com/ray-x/web-tools.nvim)
 
 see [script.vim](./nvim/plugin/script.vim). Install browser-sync (`npm install -g browser-sync`)
 Mappings:

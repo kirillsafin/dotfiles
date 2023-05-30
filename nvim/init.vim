@@ -97,21 +97,23 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'Weissle/persistent-breakpoints.nvim'
   Plug 'rcarriga/cmp-dap'
 
-  " Others
+  " OTHERS
   Plug 'liuchengxu/vim-which-key'
   Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
   Plug 'folke/trouble.nvim'
   Plug 'github/copilot.vim' 
-  Plug 'jackMort/ChatGPT.nvim'
+  " Plug 'jackMort/ChatGPT.nvim'
   Plug 'MunifTanjim/nui.nvim'
+  " Live server
+  Plug 'ray-x/web-tools.nvim' 
+  Plug 'm4xshen/hardtime.nvim'
+  Plug 'nvim-pack/nvim-spectre'
+  Plug 'levouh/tint.nvim'
+
 call plug#end()
 " }}}
 
-" AUTOCOMPLETION------------------------{{{
-filetype plugin on
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-"}}}
+" AUTOCOMPLETION------------------------{{{ }}}
 
 " PLUGIN SETTINGS-----------------------{{{
 let mapleader = ' ' " SPACE
@@ -122,13 +124,16 @@ lua require("nvim-dap-setup")
 lua require("nvim-lint-setup")
 lua require("lualine-statusline-setup")
 lua require("nvim-autopairs").setup()
-lua require("notify-setup")
 lua require("telescope-setup")
+lua require("notify-setup")
 lua require("todo-comments").setup()
 lua require("toggleterm").setup({direction = "horizontal", size = 15})
 lua require("persist-breakpoint-setup")
 lua require("jester-setup")
-lua require("chatGPT-setup")
+" lua require("chatGPT-setup")
+lua require("web-tools-setup")
+lua require("hardtime-setup")
+lua require("tint-setup")
 
 set termguicolors
 lua require("css-colorizer-setup")

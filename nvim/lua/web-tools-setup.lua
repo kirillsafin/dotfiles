@@ -2,7 +2,6 @@
 require'web-tools'.setup({
   keymaps = {
     rename = nil,  -- by default use same setup of lspconfig
-    repeat_rename = '.', -- . to repeat
   },
   hurl = {  -- hurl default
     show_headers = false, -- do not show http headers

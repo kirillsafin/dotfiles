@@ -1,6 +1,6 @@
 require('hardtime').setup{
   max_time = 1000,
-  max_count = 5,
+  max_count = 3,
   disable_mouse = false,
   hint = true,
   allow_different_key = false,

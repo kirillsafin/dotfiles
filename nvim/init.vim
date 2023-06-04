@@ -17,7 +17,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'plasticboy/vim-markdown'
   Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': ['markdown', 'vim-plug'] }
   " CSS 
-  Plug 'norcalli/nvim-colorizer.lua'
+  " Plug 'norcalli/nvim-colorizer.lua'
+  Plug 'uga-rosa/ccc.nvim'
 
   " LSP 
   Plug 'neovim/nvim-lspconfig'
@@ -32,7 +33,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'hrsh7th/nvim-cmp' 
   " VS Code Autocompletion like Pictograms 
   Plug 'onsails/lspkind-nvim' 
-  Plug 'mfussenegger/nvim-lint'
+  " Plug 'mfussenegger/nvim-lint'
+  Plug 'jose-elias-alvarez/null-ls.nvim'
   " Java advanced LSP
   Plug 'mfussenegger/nvim-jdtls'  
   " Plug 'dense-analysis/ale'
@@ -108,7 +110,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'ray-x/web-tools.nvim' 
   Plug 'm4xshen/hardtime.nvim'
   Plug 'nvim-pack/nvim-spectre'
-  Plug 'levouh/tint.nvim'
 
 call plug#end()
 " }}}
@@ -121,7 +122,8 @@ let mapleader = ' ' " SPACE
 lua require("lsp-setup")
 lua require('lspsaga-setup')
 lua require("nvim-dap-setup")
-lua require("nvim-lint-setup")
+" lua require("nvim-lint-setup")
+lua require("null-ls-setup")
 lua require("lualine-statusline-setup")
 lua require("nvim-autopairs").setup()
 lua require("telescope-setup")
@@ -133,10 +135,11 @@ lua require("jester-setup")
 " lua require("chatGPT-setup")
 lua require("web-tools-setup")
 lua require("hardtime-setup")
-lua require("tint-setup")
+lua require("diffview-setup")
+lua require('ccc-setup')
 
 set termguicolors
-lua require("css-colorizer-setup")
+" lua require("css-colorizer-setup")
 " }}}
 
 " UNMAP---------------------------------{{{

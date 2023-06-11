@@ -115,20 +115,7 @@ unsetopt extended_history
 
 #Sontiges
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
-
-if [ -f ~/.bash_aliases ]; then
-  source $HOME/.bash_aliases
-fi
-
-function start-live-server(){
-  browser-sync start --server --files . --port 5000 1>/dev/null &
-}
-
-function stop-live-server(){
-  browserSyncProc=$(ps -ef | grep 'node /usr/local/bin/browser-sync' | grep -v grep)
-
-  [ -z $browserSyncProc ] && return  || echo ${browserSyncProc} | awk -F" " 'system("kill "$2"")'
-}
+[[ -f ~/.bash_aliases ]] && source $HOME/.bash_aliases
 
 JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
 JDTLS_HOME=${HOME}/prog/language-servers/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/bin

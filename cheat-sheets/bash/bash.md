@@ -1,34 +1,34 @@
-* `META` = `ALT`
+### General Commands
 
+> <https://www.gnu.org/software/bash/manual/html_node/Readline-Init-File.html#Readline-Init-File>
+
+* `META` = `ALT`
 * `CTRL + b` - one char back
 * `CTRL + f` - one char forward
 * `CTRL + d` - delete char under cursor
 * `CTRL + _` or `CTRL + x, CTRL + u` - undo last EDITING command
-
 * `CTRL + a` - move to the start of the line
 * `CTRL + e` - move to the end of the line
-* `META + f` - move forward a word
-* `META + b` - move backward a word
+* `ALT + f` - move forward a word
+* `ALT + b` - move backward a word
 * `CTRL + l` - clear the screen (doesn't work)
 * `CTRL + k` - remove text from cursor position to end of line (doesn't work)
-* `META + d` - remove text from cursor to next word
+* `ALT + d` - remove text from cursor to next word
 * `META + DEL` - remove text from cursor to start of current word
-* `CTRL + w` - remove text to previous whitespace
+* `ALT + w` - remove text to previous whitespace
 * `CTRL + y` - yank deleted text
 * `META + y` - rotate kill-ring and yank the top word
-
 * `META-NUMBER` - repeat counter for a command
-
 * `CTRL + r` - incremental search backwards
 * `CTRL + s` - incremental search forwards
 * `ESC` or `CTRL + J` - terminate incremental search
 * `CTRL + g` - terminate incremental search and restore the line
-
 * `CTRL + c, CTRL + r` - reread .inputrc file (Readline init file = override default setting for terminal)
-* <https://www.gnu.org/software/bash/manual/html_node/Readline-Init-File.html#Readline-Init-File>
+
 
 ### Moving commands
-* <https://www.gnu.org/software/bash/manual/html_node/Bindable-Readline-Commands.html#Bindable-Readline-Commands> reset command/shortcuts in .inputrc
+
+> <https://www.gnu.org/software/bash/manual/html_node/Bindable-Readline-Commands.html#Bindable-Readline-Commands> reset command/shortcuts in .inputrc
 
 * `CTRL + a` - move cursor to start of the line
 * `CTRL + e`
@@ -52,9 +52,15 @@
 * `META + p` 
 * `META + n`
 * `META + CTRL + y` - insert first argument to previous command
-* `META + .` or `META + _` - insert last argument to previous command
+* `ALT + .` or `ALT + _` - insert last argument to previous command
+* `ALT + \` - auto-complete from history
+* `ALT + ?` - list possible completions 
 * `CTRL = o` - accept current line
 
+### Other commands
 
+* `CTRL + z` - suspend process
 
+### Tool Usage
 
+* `watch -n 1 ls -l` - track changes

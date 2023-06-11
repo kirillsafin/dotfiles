@@ -8,5 +8,5 @@ require('hardtime').setup{
   restricted_keys = { "h", "j", "k", "l", "-", "+", "gj", "gk" },
   hint_keys = { "k", "j", "^", "$", "a", "i", "d", "y", "c", "l" },
   disabled_keys = { "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>" },
-  disabled_filetypes = { "qf", "netrw", "NvimTree", "lazy", "mason" }
+  disabled_filetypes = { "qf", "netrw", "NvimTree", "lazy", "mason", "terminal" }
 }

@@ -129,17 +129,23 @@ PATH="$NPM_PACKAGES/bin:$PATH"
 PIP_BIN="$HOME/.local/bin/"
 PATH=$PATH:$PIP_BIN
 
+# VCPKG
 if [ -d $HOME/prog/vcpkg ]; then
   autoload bashcompinit
   bashcompinit
   source $HOME/prog/vcpkg/scripts/vcpkg_completion.zsh
 fi
 
+# LUA
 alias luamake=$HOME/prog/language-servers/lua-language-server/3rd/luamake/luamake
-
 # PIPX autocompletion
 autoload -U bashcompinit
 bashcompinit
 
 # ARDUINO
 PATH="$PATH:$HOME/prog/arduino/arduino-cli"
+
+# RUST/CARGO
+PATH="$PATH:$HOME/.cargo/bin"
+
+alias create-empty-ipynb='echo "{\n \"cells\": [],\n \"metadata\": {},\n \"nbformat\": 4,\n \"nbformat_minor\": 2\n}" | tee '

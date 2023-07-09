@@ -13,8 +13,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'rebelot/kanagawa.nvim'
 
   " Markdown Highlighter
-  " Plug 'godlygeek/tabular'
-  Plug 'plasticboy/vim-markdown'
+  Plug 'godlygeek/tabular'
+  Plug 'preservim/vim-markdown'
   Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': ['markdown', 'vim-plug'] }
   " CSS 
   " Plug 'norcalli/nvim-colorizer.lua'
@@ -106,6 +106,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'github/copilot.vim' 
   " Plug 'jackMort/ChatGPT.nvim'
   Plug 'MunifTanjim/nui.nvim'
+  " Code Screenshots: requires: apt install cargo, cargo install silicon, apt
+  " install expat libxml2-dev libfreetype6-dev libxcb-composite0-dev libharfbuzz-dev libexpat1-dev libfontconfig1-dev
+  Plug 'segeljakt/vim-silicon' 
   " Live server
   Plug 'ray-x/web-tools.nvim' 
   Plug 'm4xshen/hardtime.nvim'
@@ -136,6 +139,7 @@ lua require("jester-setup")
 lua require("web-tools-setup")
 lua require("hardtime-setup")
 lua require("diffview-setup")
+
 lua require('ccc-setup')
 
 set termguicolors

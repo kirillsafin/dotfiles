@@ -76,8 +76,8 @@ nnoremap <silent> <leader>ds :lua require'dap'.close()<CR>
 nnoremap <silent> <leader>dn :lua require'dap'.continue()<CR>
 nnoremap <silent> <leader>dk :lua require'dap'.up()<CR>
 nnoremap <silent> <leader>dj :lua require'dap'.down()<CR>
-nnoremap <silent> <leader>ddc :lua require'dap'.disconnect();require'dap'.close()
-nnoremap <silent> <leader>ddx :lua require'dap'.disconnect({restart=false, terminateDebugee = false})
+nnoremap <silent> <leader>ddc :lua require'dap'.disconnect();require'dap'.close()<CR>
+nnoremap <silent> <leader>ddx :lua require'dap'.disconnect({restart=false, terminateDebugee = false})<CR>
 
 nnoremap <silent> <leader>dr :lua require'dap'.repl.open({}, 'vsplit')<CR><C-w>l
 nnoremap <silent> <leader>dv :lua require'dap'.repl.open()<CR><C-w>l

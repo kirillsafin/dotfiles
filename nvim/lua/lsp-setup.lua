@@ -1,7 +1,9 @@
--- Setup nvim-cmp.
+-- Setup nvim-cmp.lsp
 local lspkind = require('lspkind')
 local luasnip = require('luasnip')
 local cmp = require('cmp')
+
+local helper_func = require('nvim-helper-functions')
 
 
 cmp.setup({
@@ -160,11 +162,8 @@ require'lspconfig'.tsserver.setup{
 -- C/C++ LSP
 -- install c/c++ LSP (clangd) apt install clangd
 require'lspconfig'.clangd.setup{
-  single_file_support = true,
-  root_dir = function ()
-    return vim.loop.cwd()
-  end,
   capabilities = capabilities,
+  cmd = { 'clangd', '--enable-config' },
 }
 
 require'lspconfig'.cmake.setup{
@@ -214,14 +213,14 @@ require'lspconfig'.volar.setup{
 
 -- Vue 2
 -- npm install -g vls
-require'lspconfig'.vuels.setup{
-  capabilities = capabilities,
-  init_options = {
-    typescript = {
-      serverPath = { os.getenv('HOME') .. '.npm-packages/lib/node_modules/typescript/lib/tsserverlibrary.js' }
-    }
-  }
-}
+-- require'lspconfig'.vuels.setup{
+--   capabilities = capabilities,
+--   init_options = {
+--     typescript = {
+--       serverPath = { os.getenv('HOME') .. '.npm-packages/lib/node_modules/typescript/lib/tsserverlibrary.js' }
+--     }
+--   }
+-- }
 
 
 -- npm install -g emmet-ls
@@ -344,15 +343,16 @@ require'lspconfig'.salt_ls.setup{
 -- Arduino
 -- go install github.com/arduino/arduino-language-server@latest
 -- install arduino-cli
-local fqbn = "esp8266:esp8266:d1_mini_pro"
+-- local fqbn = "esp8266:esp8266:d1_mini_pro"
 
 require'lspconfig'.arduino_language_server.setup{
   capabilities = capabilities,
   cmd = {
     "arduino-language-server",
     "-cli-config", os.getenv('HOME') .. '.arduino15/arduino-cli.yml',
-    "-fqbn", fqbn
+    "-fqbn", helper_func.getArduinoBoardFQBN(),
   }
+
 }
 
 -- load snippets

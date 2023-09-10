@@ -5,4 +5,4 @@ highlight LspDiagnosticsDefaultError guifg=DarkRed
 
 autocmd BufNewFile,BufRead *docker-compose*.yml,*docker-compose*.yaml set ft=yaml.docker-compose
 autocmd BufNewFile,BufRead *.sls set ft=yaml
-
+autocmd BufRead,BufNewFile *.cpp if filereadable('sketch.yaml') | setlocal filetype=arduino | endif

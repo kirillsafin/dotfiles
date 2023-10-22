@@ -28,7 +28,7 @@ require'nvim-tree'.setup {
   },
   filters = {
     dotfiles = false,
-    custom = {'.git'}
+    custom = {}
   },
   git = {
     enable = true,
@@ -39,22 +39,18 @@ require'nvim-tree'.setup {
     float = {
       enable = false,
       open_win_config = {
-        width = 100,
+        width = 170,
         height = 30,
         row = 10,
-        col = 58,
+        col = 75,
       },
     },
-    hide_root_folder = false,
-    -- side = 'left',
-    -- auto_resize = false,
-    mappings = {
-      custom_only = false,
-      list = {}
-    },
+    -- hide_root_folder = false,
+    side = 'right',
     number = false,
     relativenumber = false,
-    signcolumn = "yes"
+    signcolumn = "yes",
+    width = 40,
   },
   trash = {
     cmd = "trash",

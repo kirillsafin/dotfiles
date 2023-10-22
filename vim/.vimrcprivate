@@ -8,9 +8,7 @@ call plug#begin('~/.vim/plugged')
   " IDE Like stuff
   Plug 'tpope/vim-commentary' " Comments (gc, gcc)
   Plug 'tpope/vim-surround'
-  " Plug 'windwp/nvim-ts-autotag'
-  " Plug 'windwp/nvim-autopairs'
-  
+
   " Language Support
   " Markdown
   Plug 'plasticboy/vim-markdown'
@@ -35,15 +33,11 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 " Theme
 set termguicolors
 set background=dark
-colorscheme gruvbox
+colorscheme NeoSolarized
 highlight Normal ctermbg=NONE guibg=NONE
 highlight ColorColumn ctermbg=88 guibg=#757575
 
 " Status Line
-
-" Emmet (not sure if works with vim)
-let g:user_emmet_install_global = 0                                  
-autocmd FileType html,css EmmetInstall
 
 " Disable compatibility with vi
 set nocompatible
@@ -87,7 +81,7 @@ set hlsearch
 " While searching though a file incrementally highlight matching charachters during typing
 set incsearch
 " default history size is 20
-set history=1000
+set history=0
 " Enable auto completion menu after pressing TAB
 set wildmenu
 set wildmode=list:longest " bash simiilar autocomplition behaviour
@@ -102,6 +96,7 @@ set shellcmdflag=-ic
 " undo settings
 " set undodir=~/.vim/undodir
 set undodir=false
+set noundofile
 " Spell check
 set encoding=UTF-8
 set spell
@@ -130,4 +125,9 @@ augroup filetype_vim
 "     autocmd WinEnter * set cursorline cursorcolumn
 " augroup END
 " }}}
+set nomodeline
+set noshelltemp
+set nowritebackup
+set secure
+
 set backspace=indent,eol,start

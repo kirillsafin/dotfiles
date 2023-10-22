@@ -3,7 +3,21 @@ local lga_actions = require("telescope-live-grep-args.actions")
 
 telescope.setup{
   defaults = {
-    file_ignore_patterns = { "node_modules/", "venv/", 'plugged/', 'undodir/', '.git/', 'dist/', 'build/', '/bin', 'target/', 'lib/', 'vcpkg_installed/'},
+    file_ignore_patterns = { 
+      "node_modules/",
+      "venv/", 'plugged/',
+      'undodir/',
+      '.git/',
+      'dist/',
+      'build/',
+      '/bin',
+      'target/',
+      'lib/',
+      'vcpkg_installed/',
+      '.nuxt/',
+      '%.jpg',
+      '%.png',
+    },
     mappings = {
       i = {
         -- map actions.which_key to <C-h> (default: <C-/>)

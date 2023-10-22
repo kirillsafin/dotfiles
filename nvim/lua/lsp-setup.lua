@@ -204,24 +204,7 @@ require'lspconfig'.bashls.setup{
 -- Vue3 LSP
 require'lspconfig'.volar.setup{
   capabilities = capabilities,
-  init_options = {
-    typescript = {
-      serverPath = { os.getenv('HOME') .. '.npm-packages/lib/node_modules/typescript/lib/tsserverlibrary.js' }
-    }
-  }
 }
-
--- Vue 2
--- npm install -g vls
--- require'lspconfig'.vuels.setup{
---   capabilities = capabilities,
---   init_options = {
---     typescript = {
---       serverPath = { os.getenv('HOME') .. '.npm-packages/lib/node_modules/typescript/lib/tsserverlibrary.js' }
---     }
---   }
--- }
-
 
 -- npm install -g emmet-ls
 require'lspconfig'.emmet_ls.setup{

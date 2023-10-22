@@ -179,7 +179,6 @@ vnoremap <silent> <leader>d "_d
 " replace
 nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 
-
 nnoremap <leader>bp :bp<CR>
 nnoremap <leader>bn :bp<CR>
 " }}} 

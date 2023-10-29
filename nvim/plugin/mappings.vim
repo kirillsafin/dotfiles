@@ -140,6 +140,8 @@ nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 nnoremap <silent> <leader>gh :DiffviewOpen<CR>
 nnoremap <silent> <leader>gc :DiffviewClose<CR>
 
+
+
 " MARKDOWNPREVIEW
 nnoremap <silent> <leader>mt :MarkdownPreviewToggle<CR>
 nnoremap <silent> <leader>mo :MarkdownPreview<CR>
@@ -175,6 +177,11 @@ nnoremap <silent> <leader>Y "+Y
  
 nnoremap <silent> <leader>d "_d
 vnoremap <silent> <leader>d "_d
+
+" flash
+nnoremap <leader>ls <cmd>lua require('flash').jump()<CR>
+nnoremap <leader>lt <cmd>lua require('flash').treesitter()<CR>
+nnoremap <leader>lr <cmd>lua require('flash').treesitter_search()<CR>
 
 " replace
 nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>

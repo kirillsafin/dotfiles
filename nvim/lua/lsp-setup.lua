@@ -288,6 +288,30 @@ require'lspconfig'.jdtls.setup{
 
 -- require('jdtls').start_or_attach(config)
 
+-- require('sonarlint').setup({
+--    server = {
+--       cmd = {
+--          'java', '-jar', os.getenv('HOME') .. '/prog/language-servers/sonar-lint/server/sonarlint-ls.jar',
+--          -- Ensure that sonarlint-language-server uses stdio channel
+--          '-stdio',
+--          '-analyzers',
+--          os.getenv('HOME') .. '/prog/language-servers/sonar-lint/analyzers/sonarjs.jar',
+--          os.getenv('HOME') .. '/prog/language-servers/sonar-lint/analyzers/sonarcfamily.jar',
+--          os.getenv('HOME') .. '/prog/language-servers/sonar-lint/analyzers/sonarpython.jar',
+--          os.getenv('HOME') .. '/prog/language-servers/sonar-lint/analyzer/sonarjava.jar',
+--       },
+--    },
+--    filetypes = {
+--       -- Tested and working
+--       'python',
+--       'cpp',
+--       -- Requires nvim-jdtls, otherwise an error message will be printed
+--       'java',
+--       'typescript',
+--       'javascript'
+--    },
+-- })
+--
 -- Docker-Compose
 -- npm install -g @microsoft/compose-language-service
 require'lspconfig'.docker_compose_language_service.setup{

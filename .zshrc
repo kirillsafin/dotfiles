@@ -164,4 +164,29 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+# private vim mode
 export EDITOR="vim -u ~/.vimrcprivate"
+
+# Pomodoro
+declare -A pomo_options
+pomo_options["work"]="1"
+pomo_options["break"]="1"
+
+pomodoro () {
+  if [ -n "$1" -a -n "${pomo_options["$1"]}" ]; then
+  val=$1
+
+  notify-send -u "normal" -i "🍅" -a "Pomodoro" "Pomodoro ${val} Session started, Timer: ${pomo_options["$val"]} min"
+
+  # timer ${pomo_options["$val"]}m
+  sleep ${pomo_options["$val"]}m
+
+  notify-send -u "normal"  -i "🍅" -a "Pomodoro" -t 0 "Session Done"
+  else
+    echo "🍅 Pomodoro not started: possible option are 'work' or 'break'"
+  fi
+}
+
+alias wo="pomodoro 'work'"
+alias br="pomodoro 'break'"

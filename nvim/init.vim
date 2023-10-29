@@ -5,12 +5,14 @@ call plug#begin('~/.config/nvim/plugged')
   " Color Scheme 
   Plug 'gruvbox-community/gruvbox'
   Plug 'overcache/NeoSolarized'
-  Plug 'rose-pine/neovim' 
   Plug 'thedenisnikulin/vim-cyberpunk'  "Cyperpunk Theme
-  Plug 'ray-x/aurora' 
   Plug 'Shatur/neovim-ayu'
   Plug 'savq/melange-nvim'
   Plug 'rebelot/kanagawa.nvim'
+  Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+  Plug 'sainnhe/edge'
+  Plug 'EdenEast/nightfox.nvim'
+  Plug 'folke/flash.nvim'
 
   " Markdown Highlighter
   Plug 'godlygeek/tabular'
@@ -47,7 +49,8 @@ call plug#begin('~/.config/nvim/plugged')
 
   " manage LSP/Lint/Debug/Formatters servers
   " Plug 'williamboman/mason.nvim' 
- 
+  " Plug 'https://gitlab.com/schrieveslaach/sonarlint.nvim' 
+
   " User Experience
   
   " Vim StatusBar
@@ -94,6 +97,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'mfussenegger/nvim-dap' 
   Plug 'rcarriga/nvim-dap-ui'
   Plug 'theHamsta/nvim-dap-virtual-text'
+  Plug 'nvim-telescope/telescope-dap.nvim'
   Plug 'mxsdev/nvim-dap-vscode-js'
   Plug 'David-Kunz/jester'
   Plug 'Weissle/persistent-breakpoints.nvim'
@@ -141,6 +145,7 @@ lua require("hardtime-setup")
 lua require("diffview-setup")
 
 lua require('ccc-setup')
+lua require('color-setup')
 
 set termguicolors
 " lua require("css-colorizer-setup")

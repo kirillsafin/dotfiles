@@ -56,7 +56,6 @@ require('dap.ext.vscode').load_launchjs('.nvim/launch.json',
 })
 
 
-require("dapui").setup()
 require("nvim-dap-virtual-text").setup()
 
 require("cmp").setup({
@@ -67,11 +66,19 @@ require("cmp").setup({
 })
 
 local dapui = require("dapui")
+dapui.setup()
+
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open({ reset = true })
 end
-dap.listeners.before.event_terminated["dapui_config"] = dapui.close
-dap.listeners.before.event_exited["dapui_config"] = dapui.close
+
+dap.listeners.before.event_terminated["dapui_config"] = function()
+  dapui.close()
+end
+
+dap.listeners.before.event_exited["dapui_config"] = function()
+  dapui.close()
+end
 
 require("cmp").setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
   sources = {

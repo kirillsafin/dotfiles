@@ -38,7 +38,21 @@ set background=dark
 " colorscheme melange
 
 " KANAGAWA
-colorscheme kanagawa-wave
+" colorscheme kanagawa-wave
+
+" Catpuccine
+" colorscheme catppuccin-mocha
+
+" Edge
+let g:edge_style = 'aura'
+let g:edge_better_performance = 1
+let g:airline_theme = 'edge'
+let g:edge_transparent_background = 1
+colorscheme edge
+
+" Night Fox
+" colorscheme nightfox
+" colorscheme carbonfox
 
 "au ColorScheme * hi Normal ctermbg=none guibg=none
 highlight Normal guibg=None ctermbg=None

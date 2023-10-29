@@ -1,6 +1,8 @@
 require'lualine'.setup{
   options = {
-    theme  = 'powerline',
+    -- theme  = 'powerline',
+    theme = 'edge',
+    -- theme = 'carbonfox'
     -- section_separators = '',
     -- component_separators = '',
   },

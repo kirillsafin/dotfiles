@@ -105,6 +105,8 @@ nnoremap <leader>n :NvimTreeFindFile<CR>
 " Move to previous/next
 nnoremap <silent> <A-,> :BufferPrevious<CR>
 nnoremap <silent> <A-.> :BufferNext<CR>
+nnoremap gT :BufferPrevious<CR>
+nnoremap gt :BufferNext<CR>
 " Re-order to previous/next
 nnoremap <silent> <A-<> :BufferMovePrevious<CR>
 nnoremap <silent> <A->> :BufferMoveNext<CR>
@@ -140,15 +142,14 @@ nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 nnoremap <silent> <leader>gh :DiffviewOpen<CR>
 nnoremap <silent> <leader>gc :DiffviewClose<CR>
 
-
-
 " MARKDOWNPREVIEW
 nnoremap <silent> <leader>mt :MarkdownPreviewToggle<CR>
 nnoremap <silent> <leader>mo :MarkdownPreview<CR>
 nnoremap <silent> <leader>ms :MarkdownPreviewStop<CR>
 
 " COPILOT
-inoremap <silent><script><expr> <C-O> copilot#Accept('\<CR>')
+inoremap <script><expr> <C-O> copilot#Accept('\<CR>')
+imap <script><expr> <C-l> SuggestOneWord()
 
 " CHATGPT
 nnoremap <silent> <leader>cg :ChatGPT<CR>
@@ -156,7 +157,7 @@ nnoremap <silent> <leader>cg :ChatGPT<CR>
 " OTHER
 nnoremap <silent> <C-s> :lua require('nvim-helper-functions').formatOnSave()<CR> \| :w<CR>
 
-" Alt-Up/Down in VS Code
+" Alt-Up/Down in VS Code -> move selection up/down
 vnoremap <silent> J :m '>+1<CR>gv=gv
 vnoremap <silent> K :m '<-2<CR>gv=gv
 

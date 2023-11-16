@@ -71,3 +71,4 @@ set termguicolors " this variable must be enabled for colors to be applied prope
 " highlight NvimTreeFolderIcon guibg=blue
 
 lua require("nvim-tree-setup")
+

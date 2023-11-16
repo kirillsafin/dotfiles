@@ -73,11 +73,11 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
   Plug 'mbbill/undotree'
+  Plug 'nvim-lua/plenary.nvim'
 
   " Git
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
-  Plug 'nvim-lua/plenary.nvim'
   Plug 'sindrets/diffview.nvim'
   
   " Treesitter for better code completion
@@ -86,7 +86,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'nvim-treesitter/nvim-treesitter-context'
   
   " File Browsing
-  Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-telescope/telescope-live-grep-args.nvim'
 
@@ -108,11 +107,11 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
   Plug 'folke/trouble.nvim'
   Plug 'github/copilot.vim' 
-  " Plug 'jackMort/ChatGPT.nvim'
   Plug 'MunifTanjim/nui.nvim'
+  Plug 'jackMort/ChatGPT.nvim'
   " Code Screenshots: requires: apt install cargo, cargo install silicon, apt
   " install expat libxml2-dev libfreetype6-dev libxcb-composite0-dev libharfbuzz-dev libexpat1-dev libfontconfig1-dev
-  Plug 'segeljakt/vim-silicon' 
+  Plug 'segeljakt/vim-silicon'
   " Live server
   Plug 'ray-x/web-tools.nvim' 
   Plug 'm4xshen/hardtime.nvim'
@@ -139,7 +138,7 @@ lua require("todo-comments").setup()
 lua require("toggleterm").setup({direction = "horizontal", size = 15, shade_terminals = false, shading_factor = 30})
 lua require("persist-breakpoint-setup")
 lua require("jester-setup")
-" lua require("chatGPT-setup")
+lua require("chatGPT-setup")
 lua require("web-tools-setup")
 lua require("hardtime-setup")
 lua require("diffview-setup")

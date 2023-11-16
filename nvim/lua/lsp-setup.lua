@@ -189,9 +189,12 @@ require'lspconfig'.html.setup{
 
 -- python LSP
 -- install python lsp: python3 -m pip install --user 'python-language-server[all]'
-require'lspconfig'.pylsp.setup{
-  cmd = { 'pylsp' },
-  single_file_support = true,
+-- require'lspconfig'.pylsp.setup{
+--   single_file_support = true,
+--   capabilities = capabilities
+-- }
+
+require'lspconfig'.pyright.setup{
   capabilities = capabilities
 }
 
@@ -204,6 +207,9 @@ require'lspconfig'.bashls.setup{
 -- Vue3 LSP
 require'lspconfig'.volar.setup{
   capabilities = capabilities,
+  typescript = {
+    tsdk = os.getenv('HOME') .. '/.npm-packages/lib/node_modules/typescript/lib'
+  },
 }
 
 -- npm install -g emmet-ls
@@ -356,7 +362,7 @@ require'lspconfig'.arduino_language_server.setup{
   capabilities = capabilities,
   cmd = {
     "arduino-language-server",
-    "-cli-config", os.getenv('HOME') .. '.arduino15/arduino-cli.yml',
+    "-cli-config", os.getenv('HOME') .. '/.arduino15/arduino-cli.yml',
     "-fqbn", helper_func.getArduinoBoardFQBN(),
   }
 

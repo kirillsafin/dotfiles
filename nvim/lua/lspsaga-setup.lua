@@ -1,2 +1,7 @@
-require'lspsaga'.init_lsp_saga()
+local saga = require 'lspsaga'
 
+saga.setup({
+  symbol_in_winbar = {
+    show_file = true,
+  },
+})

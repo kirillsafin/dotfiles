@@ -38,3 +38,5 @@ mkdir ./vim/.vim/colors && ln -s ./vim/.vim/colors/gruvbox.vim ./vim/.vim/plugge
 ln -s ./vim/.vim/autoload/plug.vim "${HOME}/.local/share/nvim/site/autoload/plug.vim"
 
 ln -sv ~/.dotfiles/.npmrc ~/.npmrc
+
+ln -sv ~/.dotfiles/setup-scripts/setup-cpp-project.sh ~/bin/setup-cpp-project

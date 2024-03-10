@@ -45,6 +45,7 @@ end
 M.getArduinoBoardFQBN = function ()
   -- read sketch.yaml file and get fqbn from it
   local sketch_yaml = io.open('sketch.yaml', 'r')
+
   if sketch_yaml == nil then
     return ''
   end

@@ -38,31 +38,30 @@ set background=dark
 " colorscheme melange
 
 " KANAGAWA
-colorscheme kanagawa
+" colorscheme kanagawa
 
 " Catpuccine
 " colorscheme catppuccin-mocha
 
 " Edge
-" let g:edge_style = 'aura'
-" let g:edge_better_performance = 1
-" let g:airline_theme = 'edge'
-" let g:edge_transparent_background = 1
-" let g:edge_diagnostic_virtual_text = 'colored'
-" colorscheme edge
+let g:edge_style = 'aura'
+let g:edge_better_performance = 1
+let g:airline_theme = 'edge'
+let g:edge_transparent_background = 1
+let g:edge_diagnostic_virtual_text = 'colored'
+colorscheme edge
 
 " Night Fox
 " colorscheme nightfox
 " colorscheme carbonfox
 
 "au ColorScheme * hi Normal ctermbg=none guibg=none
-highlight Normal guibg=None ctermbg=None
+" highlight Normal guibg=None ctermbg=None
 "au ColorScheme myspecialcolors hi Normal ctermbg=red guibg=red
 "
 
 "au ColorScheme * hi ColorColumn ctermbg=88 guibg=#870000
 highlight ColorColumn ctermbg=88 guibg=#757575
-
 
 " nvim-tree colors
 highlight NvimTreeBg guibg=None cterm=None

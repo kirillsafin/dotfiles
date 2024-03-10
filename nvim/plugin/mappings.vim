@@ -5,9 +5,6 @@ nnoremap <CR> o<Esc>
 " embedded terminal
 tnoremap <Esc> <C-\><C-n>
 
-nnoremap <silent> <leader>lso :call OpenLifeServer()<CR><CR>
-nnoremap <silent> <leader>lsc :call CloseLifeServer()<CR><CR>
-
 " TELESCOPE
 nnoremap <silent> <C-p> <cmd>Telescope find_files hidden=true<CR>
 nnoremap <silent> <leader>fg <cmd>Telescope live_grep<CR>
@@ -23,7 +20,7 @@ nnoremap <silent> <leader>jj :ToggleTerm<CR>
 
 " LSP
 nnoremap <silent> <leader>vd :lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> <leader>gD :lua vim.lsp.buf.declaration()<CR>                  
+nnoremap <silent> <leader>vD :lua vim.lsp.buf.declaration()<CR>                  
 nnoremap <silent> <leader>vrr :lua vim.lsp.buf.references()<CR>
 nnoremap <silent> <leader>vi :lua vim.lsp.buf.implementation()<CR>
 inoremap <C-h> <CMD>lua vim.lsp.buf.signature_help()<CR>
@@ -39,14 +36,16 @@ nnoremap <silent> <leader>vp :lua vim.diagnostic.goto_prev()<CR>
 nnoremap <silent> <leader>vll :call LspLocationList()<CR>
 
 " LSPSAGA
-nnoremap <silent> gh :Lspsaga lsp_finder<CR>
-nnoremap <silent> <leader>ca :Lspsaga code_action<CR>
-vnoremap <silent> <leader>cb :<C-U>Lspsaga range_code_action<CR>
+nnoremap <silent> gf :Lspsaga finder<CR>
+nnoremap <silent> <leader>gi :Lspsaga incoming_calls<CR>
+nnoremap <silent> <leader>go :Lspsaga outgoing_calls<CR>
+nnoremap <silent> <leader>ga :Lspsaga code_action<CR>
+vnoremap <silent> <leader>gb :<C-U>Lspsaga range_code_action<CR>
 nnoremap <silent> <leader>gk :Lspsaga hover_doc<CR>
-nnoremap <silent> <C-f> :lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
-nnoremap <silent> <C-b> :lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
-nnoremap <silent> gs :Lspsaga signature_help<CR>
-nnoremap <silent> gd :Lspsaga preview_definition<CR>
+nnoremap <silent> <leader>gd :Lspsaga peek_definition<CR>
+nnoremap <silent> <leader>gD :Lspsaga peek_type_definition<CR>
+nnoremap <silent> <leader>go :Lspsaga outline<CR>
+nnoremap <silent> <leader>gr :Lspsaga rename<CR>
 
 " SPECTRE serach and replace
 nnoremap <silent> <leader>so <cmd>lua require("spectre").open()<CR>
@@ -149,7 +148,11 @@ nnoremap <silent> <leader>ms :MarkdownPreviewStop<CR>
 
 " COPILOT
 inoremap <script><expr> <C-O> copilot#Accept('\<CR>')
-imap <script><expr> <C-l> SuggestOneWord()
+ imap <script><expr> <C-l> SuggestOneWord()
+" imap <script><expr> <C-l> '<Plug>(copilot-accept-word)'
+" imap <script><expr> <M-l> '<Plug>(copilot-accept-line)'
+
+" imap <silent> <expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
 
 " CHATGPT
 nnoremap <silent> <leader>cg :ChatGPT<CR>
@@ -189,4 +192,9 @@ nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 
 nnoremap <leader>bp :bp<CR>
 nnoremap <leader>bn :bp<CR>
+
+" Copilot Chat
+" nnoremap <leader>cc <cmd>CopilotCahtExplain<CR>
+" nnoremap <leader>co <cmd>CopilotChatTests<CR>
+
 " }}} 

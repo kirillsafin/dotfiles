@@ -1,4 +1,4 @@
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
   -- One of "all", "maintained" (parsers with maintainers), or a list of languages
   -- ensure_installed = "maintained",
   ensure_installed = {
@@ -28,6 +28,7 @@ require'nvim-treesitter.configs'.setup {
     'tsx',
     'typescript',
     'vim',
+    'vimdoc',
     'vue',
     'yaml',
   },
@@ -88,4 +89,4 @@ require'nvim-treesitter.configs'.setup {
   --}
 }
 
-require'treesitter-context'.setup()
+require 'treesitter-context'.setup()

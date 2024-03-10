@@ -24,13 +24,14 @@ call plug#begin('~/.config/nvim/plugged')
 
   " LSP 
   Plug 'neovim/nvim-lspconfig'
-  Plug 'tami5/lspsaga.nvim'
+  Plug 'nvimdev/lspsaga.nvim'
   " Autocompletion
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/cmp-path'
   Plug 'hrsh7th/cmp-cmdline'
   Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
+  
   " required by LuaSnip
   Plug 'hrsh7th/nvim-cmp' 
   " VS Code Autocompletion like Pictograms 
@@ -106,16 +107,21 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'liuchengxu/vim-which-key'
   Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
   Plug 'folke/trouble.nvim'
-  Plug 'github/copilot.vim' 
   Plug 'MunifTanjim/nui.nvim'
-  Plug 'jackMort/ChatGPT.nvim'
   " Code Screenshots: requires: apt install cargo, cargo install silicon, apt
   " install expat libxml2-dev libfreetype6-dev libxcb-composite0-dev libharfbuzz-dev libexpat1-dev libfontconfig1-dev
   Plug 'segeljakt/vim-silicon'
+  Plug 'andweeb/presence.nvim'
+
   " Live server
   Plug 'ray-x/web-tools.nvim' 
   Plug 'm4xshen/hardtime.nvim'
   Plug 'nvim-pack/nvim-spectre'
+
+  " AI Code Completion
+  Plug 'jackMort/ChatGPT.nvim'
+  Plug 'github/copilot.vim' 
+  Plug 'jellydn/CopilotChat.nvim'
 
 call plug#end()
 " }}}
@@ -126,7 +132,6 @@ call plug#end()
 let mapleader = ' ' " SPACE
 
 lua require("lsp-setup")
-lua require('lspsaga-setup')
 lua require("nvim-dap-setup")
 lua require("nvim-lint-setup")
 " lua require("null-ls-setup")
@@ -138,13 +143,18 @@ lua require("todo-comments").setup()
 lua require("toggleterm").setup({direction = "horizontal", size = 15, shade_terminals = false, shading_factor = 30})
 lua require("persist-breakpoint-setup")
 lua require("jester-setup")
-lua require("chatGPT-setup")
 lua require("web-tools-setup")
 lua require("hardtime-setup")
 lua require("diffview-setup")
+lua require('lspsaga-setup')
 
 lua require('ccc-setup')
 lua require('color-setup')
+lua require('presence-setup')
+
+" AI Code Completion
+lua require("chatGPT-setup")
+lua require("copilot-chat-setup")
 
 set termguicolors
 " lua require("css-colorizer-setup")

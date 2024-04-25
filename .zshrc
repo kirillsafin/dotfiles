@@ -14,7 +14,7 @@ export ZSH="${HOME}/.oh-my-zsh"
 #ZSH_THEME="ys" #gut
 #ZSH_THEME="af-magic" #gut
 #ZSH_THEME="dogenpunk" #gut
-#ZSH_THEME="fino" #gut
+# ZSH_THEME="fino" #gut
 
 ZSH_THEME="zeta" #gut
 
@@ -77,6 +77,7 @@ ZSH_THEME="zeta" #gut
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
+zstyle ':omz:alpha:lib:git' async-prompt no
 
 source $ZSH/oh-my-zsh.sh
 
@@ -113,17 +114,20 @@ setopt histignoredups
 setopt APPEND_HISTORY
 unsetopt extended_history
 
+
 #Sontiges
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 [[ -f ~/.bash_aliases ]] && source $HOME/.bash_aliases
+
+XDG_CONFIG_HOME=$HOME/.config
 
 JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
 JDTLS_HOME=${HOME}/prog/language-servers/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/bin
 PATH=$PATH:$JDTLS_HOME
 
-NPM_PACKAGES="${HOME}/.npm-packages"
-NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-PATH="$NPM_PACKAGES/bin:$PATH"
+# NPM_PACKAGES="${HOME}/.npm-packages"
+# NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+# PATH="$NPM_PACKAGES/bin:$PATH"
 
 # Python Executable
 PIP_BIN="$HOME/.local/bin/"
@@ -138,17 +142,16 @@ fi
 
 # LUA
 alias luamake=$HOME/prog/language-servers/lua-language-server/3rd/luamake/luamake
+PATH=$PATH:$HOME/prog/language-servers/lua-language-server/bin
 # PIPX autocompletion
 autoload -U bashcompinit
 bashcompinit
 
 # ARDUINO
-PATH="$PATH:$HOME/prog/arduino/arduino-cli"
+PATH="$PATH:$HOME/prog/arduino"
 
 # RUST/CARGO
 PATH="$PATH:$HOME/.cargo/bin"
-
-alias create-empty-ipynb='echo "{\n \"cells\": [],\n \"metadata\": {},\n \"nbformat\": 4,\n \"nbformat_minor\": 2\n}" | tee '
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -190,3 +193,7 @@ pomodoro () {
 
 alias wo="pomodoro 'work'"
 alias br="pomodoro 'break'"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

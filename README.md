@@ -271,6 +271,23 @@ Mappings:
 * `Meta+]` - next suggestion
 * `Meta+[` - previous suggestion
 * `Meta+\` - do suggestion
+* `CopilotC-Nvim/CopilotChat.nvim`
+Mappings:
+* Normal:
+    * `q` - close
+    * `Ctrl+l` - reset
+    * `Enter` - submit prompt
+    * `Ctrl+y` - accept diff
+    * `gd` - show diff
+    * `gp` - show system prompt
+    * `gs` - show user selection
+* Insert:
+    * `Tab` - compete
+    * `@Tab`, `/Tab` - show options
+    * `Ctrl+c` - close
+    * `Ctrl+l` - reset
+    * `Ctrl+m` - submit prompt
+    * `Ctrl+y` - accept diff
 
 `jackMort/ChatGPT.nvim`  
 Mappings:

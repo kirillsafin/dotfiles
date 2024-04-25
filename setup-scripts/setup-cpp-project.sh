@@ -16,6 +16,10 @@
 # NOTE: eventually add a .clang-format file
 
 # print all the arguments
+if [ "$#" -ne 1 ]; then
+  echo "Usage: setup-cpp-project.sh <project-name>"
+  exit 1
+fi
 
 # Create the project root directory
 ROOT=${1}

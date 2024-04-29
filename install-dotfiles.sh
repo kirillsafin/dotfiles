@@ -25,6 +25,7 @@ mkdir -p ~/prog/nvim || echo "prog/nvim  already exists"
 [ ! -f ~/.oh-my-zsh/themes/zeta.zsh-theme ] && curl https://raw.githubusercontent.com/MijikHna/zeta-zsh-theme/master/zeta.zsh-theme > ~/.oh-my-zsh/themes/zeta.zsh-theme || echo "zeta theme already exists"
 
 [ ! -d ~/.config/nvim ] && ln -sv ~/.dotfiles/nvim ~/.config || echo "nvim config already exists"
+# [ ! -d ~/.config/nvim ] && ln -sv ~/.dotfiles/nvim-old ~/.config/nvim || echo "nvim config already exists"
 
 [ ! -f ~/.tmux.conf ] && ln -sv ~/.dotfiles/.tmux.conf ~/.tmux.conf || echo "tmux.conf already set"
 
@@ -40,6 +41,3 @@ mkdir -p ~/prog/nvim || echo "prog/nvim  already exists"
 # c++ settings
 [ ! -f ~/bin/setup-cpp-project ] && ln -sv ~/.dotfiles/setup-scripts/setup-cpp-project.sh ~/bin/setup-cpp-project || echo "setup-cpp-project already exists"
 [ ! -f ~/.config/clangd/config.yaml ] &&ln -sv ~/.dotfiles/.clang-format ~/.config/clangd/config.yaml || echo "clangd config already exists"
-
-# dap configs
-[ ! -f ~/bin/create-dap-config ] && ln -sv ~/.dotfiles/setup-scripts/create-dap-config.sh ~/bin/create-dap-config || echo "create-dap-config already exists"

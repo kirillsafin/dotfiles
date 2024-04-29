@@ -1,4 +1,4 @@
-local utils = require("mijikhna.config.utils")
+local general_util = require("mijikhna.utils.general")
 
 vim.g.mapleader = " "
 
@@ -21,7 +21,7 @@ keymap.set("n", "<leader>tq", ":tabclose<CR>", { desc = "Close tab" })
 keymap.set("n", "<leader>tp", ":tabprev<CR>", { desc = "Previous tab" })
 keymap.set("n", "<leader>tn", ":tabnext<CR>", { desc = "Next tab" })
 
--- keymap.set("n", "<C-s>", utils.formatOnSave, { desc = "Format on save" })
+-- keymap.set("n", "<C-s>", general_util.format_on_save, { desc = "Format on save" })
 keymap.set("n", "<C-s>", ":w<CR>", { desc = "Format on save" })
 
 keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })

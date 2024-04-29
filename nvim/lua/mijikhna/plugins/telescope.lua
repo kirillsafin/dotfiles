@@ -19,7 +19,7 @@ return {
           "venv",
           'plugged',
           'undodir',
-          '.git/',
+          '/git',
           'build',
           'bin',
           'target',
@@ -54,7 +54,6 @@ return {
 
     telescope.load_extension('live_grep_args')
     require("telescope").load_extension("notify")
-
 
     local keymap = vim.keymap
     keymap.set("n", "<C-p>", ":Telescope find_files<CR>", { desc = "Find files" })

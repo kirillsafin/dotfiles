@@ -40,13 +40,11 @@ return {
   },
   keys = {
     {
-      "n",
       "<leader>jr",
       "<cmd>:lua require('jester').run()<CR>",
       { noremap = true, silent = true }
     },
     {
-      "n",
       "<leader>jd",
       "<cmd>:lua require('jester').debug()<CR>",
       { noremap = true, silent = true }

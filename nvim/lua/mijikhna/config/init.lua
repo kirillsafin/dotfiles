@@ -1,3 +1,4 @@
-require("mijikhna.config.core")
-require("mijikhna.config.keymap")
 require("mijikhna.config.color")
+require("mijikhna.config.keymaps")
+require("mijikhna.config.options")
+require("mijikhna.config.globals")

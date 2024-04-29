@@ -12,7 +12,7 @@ return {
     end)
 
     ibl.setup({
-      -- indent = { chat = "|" },
+      -- indent = { char = "|" },
       scope = {
         enabled = true,
         show_start = true,
@@ -67,8 +67,6 @@ return {
     local opt = vim.opt
 
     opt.list = true
-    opt.listchars = { eol = "⋅" }
-    opt.listchars = { eol = "↴" }
+    opt.listchars = { eol = "↴", space = "·" }
   end
-
 }

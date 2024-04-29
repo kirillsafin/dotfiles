@@ -14,7 +14,6 @@ return {
         json = { "prettier" },
         yaml = { "prettier" },
         markdown = { "prettier" },
-        lua = { "stylua" },
         python = { "isort", "black" },
         c = { "clang-format" },
         cpp = { "clang-format" },

@@ -3,6 +3,7 @@ local opt = vim.opt
 opt.hidden = true
 
 opt.shell = "/usr/bin/zsh"
+opt.compatible = false
 
 opt.swapfile = false
 opt.updatetime = 5000
@@ -36,12 +37,13 @@ opt.colorcolumn = "80"
 
 opt.history = 250
 
+opt.showcmd = true
 opt.wildignore = { "*.docx", "*.jpg", "*.png", "*.gif", "*.pdf", "*.pyc", "*.exe", "*.flv", "*.img", "*.xlsx" }
 
 -- colors
 opt.termguicolors = true
 opt.background = "dark"
-opt.signcolumn = "yes"
+opt.signcolumn = "auto"
 
 opt.backspace = "indent,eol,start"
 
@@ -63,5 +65,5 @@ opt.foldlevel = 99
 
 opt.filetype = "on"
 
-vim.cmd("filetype plugin on")
-vim.cmd("filetype indent on")
+-- vim.cmd("filetype plugin on")
+-- vim.cmd("filetype indent on")

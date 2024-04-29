@@ -21,6 +21,7 @@ return {
       "undotree",
       "Trouble",
       "DiffviewFileHistory",
+      "help"
     }
   }
 }

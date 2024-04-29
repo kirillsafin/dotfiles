@@ -1,6 +1,9 @@
 return {
   "romgrk/barbar.nvim",
-  config = function ()
+  dependencies = {
+    'nvim-tree/nvim-web-devicons',
+  },
+  config = function()
     require("barbar").setup()
 
     local keymap = vim.keymap

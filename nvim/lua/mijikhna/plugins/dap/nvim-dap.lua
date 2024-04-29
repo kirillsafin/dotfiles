@@ -9,7 +9,8 @@ return {
     "mxsdev/nvim-dap-vscode-js",
   },
   config = function()
-    local utils = require("mijikhna.config.utils")
+    local python_util = require("mijikhna.utils.python")
+    local vscode_util = require("mijikhna.utils.vscode")
     local dap = require('dap')
 
     -- dap.set_log_level('TRACE')
@@ -27,7 +28,7 @@ return {
       elseif config.request == 'launch' then
         callback({
           type = 'executable',
-          command = utils.getDebugPythonExec(),
+          command = python_util.get_debug_python_exec(),
           args = { '-m', 'debugpy.adapter' },
           options = { source_filetype = 'python' }
         })
@@ -39,7 +40,7 @@ return {
       id = 'cppdbg',
       type = 'executable',
       command = os.getenv('HOME') ..
-          '/.vscode/extensions/' .. utils.findVsCodeCppTools() .. '/debugAdapters/bin/OpenDebugAD7',
+          '/.vscode/extensions/' .. vscode_util.find_vscode_cpptools() .. '/debugAdapters/bin/OpenDebugAD7',
       options = { detached = false },
     }
 

@@ -10,10 +10,16 @@ return {
     local lspconfig = require("lspconfig")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-    local utils = require("mijikhna.config.utils")
+    local arduino_util = require("mijikhna.utils.arduino")
 
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
+    capabilities = vim.tbl_deep_extend('force', capabilities, {
+      offsetEncoding = { 'utf-16' },
+      general = {
+        positionEncodings = { 'utf-16' },
+      },
+    })
     -- Lua LSP: install lua lsp server; official installation guide for sumneko_l
     -- require('neodev').setup()
     lspconfig.lua_ls.setup({
@@ -33,9 +39,11 @@ return {
     -- C/C++ LSP: install c/c++ LSP (clangd) apt install clangd
     lspconfig.clangd.setup({
       cmd = { 'clangd' },
-      offsetEncoding = "utf-16",
+      -- offsetEncoding = "utf-16",
+      offset_encoding = "utf-16",
       capabilities = capabilities,
     })
+
     require('lspconfig').cmake.setup({
       capabilities = capabilities,
     })
@@ -108,7 +116,7 @@ return {
       cmd = {
         "arduino-language-server",
         "-cli-config", os.getenv('HOME') .. '/.arduino15/arduino-cli.yml',
-        "-fqbn", utils.getArduinoBoardFQBN(),
+        "-fqbn", arduino_util.get_arduino_board_fqbn(),
         "-cli", os.getenv('HOME') .. "/prog/arduino/arduino-cli",
         "-clangd", "/usr/bin/clangd"
       }
@@ -137,7 +145,7 @@ return {
     keymap.set("n", "<leader>vD", vim.lsp.buf.declaration, { desc = "Got to declaration " })
     keymap.set("n", "<leader>vr", ":Telescope lsp_references<CR>", { desc = "Show LSP references" })
     keymap.set("n", "<leader>vi", "<cmd>Telescope lsp_implementations<CR>", { desc = "Show LSP implementations" })
-    keymap.set({ "n", "i" }, "<C-h", vim.lsp.buf.signature_help, { desc = "Show signature" })
+    keymap.set({ "n", "i" }, "<C-h>", vim.lsp.buf.signature_help, { desc = "Show signature" })
     keymap.set("n", "<leader>vr", vim.lsp.buf.rename, { desc = "Smart Rename" })
     keymap.set("n", "<leader>vh", vim.lsp.buf.hover)
     keymap.set({ "n", "v" }, "<leader>va", vim.lsp.buf.code_action, { desc = "See available code actions" })

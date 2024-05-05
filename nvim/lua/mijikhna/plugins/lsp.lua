@@ -20,8 +20,10 @@ return {
         positionEncodings = { 'utf-16' },
       },
     })
+
+    -- LSP Server Configs
+
     -- Lua LSP: install lua lsp server; official installation guide for sumneko_l
-    -- require('neodev').setup()
     lspconfig.lua_ls.setup({
       capabilitie = capabilities,
       settings = {
@@ -34,7 +36,38 @@ return {
     })
 
     -- Typescript LSP: install typescript LSP (tsserver) npm install -g typescript typescript-language-server
-    lspconfig.tsserver.setup({})
+    lspconfig.tsserver.setup({
+      -- init_options = {
+      --   plugins = {
+      --     {
+      --       name = "@vue/typescript-plugin",
+      --       location = os.getenv("HOME") .. ".nvm/versions/node/v20.12.0/lib/node_modules/@vue/typescript-plugin",
+      --       languages = { "javascript", "typescript", "vue" },
+      --     },
+      --   },
+      -- },
+      -- tsserver = {
+      --   path = os.getenv("HOME") .. "/.nvm/versions/node/v20.12.0/lib/node_modules/typescript/lib"
+      -- },
+      filetypes = {
+        "javascript",
+        "typescript",
+        -- "vue",
+      },
+      capabilities = capabilities,
+    })
+
+    -- Vue3 LSP
+    lspconfig.volar.setup({
+      init_options = {
+        vue = {
+          hybridMode = false,
+        },
+        typescript = {
+          tsdk = os.getenv("HOME") .. "/.nvm/versions/node/v20.12.0/lib/node_modules/typescript/lib"
+        }
+      }
+    })
 
     -- C/C++ LSP: install c/c++ LSP (clangd) apt install clangd
     lspconfig.clangd.setup({
@@ -44,17 +77,17 @@ return {
       capabilities = capabilities,
     })
 
-    require('lspconfig').cmake.setup({
+    lspconfig.cmake.setup({
       capabilities = capabilities,
     })
 
     -- JSON LSP: install json LSP npm install -g vscode-langservers-extracted
-    require("lspconfig").jsonls.setup({
+    lspconfig.jsonls.setup({
       capabilities = capabilities,
       cmd = { "vscode-json-language-server", "--stdio" }
     })
 
-    require("lspconfig").cssls.setup({
+    lspconfig.cssls.setup({
       capabilities = capabilities,
     })
 
@@ -62,38 +95,28 @@ return {
     -- require 'lspconfig'.html.setup()
 
     -- Python LSP
-    require("lspconfig").pyright.setup({
+    lspconfig.pyright.setup({
       cmd = { "pyright-langserver", "--stdio" },
       capabilities = capabilities,
     })
 
     -- Bash LSP npm install -g bash-language-server
     -- install spellcheck: apt install spellcheck, brew install shellcheck
-    require("lspconfig").bashls.setup({
+    lspconfig.bashls.setup({
       capabilities = capabilities,
     })
 
-    -- Vue3 LSP
-    require 'lspconfig'.volar.setup {
-      capabilities = capabilities,
-      init_options = {
-        typescript = {
-          tsdk = os.getenv("HOME") .. "/.nvm/versions/node/v20.12.0/lib/node_modules/typescript/lib",
-        },
-      },
-    }
-
     -- npm install -g emmet-ls
-    require("lspconfig").emmet_ls.setup({})
+    lspconfig.emmet_ls.setup({})
 
     -- Docker-Compose LSP: npm install -g @microsoft/compose-language-service
-    require("lspconfig").docker_compose_language_service.setup({ filetypes = { 'yaml.docker-compose' } })
+    lspconfig.docker_compose_language_service.setup({ filetypes = { 'yaml.docker-compose' } })
 
     -- Dockerfile LSP: npm install -g dockerfile-language-server-nodejs
-    require("lspconfig").dockerls.setup({})
+    lspconfig.dockerls.setup({})
 
     -- YAML LSP: npm install -g yaml-language-server
-    require("lspconfig").yamlls.setup({
+    lspconfig.yamlls.setup({
       filetypes = { 'yaml' },
       settings = {
         yaml = { keyOrdering = false },
@@ -106,11 +129,11 @@ return {
     })
 
     -- Salt
-    require("lspconfig").salt_ls.setup({})
+    lspconfig.salt_ls.setup({})
 
     -- Arduino LSP: go install github.com/arduino/arduino-language-server@latest; install arduino-cli
     -- local fqbn = "esp8266:esp8266:d1_mini_pro"
-    require("lspconfig").arduino_language_server.setup({
+    lspconfig.arduino_language_server.setup({
       general = { positionEncodings = { "utf-16" } },
       capabilities = capabilities,
       cmd = {
@@ -123,7 +146,7 @@ return {
     })
 
     -- Rust LSP
-    require("lspconfig").rust_analyzer.setup({
+    lspconfig.rust_analyzer.setup({
       capabilities = capabilities,
       settings = {
         ['rust-analyzer'] = {

@@ -39,5 +39,7 @@ mkdir -p ~/prog/nvim || echo "prog/nvim  already exists"
 ! command -v nvm > /dev/null 2>&1 && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh && nvm install 20 || echo "nvm already installed" #TODO: grab the last release from the repo release site
 
 # c++ settings
-[ ! -f ~/bin/setup-cpp-project ] && ln -sv ~/.dotfiles/setup-scripts/setup-cpp-project.sh ~/bin/setup-cpp-project || echo "setup-cpp-project already exists"
+[ ! -f ~/bin/setup-cpp-project ] && ln -sv ~/.dotfiles/scripts/setup-cpp-project.sh ~/bin/setup-cpp-project || echo "setup-cpp-project already exists"
 [ ! -f ~/.config/clangd/config.yaml ] &&ln -sv ~/.dotfiles/.clang-format ~/.config/clangd/config.yaml || echo "clangd config already exists"
+
+[ ! -f ~/bin/cht ] && ln -sv ~/.dotfiles/scripts/cht.sh ~/bin/cht || echo "cht already exists"

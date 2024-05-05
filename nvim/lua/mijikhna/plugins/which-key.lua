@@ -4,7 +4,7 @@ return {
   enabled = true,
   init = function()
     vim.o.timeout = true
-    vim.o.timeoutlen = 2000
+    vim.o.timeoutlen = 1500
   end,
   opts = {}
 }

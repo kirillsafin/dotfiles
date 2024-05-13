@@ -164,8 +164,8 @@ return {
 
     local keymap = vim.keymap
 
-    keymap.set("n", "<leader>vd", "<cmd>Telescope lsp_definitions<CR>", { desc = "Show LSP definitions" })
-    keymap.set("n", "<leader>vD", vim.lsp.buf.declaration, { desc = "Got to declaration " })
+    keymap.set("n", "vd", "<cmd>Telescope lsp_definitions<CR>", { desc = "Show LSP definitions" })
+    keymap.set("n", "vD", vim.lsp.buf.declaration, { desc = "Got to declaration " })
     keymap.set("n", "<leader>vr", ":Telescope lsp_references<CR>", { desc = "Show LSP references" })
     keymap.set("n", "<leader>vi", "<cmd>Telescope lsp_implementations<CR>", { desc = "Show LSP implementations" })
     keymap.set({ "n", "i" }, "<C-h>", vim.lsp.buf.signature_help, { desc = "Show signature" })

@@ -35,7 +35,7 @@ return {
         ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
         ["<C-e>"] = cmp.mapping.abort(),        -- close completion window
         ["<CR>"] = cmp.mapping.confirm({ select = false }),
-        ['<Tab>'] = function(fallback)
+        ["<Tab>"] = function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
           elseif luasnip.expand_or_jumpable() then
@@ -44,7 +44,7 @@ return {
             fallback()
           end
         end,
-        ['<C-n>'] = function(fallback)
+        ["<C-n>"] = function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
           elseif luasnip.expand_or_jumpable() then
@@ -53,7 +53,7 @@ return {
             fallback()
           end
         end,
-        ['<S-Tab>'] = function(fallback)
+        ["<S-Tab>"] = function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
           elseif luasnip.jumpable(-1) then
@@ -62,7 +62,7 @@ return {
             fallback()
           end
         end,
-        ['<C-p>'] = function(fallback)
+        ["<C-p>"] = function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
           elseif luasnip.jumpable(-1) then
@@ -89,31 +89,8 @@ return {
     })
 
     -- load snippets
-    require('luasnip/loaders/from_vscode').lazy_load()
+    -- require('luasnip/loaders/from_vscode').lazy_load()
     require('luasnip/loaders/from_vscode').lazy_load({ paths = '~/.config/nvim/my-snippets' })
-
-    local api = vim.api
-
-    api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-      pattern = { "docker-compose*.yml", "docker-compose*.yaml" },
-      callback = function(ev)
-        ev.buf.filetype = "yaml.docker-compose"
-      end
-    })
-
-    api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-      pattern = "*.sls",
-      callback = function(ev)
-        ev.buf.filetype = "yaml"
-      end
-    })
-
-    api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-      pattern = "*.cpp",
-      callback = function(ev)
-        vim.inspect(ev)
-      end
-    })
 
     local keymap = vim.keymap
 

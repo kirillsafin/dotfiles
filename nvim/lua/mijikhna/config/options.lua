@@ -64,6 +64,7 @@ opt.cursorbind = false
 opt.foldlevel = 99
 
 opt.filetype = "on"
+opt.clipboard = "unnamedplus" -- for Windows WSL
 
 -- vim.cmd("filetype plugin on")
 -- vim.cmd("filetype indent on")

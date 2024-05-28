@@ -24,7 +24,7 @@ mkdir -p ~/prog/nvim || echo "prog/nvim  already exists"
 # grep my theme from https://raw.githubusercontent.com/MijikHna/zeta-zsh-theme/master/zeta.zsh-theme
 [ ! -f ~/.oh-my-zsh/themes/zeta.zsh-theme ] && curl https://raw.githubusercontent.com/MijikHna/zeta-zsh-theme/master/zeta.zsh-theme > ~/.oh-my-zsh/themes/zeta.zsh-theme || echo "zeta theme already exists"
 
-[ ! -d ~/.config/nvim ] && ln -sv ~/.dotfiles/nvim ~/.config || echo "nvim config already exists"
+[ ! -d ~/.config/nvim ] && ln -sv ~/.dotfiles/nvim ~/.config/nvim || echo "nvim config already exists"
 # [ ! -d ~/.config/nvim ] && ln -sv ~/.dotfiles/nvim-old ~/.config/nvim || echo "nvim config already exists"
 
 [ ! -f ~/.tmux.conf ] && ln -sv ~/.dotfiles/.tmux.conf ~/.tmux.conf || echo "tmux.conf already set"
@@ -36,7 +36,7 @@ mkdir -p ~/prog/nvim || echo "prog/nvim  already exists"
 [ ! -d ~/.vim ] && ln -sv ~/.dotfiles/vim/.vim ~/.vim && mkdir ./vim/.vim/colors && ln -s ./vim/.vim/colors/gruvbox.vim ./vim/.vim/plugged/gruvbox/colors/gruvbox.vim && ln -s ./vim/.vim/autoload/plug.vim "${HOME}/.local/share/nvim/site/autoload/plug.vim" || echo ".vim already exists"
 
 # npm settings
-! command -v nvm > /dev/null 2>&1 && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh && nvm install 20 || echo "nvm already installed" #TODO: grab the last release from the repo release site
+! command -v nvm > /dev/null 2>&1 && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && nvm install 20 || echo "nvm already installed" #TODO: grab the last release from the repo release site
 
 # c++ settings
 [ ! -f ~/bin/setup-cpp-project ] && ln -sv ~/.dotfiles/scripts/setup-cpp-project.sh ~/bin/setup-cpp-project || echo "setup-cpp-project already exists"

@@ -23,6 +23,6 @@ api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   pattern = "*.cpp",
   callback = function(opts)
-    print(vim.inspect(opts))
+    -- print(vim.inspect(opts))
   end
 })

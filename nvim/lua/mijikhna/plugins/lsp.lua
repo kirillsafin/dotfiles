@@ -92,7 +92,9 @@ return {
     })
 
     -- HTML LSP: seems not to be useful
-    -- require 'lspconfig'.html.setup()
+    lspconfig.html.setup({
+      capabilities = capabilities,
+    })
 
     -- Python LSP
     lspconfig.pyright.setup({
@@ -107,7 +109,9 @@ return {
     })
 
     -- npm install -g emmet-ls
-    lspconfig.emmet_ls.setup({})
+    lspconfig.emmet_ls.setup({
+      capabilities = capabilities,
+    })
 
     -- Docker-Compose LSP: npm install -g @microsoft/compose-language-service
     lspconfig.docker_compose_language_service.setup({ filetypes = { 'yaml.docker-compose' } })

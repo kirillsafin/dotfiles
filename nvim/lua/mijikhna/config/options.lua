@@ -27,11 +27,13 @@ opt.smartindent = true
 
 opt.wrap = true
 opt.linebreak = false
--- search
--- opt.ignorecase = true
--- opt.smartcase = true
 
-opt.cursorline = true
+-- search
+opt.ignorecase = true
+opt.smartcase = true
+opt.inccommand = "split"
+
+opt.cursorline = false
 opt.scrolloff = 10
 opt.colorcolumn = "80"
 
@@ -43,10 +45,9 @@ opt.wildignore = { "*.docx", "*.jpg", "*.png", "*.gif", "*.pdf", "*.pyc", "*.exe
 -- colors
 opt.termguicolors = true
 opt.background = "dark"
-opt.signcolumn = "auto"
+opt.signcolumn = "yes"
 
 opt.backspace = "indent,eol,start"
-
 
 -- split
 opt.splitright = true
@@ -64,7 +65,6 @@ opt.cursorbind = false
 opt.foldlevel = 99
 
 opt.filetype = "on"
-opt.clipboard = "unnamedplus" -- for Windows WSL
 
 -- vim.cmd("filetype plugin on")
 -- vim.cmd("filetype indent on")

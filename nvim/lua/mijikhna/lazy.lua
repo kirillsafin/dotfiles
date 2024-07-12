@@ -19,9 +19,11 @@ require("lazy").setup(
     { import = "mijikhna.plugins.colorschema" },
     { import = "mijikhna.plugins.dap" },
     { import = "mijikhna.plugins.git" },
+    { import = "mijikhna.plugins.learn-vim" },
+    { import = "mijikhna.plugins.lsp" },
     { import = "mijikhna.plugins.markdown" },
+    { import = "mijikhna.plugins.test" },
     { import = "mijikhna.plugins.web" },
-    { import = "mijikhna.plugins.test" }
   },
   {
     change_detection = {

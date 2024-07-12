@@ -19,6 +19,12 @@ return {
     require("luasnip.loaders.from_vscode").lazy_load()
 
     cmp.setup({
+      window = {
+        documentation = {
+          -- winblend = 50,
+          winhighlight = "Normal:Pmenu",
+        },
+      },
       completion = {
         completeopt = "menu,menuone,preview,noselect",
       },
@@ -75,9 +81,11 @@ return {
       -- sources for autocompletion
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
-        { name = "luasnip" }, -- snippets
-        { name = "buffer" },  -- text within current buffer
-        { name = "path" },    -- file system paths
+        { name = "luasnip" },                     -- snippets
+        { name = "buffer" },                      -- text within current buffer
+        { name = "path" },                        -- file system paths
+        { name = "lazydev",    group_index = 0 }, -- skip loading LuaLS completions
+        { name = "cmp-cmdline" },
       }),
       -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {

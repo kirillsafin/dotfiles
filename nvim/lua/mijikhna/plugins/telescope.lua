@@ -19,7 +19,7 @@ return {
           "venv",
           'plugged',
           'undodir',
-          '.git',
+          '%.git',
           'build',
           'bin',
           'target',
@@ -35,6 +35,9 @@ return {
             ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
           }
         }
+      },
+      pickers = {
+        find_files = { hidden = true },
       },
       extensions = {
         live_grep_args = {
@@ -65,9 +68,11 @@ return {
     keymap.set("n", "<leader>fw", ":Telescope grep_string<CR>", { desc = "Grep string" })
     keymap.set("n", "<leader>fd", ":Telescope diagnostics<CR>", { desc = "Diagnostics" })
     keymap.set("n", "<leader>fc", ":Telescope commands<CR>", { desc = "Commands" })
+    keymap.set("n", "<leader>fo", ":Telescope lsp_outgoing_calls<CR>", { desc = "Outgoing calls" })
+    keymap.set("n", "<leader>fi", ":Telescope lsp_incoming_calls<CR>", { desc = "Outgoing calls" })
     keymap.set("n", "<leader>ff", ":Telescope current_buffer_fuzzy_find<CR>", { desc = "Current buffer fuzzy find" })
     keymap.set("n", "<leader>fG", ":Telescope live_grep_args<CR>", { desc = "Live grep args" })
-    keymap.set("n", "<leader>fo", ":Telescope oldfiles<CR>", { desc = "Notify" })
-    keymap.set("n", "<leader>fS", ":Telescope grep_string<CR>", { desc = "Notify" })
+    keymap.set("n", "<leader>fS", ":Telescope grep_string<CR>", { desc = "Grep string" })
   end,
+  kkgg
 }

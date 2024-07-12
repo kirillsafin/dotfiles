@@ -1,6 +1,8 @@
 return {
   "rebelot/kanagawa.nvim",
-  priority = 1000,
+  priority = 1050,
+  lazy = true,
+  enabled = true,
   opts = {
     compile = false,  -- enable compiling the colorscheme
     undercurl = true, -- enable undercurls
@@ -14,15 +16,32 @@ return {
     terminalColors = true, -- define vim.g.terminal_color_{0,17}
     colors = {             -- add/modify theme and palette colors
       palette = {},
-      theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+      theme = {
+        all = {
+          ui = {
+            bg_gutter = "none"
+          }
+        }
+      },
     },
-    overrides = function(colors) -- add/modify highlights
-      return {}
+    globalStatus = true,
+    overrides = function(colors)
+      return {
+        -- LineNr = { bg = 'NONE' },
+        -- SignColumn = { bg = 'NONE' },
+        NvimTreeExecFile = { bold = false },
+        NvimTreeImageFile = { bold = false },
+        NvimTreeSpecialFile = { bold = false },
+        Directory = { bold = true },
+      }
     end,
     theme = "wave",  -- Load "wave" theme when 'background' option is not set
     background = {   -- map the value of 'background' option to a theme
       dark = "wave", -- try "dragon" !
       light = "lotus"
     },
-  }
+  },
+  init = function()
+    vim.cmd("colorscheme kanagawa")
+  end
 }

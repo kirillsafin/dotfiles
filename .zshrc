@@ -159,10 +159,10 @@ __conda_setup="$('/home/kirill/prog/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> 
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/kirill/prog/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/kirill/prog/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "~/prog/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "~/prog/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/kirill/prog/miniconda3/bin:$PATH"
+        export PATH="~/prog/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -170,6 +170,7 @@ unset __conda_setup
 
 # private vim mode
 export EDITOR="vim -u ~/.vimrcprivate"
+export TERM="wezterm"
 
 # Pomodoro
 declare -A pomo_options

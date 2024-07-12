@@ -9,7 +9,7 @@ return {
 
       local keymap = vim.keymap
 
-      keymap.set("i", "<C-O>", "copilot#Accept('\\<CR>')", { expr = true, replace_keycodes = false })
+      keymap.set("i", "<C-Q>", "copilot#Accept('\\<CR>')", { expr = true, replace_keycodes = false })
       keymap.set("i", "<C-L>", "<Plug>(copilot-accept-word)")
       keymap.set("i", "<C-J>", "<Plug>(copilot-accept-line)")
     end
@@ -19,6 +19,9 @@ return {
     branch = "canary",
     opts = {
       context = "buffer"
-    }
+    },
+    init = function()
+      vim.keymap.set("n", "<leader>cc", ":CopilotChatToggle<CR>")
+    end
   }
 }

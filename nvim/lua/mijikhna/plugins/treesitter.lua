@@ -1,7 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   dependencies = {
-    "windwp/nvim-ts-autotag",
     "nvim-treesitter/playground",
     "nvim-treesitter/nvim-treesitter-context",
   },
@@ -30,6 +29,8 @@ return {
         'mermaid',
         'ninja',
         'python',
+        "qmldir",
+        "qmljs",
         'regex',
         'scss',
         'todotxt',
@@ -47,9 +48,9 @@ return {
         additional_vim_regex_highlighting = false,
       },
       indent = { enanble = true },
-      autotag = {
-        enable = true,
-      },
+      -- autotag = {
+      --   enable = true,
+      -- },
       interactive_selection = {
         enable = true,
         keymaps = {
@@ -85,6 +86,24 @@ return {
     opt.foldmethod = "expr"
     opt.foldexpr = "nvim_treesitter#foldexpr()"
 
+
+    local fold_augroup = vim.api.nvim_create_augroup("fold", { clear = true })
+
+    vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
+      group = fold_augroup,
+      pattern = "?*",
+      callback = function()
+        vim.cmd("mkview")
+      end,
+    })
+
+    vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+      group = fold_augroup,
+      pattern = "?*",
+      callback = function()
+        vim.cmd("silent! loadview")
+      end,
+    })
 
     vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
       pattern = "*.hbs",

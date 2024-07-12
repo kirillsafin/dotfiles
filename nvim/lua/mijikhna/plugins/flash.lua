@@ -1,5 +1,7 @@
 return {
   "folke/flash.nvim",
+  opts = {},
+  event = "VeryLazy",
   keys = {
     {
       "<leader>js",

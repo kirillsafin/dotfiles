@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # install pipx using apt if not exists
+#
 [ ! -f '/usr/bin/pipx' ] && sudo apt install pipx -y || echo "pipx already exists"
 
 # install nodejs and npm using apt if not exists
@@ -43,3 +44,9 @@ mkdir -p ~/prog/nvim || echo "prog/nvim  already exists"
 [ ! -f ~/.config/clangd/config.yaml ] &&ln -sv ~/.dotfiles/.clang-format ~/.config/clangd/config.yaml || echo "clangd config already exists"
 
 [ ! -f ~/bin/cht ] && ln -sv ~/.dotfiles/scripts/cht.sh ~/bin/cht || echo "cht already exists"
+
+[ ! -f ~/.wezterm.lua ] && ln -sv ~/.dotfiles/.wezterm.lua ~/.wezterm.lua || echo "wezterm config already exists"
+
+[ ! -d ~/.config/contour ] && [ ! -f ~/.config/contour/contour.yml ] && mkdir ~/.config/contour/  && ln -sv ~/.dotfiles/.contour.yml ~/.config/contour/contour.yml || echo "contour config already exists"
+
+[ ! -f ~/.config/kitty/kitty.conf ] && ln -sv ~/.dotfiles/kitty.conf ~/.config/kitty/kitty.conf || echo "kitty config already exists"

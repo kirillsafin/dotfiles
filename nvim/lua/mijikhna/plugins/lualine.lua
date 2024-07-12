@@ -7,66 +7,36 @@ return {
     local lualine = require("lualine")
     local lazy_status = require("lazy.status")
 
-    local colors = {
-      blue = "#61afef",
-      green = "#98c379",
-      violet = "#c678dd",
-      yellow = "#e5c07b",
-      red = "#e06c75",
-      fg = "#abb2bf",
-      bg = "#282c34",
-      inactive_bg = "#3e4452",
-    }
-
-    local lualine_theme = {
-      normal = {
-        a = { fg = colors.bg, bg = colors.blue, gui = "bold" },
-        b = { fg = colors.fg, bg = colors.inactive_bg },
-        c = { fg = colors.fg, bg = colors.bg },
-      },
-      insert = {
-        a = { fg = colors.bg, bg = colors.green, gui = "bold" },
-        b = { fg = colors.fg, bg = colors.inactive_bg },
-        c = { fg = colors.fg, bg = colors.bg },
-      },
-      visual = {
-        a = { fg = colors.bg, bg = colors.violet, gui = "bold" },
-        b = { fg = colors.fg, bg = colors.inactive_bg },
-        c = { fg = colors.fg, bg = colors.bg },
-      },
-      command = {
-        a = { fg = colors.bg, bg = colors.yellow, gui = "bold" },
-        b = { fg = colors.fg, bg = colors.inactive_bg },
-        c = { fg = colors.fg, bg = colors.bg },
-      },
-      replace = {
-        a = { fg = colors.bg, bg = colors.red, gui = "bold" },
-        b = { fg = colors.fg, bg = colors.inactive_bg },
-        c = { fg = colors.fg, bg = colors.bg },
-      },
-      inactive = {
-        a = { fg = colors.bg, bg = colors.inactive_bg, gui = "bold" },
-        b = { fg = colors.fg, bg = colors.inactive_bg },
-        c = { fg = colors.fg, bg = colors.inactive_bg },
-      },
-    }
-
     lualine.setup({
       options = {
-        -- theme  = 'powerline',
-        theme = 'edge',
-        -- theme = lualine_theme,
-        -- section_separators = '',
-        -- component_separators = '',
+        theme = "auto",
       },
       sections = {
         lualine_c = {},
         lualine_x = {
           {
+            function()
+              local msg = "No LSP"
+              local buf_ft = vim.api.nvim_get_option_value("filetype", { buf = 0 })
+              local clients = vim.lsp.get_clients()
+              if next(clients) == nil then
+                return msg
+              end
+              for _, client in ipairs(clients) do
+                local filetypes = client.config.filetypes
+                if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+                  return client.name
+                end
+              end
+              return msg
+            end,
+            icon = " LSP:",
+            color = { fg = "#ccb3b3" },
+            padding = 3,
+          },
+          {
             lazy_status.updates,
-            -- padding = { left = 1, right = 1 },
             cond = lazy_status.has_updates,
-            color = { fg = "#ff9e64" },
           },
           { "encoding" }, { "fileformat" }, { "filetype" }
         }

@@ -4,15 +4,23 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
-    { "folke/neodev.nvim",                   opts = {} },
+    {
+      "folke/lazydev.nvim",
+      ft = "lua",                                                            -- only load on lua files
+      opts = {
+        library = { { path = "luvit-meta/library", words = { "vim%.uv" } } } -- load luvit types, when vim.uv is found
+      },
+    }
   },
   config = function()
     local lspconfig = require("lspconfig")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
     local arduino_util = require("mijikhna.utils.arduino")
+    local qt = require("mijikhna.utils.qt")
 
     local capabilities = cmp_nvim_lsp.default_capabilities()
+    capabilities.workspace = { didChangeWatchedFiles = { dynamicRegistration = true } }
 
     capabilities = vim.tbl_deep_extend('force', capabilities, {
       offsetEncoding = { 'utf-16' },
@@ -21,22 +29,17 @@ return {
       },
     })
 
-    -- LSP Server Configs
+    -- LSP Servers Config
 
     -- Lua LSP: install lua lsp server; official installation guide for sumneko_l
     lspconfig.lua_ls.setup({
       capabilitie = capabilities,
-      settings = {
-        Lua = {
-          telemetry = {
-            enable = false,
-          },
-        },
-      },
+      settings = { Lua = { telemetry = { enable = false } } },
     })
 
     -- Typescript LSP: install typescript LSP (tsserver) npm install -g typescript typescript-language-server
     lspconfig.tsserver.setup({
+      capabilities = capabilities,
       -- init_options = {
       --   plugins = {
       --     {
@@ -54,11 +57,11 @@ return {
         "typescript",
         -- "vue",
       },
-      capabilities = capabilities,
     })
 
     -- Vue3 LSP
     lspconfig.volar.setup({
+      capabilities = capabilities,
       init_options = {
         vue = {
           hybridMode = false,
@@ -72,10 +75,18 @@ return {
     -- C/C++ LSP: install c/c++ LSP (clangd) apt install clangd
     lspconfig.clangd.setup({
       cmd = { 'clangd' },
-      -- offsetEncoding = "utf-16",
       offset_encoding = "utf-16",
       capabilities = capabilities,
     })
+
+    -- Java LSP:
+    --1: clone repository git clone https://github.com/eclipse/eclipse.jdt.ls.git,
+    --2: mvn clean verify -DskipTests=true
+    --3: set JDTLS_HOME to .../eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository
+    lspconfig.jdtls.setup({
+      capabilities = capabilities,
+    })
+
 
     lspconfig.cmake.setup({
       capabilities = capabilities,
@@ -161,28 +172,41 @@ return {
       },
     })
 
+    lspconfig.qmlls.setup({
+      capabilities = capabilities,
+      cmd = { qt.get_qmlls_path() }
+    })
+
     for type, icon in pairs({ Error = "", Warn = "", Hint = "", Info = " " }) do
       local hl = "DiagnosticSign" .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
     end
 
     local keymap = vim.keymap
+    keymap.set("n", "<leader>vd", ":Telescope lsp_definitions<CR>", { desc = "Go to definitions" })
+    keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definitions" })
+    keymap.set("n", "<leader>vD", ":Telescope lsp_type_definitions", { desc = "Go to declaration " })
+    keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration " })
+    keymap.set("n", "<leader>vr", ":Telescope lsp_references<CR>", { desc = "Go to references" })
+    keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Go to references" })
+    keymap.set("n", "<leader>vi", "Telescope lsp_implementations<CR>", { desc = "Go to implementations" })
+    keymap.set("n", "gI", vim.lsp.buf.implementation, { desc = "Go to implementations" })
+    keymap.set("n", "<leader>vo", ":Telescope lsp_outgoing_calls", { desc = "Show outgoing calls" })
+    keymap.set("n", "go", vim.lsp.buf.outgoing_calls, { desc = "Show outgoing calls" })
+    keymap.set("n", "<leader>vi", ":Telescope lsp_incoming_calls", { desc = "Show incoming calls" })
+    keymap.set("n", "gi", vim.lsp.buf.incoming_calls, { desc = "Show incoming calls" })
+    keymap.set("n", "<leader>va", ":Telescope quickfix<CR>", { desc = "See available code actions" })
+    keymap.set({ "n", "v" }, "ga", vim.lsp.buf.code_action, { desc = "See available code actions" })
 
-    keymap.set("n", "vd", "<cmd>Telescope lsp_definitions<CR>", { desc = "Show LSP definitions" })
-    keymap.set("n", "vD", vim.lsp.buf.declaration, { desc = "Got to declaration " })
-    keymap.set("n", "<leader>vr", ":Telescope lsp_references<CR>", { desc = "Show LSP references" })
-    keymap.set("n", "<leader>vi", "<cmd>Telescope lsp_implementations<CR>", { desc = "Show LSP implementations" })
+    keymap.set("n", "<leader>vt", ":Telescope diagnostics bufnr=0<CR>")
     keymap.set({ "n", "i" }, "<C-h>", vim.lsp.buf.signature_help, { desc = "Show signature" })
-    keymap.set("n", "<leader>vr", vim.lsp.buf.rename, { desc = "Smart Rename" })
-    keymap.set("n", "<leader>vh", vim.lsp.buf.hover)
-    keymap.set({ "n", "v" }, "<leader>va", vim.lsp.buf.code_action, { desc = "See available code actions" })
-    keymap.set("n", "<leader>gd", "<cmd>Telescope diagnostics bufnr=0<CR>")
-    keymap.set("n", "<leader>vf", vim.diagnostic.open_float)
-    keymap.set("n", "<leader>vn", vim.diagnostic.goto_prev)
-    keymap.set("n", "<leader>vp", vim.diagnostic.goto_next)
+    keymap.set("n", "gf", vim.diagnostic.open_float)
+    keymap.set("n", "gR", vim.lsp.buf.rename, { desc = "Smart Rename" })
+    keymap.set("n", "gh", vim.lsp.buf.hover)
+    keymap.set("n", "gp", vim.diagnostic.goto_prev)
+    keymap.set("n", "gn", vim.diagnostic.goto_next)
 
-    keymap.set("n", "vt", "<cmd>Telescope lsp_type_definitions<CR>", { desc = "Show LSP type definitions " })
-    keymap.set("n", "<leader>rs", ":LspRestart<CR>")
-    keymap.set("n", "<leader>vl", ":call LspLocationList")
+    keymap.set("n", "<leader>lr", ":LspRestart<CR>")
+    keymap.set("n", "<leader>ll", ":LspLocationList<CR>")
   end,
 }

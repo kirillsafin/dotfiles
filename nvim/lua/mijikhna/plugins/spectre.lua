@@ -1,5 +1,6 @@
 return {
   "nvim-pack/nvim-spectre",
+  -- "MagicDuck/grug-far", -- altrenative to nvim-spectre, uses rg
   keys = {
     {
       "<leader>ss",
@@ -17,4 +18,5 @@ return {
       { noremap = true, silent = true }
     },
   },
+  config = true
 }

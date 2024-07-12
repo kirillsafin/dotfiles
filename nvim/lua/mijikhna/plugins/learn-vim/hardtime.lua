@@ -7,6 +7,12 @@ return {
     hint = true,
     notification = true,
     allow_different_key = false,
+    disabled_keys = {
+      ["<Up>"] = { "n" },
+      ["<Down>"] = { "n" },
+      ["<Left>"] = { "n" },
+      ["<Right>"] = { "n" },
+    },
     hint_keys = { "k", "j", "^", "$", "a", "i", "d", "y", "c", "l" },
     disabled_filetypes = {
       "qf",
@@ -21,7 +27,8 @@ return {
       "undotree",
       "Trouble",
       "DiffviewFileHistory",
-      "help"
+      "help",
+      "trouble"
     }
   }
 }

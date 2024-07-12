@@ -41,3 +41,6 @@ keymap.set("n", "<leader>Y", "\"+Y", { desc = "Copy to clipboard" })
 keymap.set({ "n", "v" }, "<leader>d", "\"_d", { desc = "Delete without overwriting clipboard", noremap = true })
 
 keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Search and replace" })
+keymap.set("v", "<leader>s", [[y:s/\<<C-r><C-w>\>/.../gI<Left><Left>]], { desc = "Search and replace" })
+
+keymap.set("i", "C-i", "<Esc>ea", { desc = "Leave insert mode and move cursor to the end of the word", noremap = true })

@@ -9,8 +9,10 @@ return {
       typescript = { "eslint" },
       vue = { "eslint" },
       python = { "pylint" },
-      -- css = { "stylelint" },  -- npm install -g stylelint stylelint-config-standard-scss stylelint-config-standard postcss-lit  --> see https://stylelint.io. Create ./stylelintrc.js-> module.exports = { extends: process.env.HOME + "/.npm-packages/lib/node_modules/stylelint-config-standard" }
     }
+
+    lint.linters.pylint.cmd = 'python'
+    lint.linters.pylint.args = { '-m', 'pylint', '-f', 'json' }
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
@@ -21,7 +23,7 @@ return {
       end,
     })
 
-    vim.keymap.set("n", "<leader>l", function()
+    vim.keymap.set("n", "<leader>rl", function()
       lint.try_lint()
     end, { desc = "Trigger linting for current file" })
   end,

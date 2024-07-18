@@ -40,37 +40,24 @@ return {
     -- Typescript LSP: install typescript LSP (tsserver) npm install -g typescript typescript-language-server
     lspconfig.tsserver.setup({
       capabilities = capabilities,
-      -- init_options = {
-      --   plugins = {
-      --     {
-      --       name = "@vue/typescript-plugin",
-      --       location = os.getenv("HOME") .. ".nvm/versions/node/v20.12.0/lib/node_modules/@vue/typescript-plugin",
-      --       languages = { "javascript", "typescript", "vue" },
-      --     },
-      --   },
-      -- },
-      -- tsserver = {
-      --   path = os.getenv("HOME") .. "/.nvm/versions/node/v20.12.0/lib/node_modules/typescript/lib"
-      -- },
+      init_options = {
+        plugins = {
+          {
+            name = "@vue/typescript-plugin",
+            location = os.getenv("HOME") .. "/.nvm/versions/node/v20.12.0/lib/node_modules/@vue/language-server",
+            languages = { "vue" },
+          },
+        },
+      },
       filetypes = {
         "javascript",
         "typescript",
-        -- "vue",
+        "vue",
       },
     })
 
     -- Vue3 LSP
-    lspconfig.volar.setup({
-      capabilities = capabilities,
-      init_options = {
-        vue = {
-          hybridMode = false,
-        },
-        typescript = {
-          tsdk = os.getenv("HOME") .. "/.nvm/versions/node/v20.12.0/lib/node_modules/typescript/lib"
-        }
-      }
-    })
+    -- lspconfig.volar.setup({})
 
     -- C/C++ LSP: install c/c++ LSP (clangd) apt install clangd
     lspconfig.clangd.setup({

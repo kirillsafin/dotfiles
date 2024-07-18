@@ -11,7 +11,10 @@ return {
         "~/Downloads",
         "~/Documents",
         "~/Desktop",
+        "~/",
+        "/"
       },
+      auto_session_allowed_dirs = { "~/.dotfiles", "~/.dotfiles2" },
       cwd_change_handling        = {
         restore_upcoming_session = true,
       }

@@ -14,7 +14,8 @@ return {
         virtual_symbol_position = 'eow',
         virtual_symbol_prefix = ' ',
         virtual_symbol_suffix = '',
-        exclude_filetypes = { "lazy" }
+        exclude_filetypes = { "lazy" },
+        enable_var_usage = false,
       })
 
       -- highlight_color.turnOff()

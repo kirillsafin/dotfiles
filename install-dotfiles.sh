@@ -48,5 +48,8 @@ mkdir -p ~/prog/nvim || echo "prog/nvim  already exists"
 [ ! -f ~/.wezterm.lua ] && ln -sv ~/.dotfiles/.wezterm.lua ~/.wezterm.lua || echo "wezterm config already exists"
 
 [ ! -d ~/.config/contour ] && [ ! -f ~/.config/contour/contour.yml ] && mkdir ~/.config/contour/  && ln -sv ~/.dotfiles/.contour.yml ~/.config/contour/contour.yml || echo "contour config already exists"
+[ ! -d ~/.config/yazi/yazi.toml ] && ln -sv ~/.dotfiles/yazi/yazi.toml ~/.config/yazi/yazi.toml || echo "yazi config already exists"
+[ ! -d ~/.config/yazi/keymap.toml ] && ln -sv ~/.dotfiles/yazi/keymap.toml ~/.config/yazi/keymap.toml || echo "yazi keymap already exists"
+[ ! -d ~/.config/yazi/theme.toml ] && ln -sv ~/.dotfiles/yazi/theme.toml ~/.config/yazi/theme.toml || echo "yazi theme already exists"
 
 [ ! -f ~/.config/kitty/kitty.conf ] && ln -sv ~/.dotfiles/kitty.conf ~/.config/kitty/kitty.conf || echo "kitty config already exists"

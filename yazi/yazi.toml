@@ -1,0 +1,30 @@
+[manager]
+sort_by = "modified"
+sort_sensitive = true
+sort_reverse = true
+sort_dir_first = true
+show_symling = true
+
+scrolloff = 5
+
+[opener]
+edit = [
+  { run = 'nvim "$@"', block = true },
+]
+play = [
+  { run = 'mpv "$@"', orphan = true, for = "unix" },
+]
+open = [
+  { run = 'xdg-open "$@"', desc = "Open" },
+]
+
+[open]
+prepend_rules = [
+  { name = "*.json", use = "edit" },
+
+  # Multiple openers for a single rule
+  { name = "*.html", use = [ "open", "edit" ] },
+]
+append_rules = [
+  { name = "*", use = "my-fallback" },
+]

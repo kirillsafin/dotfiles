@@ -122,7 +122,7 @@ unsetopt extended_history
 XDG_CONFIG_HOME=$HOME/.config
 
 JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
-JDTLS_HOME=${HOME}/prog/language-servers/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/bin
+JDTLS_HOME=${HOME}/prog/lsp/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/bin
 PATH=$PATH:$JDTLS_HOME
 
 # NPM_PACKAGES="${HOME}/.npm-packages"
@@ -141,8 +141,8 @@ if [ -d $HOME/prog/vcpkg ]; then
 fi
 
 # LUA
-alias luamake=$HOME/prog/language-servers/lua-language-server/3rd/luamake/luamake
-PATH=$PATH:$HOME/prog/language-servers/lua-language-server/bin
+alias luamake=$HOME/prog/lsp/lua-language-server/3rd/luamake/luamake
+PATH=$PATH:$HOME/prog/lsp/lua-language-server/bin
 # PIPX autocompletion
 autoload -U bashcompinit
 bashcompinit
@@ -198,3 +198,5 @@ alias br="pomodoro 'break'"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+alias please="sudo"

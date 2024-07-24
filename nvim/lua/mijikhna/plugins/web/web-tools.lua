@@ -1,3 +1,6 @@
+--[[ requirements:
+-- 1: npm install -g browser-sync
+-- ]]
 return {
   "ray-x/web-tools.nvim",
   opts = {

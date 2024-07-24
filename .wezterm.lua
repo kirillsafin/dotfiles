@@ -50,7 +50,7 @@ config.font = wezterm.font_with_fallback({
 -- config.window_background_image = os.getenv("HOME") .. "/Pictures/Wallpapers/Red Velvet/red-velvet2.jpg"
 -- config.window_background_image = os.getenv("HOME") .. "/Pictures/Wallpapers/AOA/AOA6.jpg"
 -- config.window_background_image = os.getenv("HOME") .. "/Pictures/Wallpapers/AOA/AOA6.png"
-config.window_background_image = os.getenv("HOME") .. "/Pictures/Wallpapers/AOA/AOA3-scaled.png"
+config.window_background_image = os.getenv("HOME") .. "/.dotfiles/term-backgrounds/dec/BESTie.png"
 
 config.window_background_image_hsb = {
   brightness = 0.35,
@@ -70,7 +70,7 @@ config.font_size = 10.5
 
 config.hide_tab_bar_if_only_one_tab = true
 
-config.window_decorations = "RESIZE"
+config.window_decorations = "TITLE | RESIZE"
 
 -- Key bindings
 config.keys = {

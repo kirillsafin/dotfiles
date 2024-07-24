@@ -44,7 +44,7 @@ return {
         plugins = {
           {
             name = "@vue/typescript-plugin",
-            location = os.getenv("HOME") .. "/.nvm/versions/node/v20.12.0/lib/node_modules/@vue/language-server",
+            location = os.getenv("HOME") .. "/.nvm/versions/node/v20.15.1/lib/node_modules/@vue/language-server",
             languages = { "vue" },
           },
         },

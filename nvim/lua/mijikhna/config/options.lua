@@ -66,5 +66,6 @@ opt.foldlevel = 99
 
 opt.filetype = "on"
 
+opt.conceallevel = 1
 -- vim.cmd("filetype plugin on")
 -- vim.cmd("filetype indent on")

@@ -1,5 +1,25 @@
 # Contents
 
+# Prerequisites
+
+Installations:
+
+0. `apt install build-essential`
+0. `bin` folders -> `mkdir ~/bin ~/.local/bin` 
+    
+1. pix -> `apt install pipx`
+2. nvm 
+    1. `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/vX.X.X/install.sh | bash` 
+    2. `nvm install 20`
+    3. `nvm use 20`
+
+3. tmux -> `apt install tmux`
+4. install nvim
+    1. `mkdir -p ~/prog/nvim`
+    2. `curl -L -o ~/prog/nvim/nvim.appimage https://github.com/neovim/neovim/releases/download/stable/nvim.appimage`
+    3. `chmod ug+x ~/prog/nvim/nvim.appimage`
+    4. `ln -sv ~/prog/nvim/nvim.appimage ~/bin/nvim`
+
 ## nvim
 
 ### Vim General
@@ -10,15 +30,18 @@
 
 #### Color Scheme
 
-[`gruvbox-community/gruvbox`](https://github.com/gruvbox-community/gruvbox)  
-[`overcache/NeoSolarized`](https://github.com/overcache/NeoSolarized)  
-[`rose-pine/neovim`](https://github.com/rose-pine/neovim)  
-[`thedenisnikulin/vim-cyberpunk`](https://github/thedenisnikulin/vim-cyberpunk) - Cyperpunk Theme  
-[`ray-x/aurora`](https://github.com/ray-x/aurora)  
 [`Shatur/neovim-ayu`](https://github.com/Shatur/neovim-ayu)  
-[`savq/melange-nvim`](https://github.com/savq/melange-nvim)  
+[../catppuccin]()
+[../edge](..)
+    [`gruvbox-community/gruvbox`](https://github.com/gruvbox-community/gruvbox)  
 [`rebelot/kanagawa.nvim`](https://github.com/rebelot/kanagawa.nvim)  
+[`overcache/NeoSolarized`](https://github.com/overcache/NeoSolarized)  
+[../nightfox](...)
+[../onedark](...) -> LazyNvim installation fails
+[../tokoynight](..)
 
+> [!NOTE]
+> Not up-to-date
 #### LSP
 
 [`neovim/nvim-lspconfig`]('https://github.com/neovim/nvim-lspconfig')  

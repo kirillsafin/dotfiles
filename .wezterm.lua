@@ -46,28 +46,7 @@ config.font = wezterm.font_with_fallback({
     weight = "Regular",
     harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
   },
-  {
-    family = "codicon",
-    weight = "Regular",
-  },
 })
-
--- config.window_background_image = os.getenv("HOME") .. "/.dotfiles/term-backgrounds/dec/AOA3-scaled.png"
-config.window_background_image = os.getenv("HOME") .. "/.dotfiles/term-backgrounds/dec/AOA6.png"
--- config.window_background_image = os.getenv("HOME") .. "/.dotfiles/term-backgrounds/dec/BESTie.png"
--- config.window_background_image = os.getenv("HOME") .. "/.dotfiles/term-backgrounds/dec/red-velvet1.jpg"
--- config.window_background_image = os.getenv("HOME") .. "/.dotfiles/term-backgrounds/dec/red-velvet2.jpg"
--- config.window_background_image = os.getenv("HOME") .. "/.dotfiles/term-backgrounds/dec/brave_girls2.jpg"
-
-config.window_background_image_hsb = {
-  -- brightness = 0.03, -- Red Velvet2
-  -- brightness = 0.65, -- Brave Girls2,
-  brightness = 0.38, --AOA3
-  -- brightness = 0.45, -- Bestie
-  --
-  hue = 1.0,
-  saturation = 1.0,
-} -- adjust the background image
 
 -- # initial padding otherwise resizing doesn't work properly (Who knows why?)
 config.window_padding = {

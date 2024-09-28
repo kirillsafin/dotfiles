@@ -18,9 +18,7 @@ require("lazy").setup({
   { import = "plugins.colorschema" },
   { import = "plugins.dap" },
   { import = "plugins.git" },
-  { import = "plugins.learn-vim" },
   { import = "plugins.lsp" },
-  { import = "plugins.markdown" },
   { import = "plugins.test" },
   { import = "plugins.web" },
 }, {

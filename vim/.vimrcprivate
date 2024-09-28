@@ -1,17 +1,7 @@
 "PLUGINS ----------------------------- {{{
 call plug#begin('~/.vim/plugged')
-  " Color Scheme 
+  " Color Scheme
   Plug 'morhetz/gruvbox', {'do': 'cp -rf  ~/.vim/plugged/gruvbox/colors/gruvbox.vim ~/.vim/colors/' }
-  Plug 'overcache/NeoSolarized', {'do': 'cp -rf  ~/.vim/plugged/NeoSolarized/colors/NeoSolarized.vim ~/.vim/colors/' }
-  " git support
-  Plug 'airblade/vim-gitgutter'
-  " IDE Like stuff
-  Plug 'tpope/vim-commentary' " Comments (gc, gcc)
-  Plug 'tpope/vim-surround'
-
-  " Language Support
-  " Markdown
-  Plug 'plasticboy/vim-markdown'
 call plug#end()
 " }}}
 
@@ -25,17 +15,13 @@ nnoremap <CR> o<Esc>
 
 " AUTOCOMPLETION ----------------------- {{{
 filetype plugin on
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 " }}}
 
 "CONFIG ------------------------ {{{
 " Theme
 set termguicolors
 set background=dark
-colorscheme NeoSolarized
-highlight Normal ctermbg=NONE guibg=NONE
-highlight ColorColumn ctermbg=88 guibg=#757575
+colorscheme gruvbox
 
 " Status Line
 
@@ -68,7 +54,7 @@ set scrolloff=8
 set wrap
 set linebreak
 set nolist
-" Color Line 
+" Color Line
 set colorcolumn=80
 " Show partial command during typing in the last line of the screen
 set showcmd
@@ -86,7 +72,7 @@ set history=0
 set wildmenu
 set wildmode=list:longest " bash simiilar autocomplition behaviour
 " wildmenu ignore files
-set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx  
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 " Don't save backup fiels
 set nobackup
 set noswapfile
@@ -131,3 +117,7 @@ set nowritebackup
 set secure
 
 set backspace=indent,eol,start
+
+
+highlight Normal ctermbg=NONE guibg=NONE
+highlight ColorColumn ctermbg=88 guibg=#757575

@@ -91,8 +91,10 @@ local function create_eslint_and_prettier_configs()
   end
 
   vim.notify(
-    "Created .prettierrc and .eslint.config.json" ..
-    "\n" .. "Execute `npm install -D eslint eslint-config-prettier prettier",
+    "Created .prettierrc and .eslint.config.json"
+      .. "Execute: \n"
+      .. "Vanilla JS/TS: \"npm install -D eslint prettier eslint-config-prettier\"\n"
+      .. "Vue: \"npm install -D eslint prettier eslint-config-prettier eslint-plugin-vue\"",
     levels.INFO)
 end
 

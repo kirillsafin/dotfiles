@@ -1,19 +1,7 @@
 "PLUGINS ----------------------------- {{{
 call plug#begin('~/.vim/plugged')
-  " Color Scheme 
+  " Color Scheme
   Plug 'morhetz/gruvbox', {'do': 'cp -rf  ~/.vim/plugged/gruvbox/colors/gruvbox.vim ~/.vim/colors/' }
-  Plug 'overcache/NeoSolarized', {'do': 'cp -rf  ~/.vim/plugged/NeoSolarized/colors/NeoSolarized.vim ~/.vim/colors/' }
-  " git support
-  Plug 'airblade/vim-gitgutter'
-  " IDE Like stuff
-  Plug 'tpope/vim-commentary' " Comments (gc, gcc)
-  Plug 'tpope/vim-surround'
-  " Plug 'windwp/nvim-ts-autotag'
-  " Plug 'windwp/nvim-autopairs'
-  
-  " Language Support
-  " Markdown
-  Plug 'plasticboy/vim-markdown'
 call plug#end()
 " }}}
 
@@ -36,13 +24,11 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 set termguicolors
 set background=dark
 colorscheme gruvbox
-highlight Normal ctermbg=NONE guibg=NONE
-highlight ColorColumn ctermbg=88 guibg=#757575
 
 " Status Line
 
 " Emmet (not sure if works with vim)
-let g:user_emmet_install_global = 0                                  
+let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
 " Disable compatibility with vi
@@ -74,7 +60,7 @@ set scrolloff=8
 set wrap
 set linebreak
 set nolist
-" Color Line 
+" Color Line
 set colorcolumn=80
 " Show partial command during typing in the last line of the screen
 set showcmd
@@ -92,7 +78,7 @@ set history=1000
 set wildmenu
 set wildmode=list:longest " bash simiilar autocomplition behaviour
 " wildmenu ignore files
-set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx  
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 " Don't save backup fiels
 set nobackup
 set noswapfile
@@ -121,13 +107,9 @@ augroup filetype_vim
   autocmd!
   autocmd FileType vim setlocal foldmethod=marker
 augroup filetype_vim
-
-" You can split a window into sections by typing `:split` or `:vsplit`.
-" Display cursorline and cursorcolumn ONLY in active window.
-" augroup cursor_off
-"     autocmd!
-"     autocmd WinLeave * set nocursorline nocursorcolumn
-"     autocmd WinEnter * set cursorline cursorcolumn
-" augroup END
 " }}}
 set backspace=indent,eol,start
+
+
+highlight Normal ctermbg=NONE guibg=NONE
+highlight ColorColumn ctermbg=88 guibg=#757575

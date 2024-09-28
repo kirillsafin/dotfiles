@@ -1,2 +1,2 @@
-require("mijikhna.config")
-require("mijikhna.lazy")
+require("config.init")
+require("init")

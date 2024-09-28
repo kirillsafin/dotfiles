@@ -5,7 +5,9 @@
 [ ! -f '/usr/bin/zsh' ] && sudo apt install zsh -y || echo "zsh already installed"
 [ ! -d "${HOME}/.oh-my-zsh" ] && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || echo "oh-my-zsh already installed"
 # grep my theme from https://raw.githubusercontent.com/MijikHna/zeta-zsh-theme/master/zeta.zsh-theme
-[ ! -f "${HOME}/.oh-my-zsh/themes/zeta.zsh-theme" ] && curl https://raw.githubusercontent.com/MijikHna/zeta-zsh-theme/master/zeta.zsh-theme > ~/.oh-my-zsh/themes/zeta.zsh-theme || echo "zeta theme already exists"
+[ ! -d "${HOME}/.oh-my-zsh/custom/themes/powerlevel10k" ] && curl git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" || echo "powerlevel10k theme already exists"
+
+[ ! -f "${HOME}/.p10k.zsh" ] && ln -sv ~/.dotfiles/.p10k.zsh ~/.p10k.zsh
 
 # VIM, NVIM and TMUX setup
 [ ! -f ~/.tmux.conf ] && ln -sv ~/.dotfiles/.tmux.conf ~/.tmux.conf || echo "tmux.conf already set"
@@ -13,14 +15,21 @@
 # [ ! -d ~/.config/nvim ] && ln -sv ~/.dotfiles/nvim-old ~/.config/nvim || echo "nvim config already exists"
 
 [ ! -f ~/.vimrc ] && ln -sv ~/.dotfiles/vim/.vimrc ~/.vimrc || echo ".vimrc already set"
-[ ! -f ~/.viminfo ] &&  ln -sv ~/.dotfiles/vim/.vimrcprivate ~/.vimrcprivate || echo ".vimrcprivate already set"
+[ ! -f ~/.vimrcprivate ] &&  ln -sv ~/.dotfiles/vim/.vimrcprivate ~/.vimrcprivate || echo ".vimrcprivate already set"
 
 # LSP prerequisites
 # npm LSPs
 npm install -g bun typescript vscode-langservers-extracted emmet-ls @vue/language-server @vue/typescript-plugin browser-sync bash-language-server yaml-language-server
 
 # pip LSPs
-pipx install black isort cmake-language-server ninja pylint pyright tldr virtualenv
+pipx install black
+pipx install isort
+pipx install cmake-language-server
+pipx install ninja
+pipx install pylint
+pipx install pyright
+pipx install tldr
+pipx install virtualenv
 
 # SETTINGS
 # C++ settings

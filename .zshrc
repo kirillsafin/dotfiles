@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -8,15 +15,14 @@ export ZSH="${HOME}/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="agnoster"
-#ZSH_THEME="kafeitu" #gut
-#ZSH_THEME="bureau" #gut
-#ZSH_THEME="ys" #gut
-#ZSH_THEME="af-magic" #gut
-#ZSH_THEME="dogenpunk" #gut
+# ZSH_THEME="af-magic" #gut
+# ZSH_THEME="dogenpunk" #gut
 # ZSH_THEME="fino" #gut
 
-ZSH_THEME="zeta" #gut
+# ZSH_THEME="zeta" #gut
+ZSH_THEME="powerlevel10k/powerlevel10k"
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -77,7 +83,7 @@ ZSH_THEME="zeta" #gut
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
-zstyle ':omz:alpha:lib:git' async-prompt no
+# zstyle ':omz:alpha:lib:git' async-prompt no
 
 source $ZSH/oh-my-zsh.sh
 
@@ -115,7 +121,10 @@ setopt APPEND_HISTORY
 unsetopt extended_history
 
 
-#Sontiges
+#######################################################
+# The Settings
+#######################################################
+
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 [[ -f ~/.bash_aliases ]] && source $HOME/.bash_aliases
 
@@ -125,14 +134,6 @@ JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
 JDTLS_HOME=${HOME}/prog/lsp/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/bin
 PATH=$PATH:$JDTLS_HOME
 
-# NPM_PACKAGES="${HOME}/.npm-packages"
-# NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-# PATH="$NPM_PACKAGES/bin:$PATH"
-
-# Python Executable
-PIP_BIN="$HOME/.local/bin/"
-PATH=$PATH:$PIP_BIN
-
 # VCPKG
 if [ -d $HOME/prog/vcpkg ]; then
   autoload bashcompinit
@@ -140,18 +141,24 @@ if [ -d $HOME/prog/vcpkg ]; then
   source $HOME/prog/vcpkg/scripts/vcpkg_completion.zsh
 fi
 
+export VCPKG_ROOT=~/prog/vcpkg
+export PATH=$VCPKG_ROOT:$PATH
+
 # LUA
 alias luamake=$HOME/prog/lsp/lua-language-server/3rd/luamake/luamake
 PATH=$PATH:$HOME/prog/lsp/lua-language-server/bin
+
 # PIPX autocompletion
 autoload -U bashcompinit
 bashcompinit
 
-# ARDUINO
-PATH="$PATH:$HOME/prog/arduino"
+# ARDUINO LSP
+# NOTE: Maybe create links instead of adding to PATH
+PATH=$PATH:$HOME/prog/lsp/arduino
+PATH=$PATH:$HOME/prog/arduino/arduino-cli/bin
 
 # RUST/CARGO
-PATH="$PATH:$HOME/.cargo/bin"
+PATH=$PATH:$HOME/.cargo/bin
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -168,33 +175,12 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# private vim mode
+# PRIVATE VIM MODE
 export EDITOR="vim -u ~/.vimrcprivate"
+
 export TERM="wezterm"
 
-# Pomodoro
-declare -A pomo_options
-pomo_options["work"]="1"
-pomo_options["break"]="1"
-
-pomodoro () {
-  if [ -n "$1" -a -n "${pomo_options["$1"]}" ]; then
-  val=$1
-
-  notify-send -u "normal" -i "🍅" -a "Pomodoro" "Pomodoro ${val} Session started, Timer: ${pomo_options["$val"]} min"
-
-  # timer ${pomo_options["$val"]}m
-  sleep ${pomo_options["$val"]}m
-
-  notify-send -u "normal"  -i "🍅" -a "Pomodoro" -t 0 "Session Done"
-  else
-    echo "🍅 Pomodoro not started: possible option are 'work' or 'break'"
-  fi
-}
-
-alias wo="pomodoro 'work'"
-alias br="pomodoro 'break'"
-
+# NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

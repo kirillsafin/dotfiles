@@ -17,10 +17,9 @@ require("lazy").setup({
   { import = "plugins" },
   { import = "plugins.colorschema" },
   { import = "plugins.dap" },
-  { import = "plugins.git" },
+  -- { import = "plugins.git" },
   { import = "plugins.lsp" },
   { import = "plugins.test" },
-  { import = "plugins.web" },
 }, {
   change_detection = {
     notify = false,

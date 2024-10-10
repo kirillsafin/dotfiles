@@ -141,44 +141,8 @@ if [ -d $HOME/prog/vcpkg ]; then
   source $HOME/prog/vcpkg/scripts/vcpkg_completion.zsh
 fi
 
-export VCPKG_ROOT=~/prog/vcpkg
-export PATH=$VCPKG_ROOT:$PATH
-
-# LUA
-alias luamake=$HOME/prog/lsp/lua-language-server/3rd/luamake/luamake
-PATH=$PATH:$HOME/prog/lsp/lua-language-server/bin
-
-# PIPX autocompletion
-autoload -U bashcompinit
-bashcompinit
-
-# ARDUINO LSP
-# NOTE: Maybe create links instead of adding to PATH
-PATH=$PATH:$HOME/prog/lsp/arduino
-PATH=$PATH:$HOME/prog/arduino/arduino-cli/bin
-
-# RUST/CARGO
-PATH=$PATH:$HOME/.cargo/bin
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/kirill/prog/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "~/prog/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "~/prog/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="~/prog/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
 # PRIVATE VIM MODE
 export EDITOR="vim -u ~/.vimrcprivate"
-
-export TERM="wezterm"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"

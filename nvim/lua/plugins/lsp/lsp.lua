@@ -167,6 +167,16 @@ return {
       cmd = { qt.get_qmlls_path() },
     })
 
+    lspconfig.matlab_ls.setup({
+      settings = {
+        indexWorkspace = false,
+        installPath = "",
+        matlabConnectionTiming = "onStart",
+        telemetry = false,
+      },
+      single_file_support = true,
+    })
+
     for type, icon in pairs({ Error = "", Warn = "", Hint = "", Info = " " }) do
       local hl = "DiagnosticSign" .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })

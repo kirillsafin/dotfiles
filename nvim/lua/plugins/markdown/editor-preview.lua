@@ -17,4 +17,9 @@ return {
     },
     opts = {},
   },
+  {
+    "3rd/image.nvim",
+    enabled = true,
+  },
+  config = true,
 }

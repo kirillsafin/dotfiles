@@ -1,7 +1,9 @@
 return {
   "rcarriga/nvim-notify",
   config = function()
-    require('notify').setup({
+    local notify = require('notify')
+
+    notify.setup({
       stages = "fade_in_slide_out", -- Animation style (see below for details)
       on_open = nil,                -- Function called when a new window is opened, use for changing win settings/config
       on_close = nil,               -- Function called when a window is closed
@@ -22,5 +24,7 @@ return {
 
     vim.notify = require('notify')
     vim.print = require('notify')
+
+    vim.keymap.set("n", "<leader>nc", notify.dismiss, { desc = "Close Notify Popups" })
   end
 }

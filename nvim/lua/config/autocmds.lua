@@ -20,14 +20,6 @@ api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   end
 })
 
--- NOTE: if cpp/hpp file is part of an Ardunio project should be processes by arduino-language-server
--- api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
---   pattern = { "*.cpp", "*.hpp" },
---   callback = function(opts)
---     -- print(vim.inspect(opts))
---   end
--- })
---
 
 local conceallevel_markdown_group = api.nvim_create_augroup("ConcealLevelMarkdown", { clear = true })
 api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {

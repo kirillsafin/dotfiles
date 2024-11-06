@@ -3,7 +3,7 @@ return {
   priority = 1100,
   enabled = false,
   lazy = true,
-  config = function()
+  init = function()
     vim.g.edge_style = "neon"
     vim.g.airline_theme = "edge"
     vim.g.edge_better_performance = true

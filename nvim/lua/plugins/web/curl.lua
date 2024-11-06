@@ -4,11 +4,12 @@ return {
     "nvim-lua/plenary.nvim",
   },
   config = function()
-    local curl = require('curl')
+    local curl = require("curl")
 
-    curl.setup({})
+    curl.setup({
+      open_with = "tab",
+    })
 
-    vim.keymap.set("n", "<leader>cr", curl.execute_curl,
-      { noremap = true, silent = true, desc = "Run Curl under cursor" })
-  end
+    vim.keymap.set("n", "<leader>cr", curl.execute_curl, { noremap = true, desc = "Run Curl under Cursor" })
+  end,
 }

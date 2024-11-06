@@ -15,4 +15,7 @@ return {
       flash = { enabled = true },
     },
   },
+  init = function()
+    vim.cmd("colorscheme maron")
+  end,
 }

@@ -2,17 +2,18 @@ return {
   {
     "github/copilot.vim",
     enabled = true,
-    config = function()
+    init = function()
       vim.g.copilot_filetypes = { markdown = true, DressingInput = false }
       vim.g.copilot_no_tab_map = true
+    end,
+    config = function()
+      vim.cmd("Copilot disable")
 
       local keymap = vim.keymap
 
       keymap.set("i", "<C-Q>", "copilot#Accept('\\<CR>')", { expr = true, replace_keycodes = false })
       keymap.set("i", "<C-L>", "<Plug>(copilot-accept-word)")
       keymap.set("i", "<C-J>", "<Plug>(copilot-accept-line)")
-
-      vim.cmd("Copilot disable")
     end,
   },
   {
@@ -74,9 +75,9 @@ return {
             chat = true,
             command = false,
             -- string with model name or table with model name and parameters
-            model = { model = "gpt-4o", temperature = 1.1, top_p = 1 },
+            model = { model = "gpt-4o", temperature = 1.0, top_p = 1, n = 1 },
             -- system prompt (use this to specify the persona/role of the AI)
-            system_prompt = require("gp.defaults").chat_system_prompt,
+            system_prompt = "Responses should be short. Responses should be casual. Responses can have opinion. Don't provide code if not explicitly asked.",
           },
         },
         hooks = {

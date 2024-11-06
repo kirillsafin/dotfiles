@@ -3,21 +3,21 @@ local api = vim.api
 api.nvim_create_autocmd("TermOpen", {
   callback = function()
     vim.cmd("setlocal nospell")
-  end
+  end,
 })
 
 api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   pattern = { "docker-compose*.yml", "docker-compose*.yaml" },
   callback = function()
     vim.cmd("set filetype=yaml.docker-compose")
-  end
+  end,
 })
 
 api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   pattern = "*.sls",
   callback = function()
     vim.cmd("set filetype=yaml")
-  end
+  end,
 })
 
 -- NOTE: if cpp/hpp file is part of an Ardunio project should be processes by arduino-language-server
@@ -35,5 +35,5 @@ api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   pattern = "*.md",
   callback = function()
     vim.cmd("setlocal conceallevel=1")
-  end
+  end,
 })

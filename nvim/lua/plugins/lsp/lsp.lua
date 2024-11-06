@@ -61,7 +61,7 @@ return {
 
     -- C/C++ LSP: install c/c++ LSP (clangd) apt install clangd
     lspconfig.clangd.setup({
-      cmd = { "clangd" },
+      cmd = { "clangd", "-completion-style=detailed" },
       offset_encoding = "utf-16",
       capabilities = capabilities,
     })

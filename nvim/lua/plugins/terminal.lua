@@ -1,15 +1,84 @@
 return {
-  "numToStr/FTerm.nvim",
-  event = "VeryLazy",
-  config = function()
-    local f_term = require("FTerm")
-    f_term.setup({})
-    local keymap = vim.keymap
-
-    keymap.set("n", "<leader>jj", f_term.toggle, { desc = "Toggle terminal", silent = true })
-    keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, desc = "Exit terminal mode" })
-    keymap.set("n", "<leader>jo", f_term.open, { noremap = true, desc = "Exit terminal mode" })
-    keymap.set("n", "<leader>jc", f_term.close, { noremap = true, desc = "Exit terminal mode" })
-    keymap.set("n", "<leader>je", f_term.exit, { noremap = true, desc = "Exit terminal mode" })
-  end
+  {
+    "numToStr/FTerm.nvim",
+    event = "VeryLazy",
+    config = true,
+    enabled = false,
+    keys = {
+      { "<Esc>", "<C-\\><C-n>", mode = "n", noremap = true, desc = "Exit terminal mode" },
+      {
+        "<leader>jjf",
+        function()
+          require("FTerm").toggle()
+        end,
+        mode = "n",
+        desc = "Toggle terminal",
+        silent = true,
+      },
+      {
+        "<leader>jo",
+        function()
+          require("FTerm").open()
+        end,
+        mode = "n",
+        noremap = true,
+        desc = "Exit terminal mode",
+      },
+      {
+        "<leader>jc",
+        function()
+          require("FTerm").close()
+        end,
+        mode = "n",
+        noremap = true,
+        desc = "Exit terminal mode",
+      },
+      {
+        "<leader>je",
+        function()
+          require("FTerm").exit()
+        end,
+        mode = "n",
+        noremap = true,
+        desc = "Exit terminal mode",
+      },
+    },
+  },
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    enabled = true,
+    opts = {},
+    keys = {
+      { "<Esc>", "<C-\\><C-n>", mode = "t", noremap = true, desc = "Exit terminal mode" },
+      {
+        "<leader>jjt",
+        "<cmd>ToggleTerm direction=vertical size=80<CR>",
+        mode = "n",
+        desc = "Toggle terminal (vertical)",
+        silent = true,
+      },
+      {
+        "<leader>jjr",
+        "<cmd>ToggleTerm size=20 direction=horizontal<CR>",
+        mode = "n",
+        desc = "Toggle terminal (horizontal)",
+        silent = true,
+      },
+      {
+        "<leader>jje",
+        "<cmd>ToggleTerm direction=float<CR>",
+        mode = "n",
+        desc = "Toggle terminal (float)",
+        silent = true,
+      },
+      {
+        "<leader>jjw",
+        "<cmd>ToggleTerm direction=tab<CR>",
+        mode = "n",
+        desc = "Toggle terminal (tab)",
+        silent = true,
+      },
+    },
+  },
 }

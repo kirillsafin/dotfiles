@@ -2,7 +2,7 @@ return {
   "navarasu/onedark.nvim",
   lazy = false,
   priority = 1000,
-  enabled = true,
+  enabled = false,
   opts = {
     style = "darker", -- Choose between 'darker', 'deep', 'warmer'
     transparent = true,

@@ -14,12 +14,16 @@ return {
       },
       {
         name = "cheat-sheets",
-        path = os.getenv("OBSIDIAN_VAULTS") .. "/CheatSheets"
+        path = os.getenv("OBSIDIAN_VAULTS") .. "/CheatSheets",
       },
       {
         name = "knowledge-base",
         path = os.getenv("OBSIDIAN_VAULTS") .. "/KnowledgeBase",
-      }
+      },
+      {
+        name = "wiederholen",
+        path = os.getenv("OBSIDIAN_VAULTS") .. "/Wiederholen",
+      },
     },
     mappings = {
       -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
@@ -41,5 +45,4 @@ return {
       img_folder = "$assets/images",
     },
   },
-
 }

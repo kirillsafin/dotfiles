@@ -34,7 +34,7 @@ opt.smartcase = true
 opt.inccommand = "split"
 
 opt.cursorline = false
-opt.scrolloff = 10
+-- opt.scrolloff = 999
 opt.colorcolumn = "80"
 
 opt.history = 250

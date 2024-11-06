@@ -13,24 +13,19 @@ return {
         html = { "prettier" },
         json = { "prettier" },
         yaml = { "prettier" },
-        -- markdown = { "prettier" },
         python = { "isort", "black" },
         c = { "clang-format" },
         cpp = { "clang-format" },
+        markdown = { "prettier" },
         lua = { "stylua" },
       },
-      -- format_on_save = {
-      --   lsp_fallback = true,
-      --   async = false,
-      --   timeout_ms = 1000,
-      -- },
     })
 
     vim.keymap.set({ "n", "v" }, "<leader>mp", function()
       conform.format({
         lsp_fallback = true,
         async = false,
-        timeout_ms = 700
+        timeout_ms = 700,
       })
     end, { desc = "Format file or range (in visual mode)" })
 

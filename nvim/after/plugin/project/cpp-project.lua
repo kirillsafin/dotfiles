@@ -60,7 +60,6 @@ local function write_to_makefile(project_name)
   makefile:write("clean:\n")
   makefile:write("\trm -rf build\n\n")
 
-
   makefile:write("setup-debug:\n")
   makefile:write("\tcmake -S . -DCMAKE_BUILD_TYPE:STRING=Debug -B ./build \n\n")
 
@@ -81,7 +80,7 @@ local function write_to_vcpkg_json(project_name)
   local vcpkg_obj = {
     name = project_name,
     version = "0.1.0",
-    dependencies = {}
+    dependencies = {},
   }
 
   vcpkg_json:write(vim.json.encode(vcpkg_obj))
@@ -141,6 +140,7 @@ local function create_cpp_project()
   --  └── .clang-format
   --]]
   local dotfiles_path = Path:new(os.getenv("HOME"))
+  vim.inspect(dotfiles_path)
   local cpp_project_path = Path:new(".")
   local cpp_project_splitted_path = vim.split(cpp_project_path:absolute(), "/")
   local cpp_project_name = cpp_project_splitted_path[#cpp_project_splitted_path]
@@ -160,7 +160,9 @@ local function create_cpp_project()
   vim.uv.fs_mkdir(cpp_project_path:absolute() .. "/src", 511)
   vim.uv.fs_mkdir(cpp_project_path:absolute() .. "/test", 511)
 
-  vim.uv.fs_copyfile(dotfiles_path .. "/.clang-format", cpp_project_path:absolute() .. "/.clang-format")
+  vim.uv.fs_copyfile(dotfiles_path .. "/.clang-format", cpp_project_path:absolute() .. "/presets/.clang-format")
+  vim.uv.fs_copyfile(dotfiles_path .. "/CMakePresets.json", cpp_project_path:absolute() .. "/presets/CMakePresets.json")
+  vim.uv.fs_copyfile(dotfiles_path .. "/.clangd", cpp_project_path:absolute() .. "/presets/.clangd")
 
   -- write to files
   --.gitingore
@@ -179,4 +181,13 @@ local function create_cpp_project()
   vim.cmd("NvimTreeRefresh")
 end
 
+local function copy_cmake_presets_and_clang_format()
+  local dotfiles_dir = os.getenv("HOME") .. "/.dotfiles"
+
+  vim.uv.fs_copyfile(dotfiles_dir .. "/.clang-format", vim.fn.getcwd() .. "/presets/.clang-format")
+  vim.uv.fs_copyfile(dotfiles_dir .. "/CMakePresets.json", vim.fn.getcwd() .. "/presets/CMakePresets.json")
+  vim.uv.fs_copyfile(dotfiles_dir .. "/.clangd", vim.fn.getcwd() .. "/presets/.clangd")
+end
+
 api.nvim_create_user_command("CreateCppProject", create_cpp_project, {})
+api.nvim_create_user_command("CreateCMakePresetsAndClangFormat", copy_cmake_presets_and_clang_format, {})

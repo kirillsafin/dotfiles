@@ -16,10 +16,10 @@ return {
         "/media/" .. os.getenv("ME") .. "/WindowsD/vaults/*",
         "/media/" .. os.getenv("ME") .. "/WindowsD/Coding/Hands-On/Js-And-Ts/Projects/*",
         "/media/" .. os.getenv("ME") .. "/WindowsD/Coding/Hands-On/Python/*",
+        "/media/" .. os.getenv("ME") .. "/Desktop/EDA/Code/Training/*",
+        "/media/" .. os.getenv("ME") .. "/Desktop/EDA/Code/Crescendo-Player",
       },
-      cwd_change_handling = {
-        restore_upcoming_session = true,
-      },
+      cwd_change_handling = true,
     })
   end,
 }

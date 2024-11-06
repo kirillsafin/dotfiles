@@ -1,9 +1,8 @@
 return {
   "sainnhe/edge",
-  priority = 1100,
+  lazy = false,
   enabled = false,
-  lazy = true,
-  config = function()
+  init = function()
     vim.g.edge_style = "neon"
     vim.g.airline_theme = "edge"
     vim.g.edge_better_performance = true
@@ -14,5 +13,5 @@ return {
     vim.g.edge_float_style = "bright"
 
     vim.cmd("colorscheme edge")
-  end
+  end,
 }

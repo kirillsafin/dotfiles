@@ -22,6 +22,7 @@ return {
         "jsdoc",
         "json",
         "json5",
+        "latex",
         "lua",
         "make",
         "markdown",
@@ -85,6 +86,15 @@ return {
     local opt = vim.opt
     opt.foldmethod = "expr"
     opt.foldexpr = "nvim_treesitter#foldexpr()"
+
+    local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
+    parser_config.latex = {
+      install_info = {
+        url = "~/prog/tree-sitter/tree-sitter-latex",
+        files = { "src/parser.c" },
+      },
+    }
 
     -- save and restore folds
     local fold_augroup = vim.api.nvim_create_augroup("fold", { clear = true })

@@ -17,5 +17,5 @@ return {
       TRASH = { icon = " ", color = "info", alt = { "DELETE", "REMOVE", "DISP", "DISPENSABLE" } },
       WHY = { icon = " ", color = "warning", alt = { "HELP", "QUESTION" } },
     },
-  }
+  },
 }

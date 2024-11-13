@@ -4,13 +4,13 @@ return {
     {
       "<leader>gh",
       ":DiffviewOpen<CR>",
-      { noremap = true, silent = true }
+      { noremap = true, silent = true },
     },
     {
       "<leader>gc",
       ":DiffviewClose<CR>",
-      { noremap = true, silent = true }
+      { noremap = true, silent = true },
     },
   },
-  opts = {}
+  opts = {},
 }

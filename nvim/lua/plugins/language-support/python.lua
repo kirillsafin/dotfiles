@@ -4,11 +4,13 @@ return {
     -- proper presentation of notebook
     {
       "GCBallesteros/jupytext.nvim",
+      enabled = false,
       config = true,
     },
     -- execute cells
     {
       "Vigemus/iron.nvim",
+      enabled = false,
       config = function()
         local iron = require("iron.core")
         iron.setup({
@@ -25,7 +27,7 @@ return {
             },
             -- How the repl window will be displayed
             -- See below for more information
-            repl_open_cmd = require('iron.view').split.vertical.botright(50)
+            repl_open_cmd = require("iron.view").split.vertical.botright(50),
           },
           -- Iron doesn't set keymaps by default anymore.
           -- You can set them here or manually add keymaps to the functions in iron.core
@@ -48,7 +50,7 @@ return {
           -- If the highlight is on, you can change how it looks
           -- For the available options, check nvim_set_hl
           highlight = {
-            italic = true
+            italic = true,
           },
           ignore_blank_lines = true, -- ignore blank lines when sending visual select lines
         })
@@ -67,10 +69,11 @@ return {
     -- actually just for more similar notebook navigation
     {
       "GCBallesteros/vim-textobj-hydrogen",
+      enabled = false,
       dependencies = {
         "kana/vim-textobj-user",
-      }
-    }
+      },
+    },
   },
   -- {
   --   "luk400/vim-jukit"

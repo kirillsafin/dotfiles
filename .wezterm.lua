@@ -54,14 +54,14 @@ config.font = wezterm.font_with_fallback({
 
 -- config.window_background_image = os.getenv("HOME") .. "/.dotfiles/term-backgrounds/dec/AOA3-scaled.png"
 -- config.window_background_image_hsb = { brightness = 0.72 }
-config.window_background_image = os.getenv("HOME") .. "/.dotfiles/term-backgrounds/dec/AOA6.png"
-config.window_background_image_hsb = { brightness = 0.34 }
+-- config.window_background_image = os.getenv("HOME") .. "/.dotfiles/term-backgrounds/dec/AOA6.png"
+-- config.window_background_image_hsb = { brightness = 0.23 }
 -- config.window_background_image = os.getenv("HOME") .. "/.dotfiles/term-backgrounds/dec/BESTie.png"
 -- config.window_background_image_hsb = { brightness = 0.36 }
 -- config.window_background_image = os.getenv("HOME") .. "/.dotfiles/term-backgrounds/dec/red-velvet1.jpg"
 -- config.window_background_image_hsb = { brightness = 0.027 }
--- config.window_background_image = os.getenv("HOME") .. "/.dotfiles/term-backgrounds/dec/red-velvet2.jpg"
--- config.window_background_image_hsb = { brightness = 0.022 }
+config.window_background_image = os.getenv("HOME") .. "/.dotfiles/term-backgrounds/dec/red-velvet2.jpg"
+config.window_background_image_hsb = { brightness = 0.028 }
 -- config.window_background_image = os.getenv("HOME") .. "/.dotfiles/term-backgrounds/dec/sunmi1.png"
 -- config.window_background_image_hsb = { brightness = 0.31 }
 -- config.window_background_image = os.getenv("HOME") .. "/.dotfiles/term-backgrounds/dec/sunmi2.png"

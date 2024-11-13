@@ -1,9 +1,10 @@
 return {
   "kristijanhusak/vim-dadbod-ui",
+  enabled = true,
   dependencies = {
-    { "tpope/vim-dadbod",                     lazy = true },
+    { "tpope/vim-dadbod", lazy = true },
     { "kristijanhusak/vim-dadbod-completion", lazy = true },
-    { "hrsh7th/nvim-cmp" }
+    { "hrsh7th/nvim-cmp" },
   },
 
   config = function()
@@ -13,7 +14,7 @@ return {
       sources = {
         { name = "vim-dadbod-completion" },
         { name = "buffer" },
-      }
+      },
     })
   end,
 }

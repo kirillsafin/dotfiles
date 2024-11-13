@@ -16,7 +16,8 @@
         "CMAKE_EXPORT_COMPILE_COMMANDS": true,
         "CMAKE_COLOR_DIAGNOSTICS": true,
         "CMAKE_WARNINGS_ARE_ERRORS": true,
-        "CMAKE_PREFIX_PATH": "~/prog/Qt/6.8.0/gcc_64"
+        "CMAKE_PREFIX_PATH": "~/prog/Qt/6.8.0/gcc_64",
+        "CMAKE_BUILD_TYPE": "Debug"
       }
     },
     {

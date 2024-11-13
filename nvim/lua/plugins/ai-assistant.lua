@@ -112,6 +112,33 @@ return {
             local agent = gp.get_chat_agent()
             gp.Prompt(params, gp.Target.enew("markdown"), agent, template)
           end,
+          -- TODO: grab a selection find Diagnostics in there and ask the question providing better context
+          FixDiagnostics = function(gp, params)
+            print()
+            local current_cursor_line = vim.api.nvim_win_get_cursor(0)[1] - 1
+            local lsp_diagnostics_errors = vim.diagnostic.get(0, { lnum = current_cursor_line })
+
+            if #lsp_diagnostics_errors > 0 then
+              local lsp_diagnostics_message = ""
+              for _, lsp_diagnostics_error in ipairs(lsp_diagnostics_errors) do
+                lsp_diagnostics_message = lsp_diagnostics_error.message
+                if lsp_diagnostics_error.severity == 1 then
+                  break
+                end
+              end
+              local template = "Please explain and fix following error: `"
+                .. lsp_diagnostics_message
+                .. "`"
+                .. " in following code\n\n"
+                .. "```{{filetype}}\n{{selection}}```"
+                .. "Please also print out thsi question."
+              local agent = gp.get_chat_agent()
+              print(template)
+              gp.Prompt(params, gp.Target.popup("markdown"), agent, template)
+            else
+              print("No diagnostics on this line.")
+            end
+          end,
         },
       }
 

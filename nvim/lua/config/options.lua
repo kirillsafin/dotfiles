@@ -34,7 +34,7 @@ opt.smartcase = true
 opt.inccommand = "split"
 
 opt.cursorline = false
--- opt.scrolloff = 999
+opt.scrolloff = 20
 opt.colorcolumn = "80"
 
 opt.history = 250
@@ -67,5 +67,5 @@ opt.foldlevel = 99
 opt.filetype = "on"
 
 opt.conceallevel = 0
--- vim.cmd("filetype plugin on")
--- vim.cmd("filetype indent on")
+
+vim.o.sessionoptions = "blank,buffers,curdir,tabpages,winsize,winpos,terminal,localoptions"

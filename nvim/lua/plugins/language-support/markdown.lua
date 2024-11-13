@@ -22,7 +22,7 @@ return {
   },
   {
     "3rd/diagram.nvim",
-    enabled = true,
+    enabled = false,
     dependencies = {
       "3rd/image.nvim",
     },
@@ -32,7 +32,7 @@ return {
         mermaid = {
           background = '"#AAAAAA"',
           theme = "dark",
-          scale = 1.5,
+          scale = 3,
         },
       },
     },

@@ -3,7 +3,7 @@ return {
   enabled = true,
   opts = {
     max_time = 1000,
-    max_count = 7,
+    max_count = 12,
     disable_mouse = false,
     hint = true,
     notification = true,
@@ -29,7 +29,7 @@ return {
       "Trouble",
       "DiffviewFileHistory",
       "help",
-      "trouble"
-    }
-  }
+      "trouble",
+    },
+  },
 }

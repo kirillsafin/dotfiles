@@ -1,6 +1,7 @@
 local keymap = vim.keymap
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 
 keymap.set("n", "<leader><CR>", "o<ESC>", { desc = "Add new line in normal mode" })
 keymap.set("n", "<leader>nh", ":nohlsearch<CR>", { desc = "Clear search highlights" })
@@ -38,8 +39,8 @@ keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "Copy to clipboard" })
 keymap.set("n", "<leader>Y", '"+Y', { desc = "Copy to clipboard" })
 
 -- replace
-keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Search and replace" })
-keymap.set("v", "<leader>s", [[y:s/\<<C-r><C-w>\>/.../gI<Left><Left>]], { desc = "Search and replace" })
+keymap.set("n", "<leader>ss", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Search and replace" })
+keymap.set("v", "<leader>ss", [[y:s/\<<C-r><C-w>\>/.../gI<Left><Left>]], { desc = "Search and replace" })
 
 keymap.set("i", "C-i", "<Esc>ea", { desc = "Leave insert mode and move cursor to the end of the word", noremap = true })
 

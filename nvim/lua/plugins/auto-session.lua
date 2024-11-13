@@ -1,10 +1,8 @@
 return {
   "rmagatti/auto-session",
+  enabled = true,
   config = function()
     local auto_session = require("auto-session")
-
-    vim.o.sessionoptions = "blank,buffers,curdir,folds,tabpages,winsize,winpos,terminal,localoptions"
-    vim.o.sessionoptions = "blank,buffers,curdir,tabpages,winsize,winpos,terminal,localoptions"
 
     auto_session.setup({
       log_level = "error",
@@ -16,8 +14,8 @@ return {
         "/media/" .. os.getenv("ME") .. "/WindowsD/vaults/*",
         "/media/" .. os.getenv("ME") .. "/WindowsD/Coding/Hands-On/Js-And-Ts/Projects/*",
         "/media/" .. os.getenv("ME") .. "/WindowsD/Coding/Hands-On/Python/*",
-        "/media/" .. os.getenv("ME") .. "/Desktop/EDA/Code/Training/*",
-        "/media/" .. os.getenv("ME") .. "/Desktop/EDA/Code/Crescendo-Player",
+        os.getenv("HOME") .. "/Desktop/EDA/Code/Training/*",
+        os.getenv("HOME") .. "/Desktop/EDA/Code/Crescendo-Player",
       },
       cwd_change_handling = true,
     })

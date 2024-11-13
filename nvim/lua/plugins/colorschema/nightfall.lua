@@ -4,7 +4,7 @@ return {
   priority = 1000,
   enabled = false,
   opts = {
-    transparent = true,
+    transparent = false,
     default_integrations = true,
     integrations = {
       lazy = { enabled = true },

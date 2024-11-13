@@ -5,17 +5,17 @@ return {
   lazy = true,
   opts = {
     options = {
-      transparent = true,      -- Disable setting background
-      terminal_colors = true,  -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
-      dim_inactive = false,    -- Non focused panes set to alternative background
-      module_default = true,   -- Default enable value for modules
+      transparent = false, -- Disable setting background
+      terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
+      dim_inactive = false, -- Non focused panes set to alternative background
+      module_default = true, -- Default enable value for modules
       colorblind = {
-        enable = false,        -- Enable colorblind support
+        enable = false, -- Enable colorblind support
         simulate_only = false, -- Only show simulated colorblind colors and not diff shifted
         severity = {
-          protan = 1,          -- Severity [0,1] for protan (red)
-          deutan = 1,          -- Severity [0,1] for deutan (green)
-          tritan = 1,          -- Severity [0,1] for tritan (blue)
+          protan = 1, -- Severity [0,1] for protan (red)
+          deutan = 1, -- Severity [0,1] for deutan (green)
+          tritan = 1, -- Severity [0,1] for tritan (blue)
         },
       },
       inverse = { -- Inverse highlight for different types
@@ -38,5 +38,5 @@ return {
 
     local directory = vim.api.nvim_get_hl(0, { name = "NvimTreeFolderName" })
     vim.api.nvim_set_hl(0, "NvimTreeFolderName", vim.tbl_deep_extend("force", {}, directory, { bold = true }))
-  end
+  end,
 }

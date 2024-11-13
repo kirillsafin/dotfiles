@@ -1,17 +1,17 @@
 return {
   "folke/tokyonight.nvim",
-  lazy     = true,
+  lazy = true,
   priority = 1000,
-  enabled  = false,
-  opts     = {
+  enabled = false,
+  opts = {
     style = "storm",
-    transparent = true,
+    transparent = false,
     styles = {
       comments = "italic",
       floats = "dark",
     },
   },
-  init     = function()
+  init = function()
     vim.cmd("colorscheme tokyonight")
-  end
+  end,
 }

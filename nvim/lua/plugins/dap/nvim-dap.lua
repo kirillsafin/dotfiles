@@ -58,7 +58,7 @@ return {
         port = "${port}",
         executable = {
           command = "node",
-          args = { os.getenv("HOME") .. "/prog/debug-servers/vscode-js-debug/src/dapDebugServer.js", "${port}" },
+          args = { os.getenv("HOME") .. "/prog/debugger/vscode-js-debug/src/dapDebugServer.js", "${port}" },
         },
       }
     end
@@ -146,14 +146,18 @@ return {
     keymap.set("n", "<leader>dut", dapui.toggle, { desc = "Toggle UI", noremap = true })
 
     vim.api.nvim_set_hl(0, "DapBreakpoint", { ctermbg = 0, fg = "#D00000" })
-    vim.api.nvim_set_hl(0, "DapLogPoint", { ctermbg = 0, fg = "#61afef", bg = "#31353f" })
-    vim.api.nvim_set_hl(0, "DapStopped", { ctermbg = 0, fg = "#98c379", bg = "#31353f" })
+    vim.api.nvim_set_hl(0, "DapBreakpointCondition", { ctermbg = 0, fg = "#61afef" })
+    vim.api.nvim_set_hl(0, "DapLogPoint", { ctermbg = 0, fg = "#61afef" })
+    vim.api.nvim_set_hl(0, "DapStopped", { ctermbg = 0, fg = "#7ce146" })
+    vim.api.nvim_set_hl(0, "DapDisabled", { ctermbg = 0, fg = "#707070" })
+    vim.api.nvim_set_hl(0, "DapBreakpointRejected", { ctermbg = 0, fg = "#707070" })
 
     vim.fn.sign_define("DapBreakpoint", { text = " ", texthl = "DapBreakpoint" })
     vim.fn.sign_define("DapBreakpointCondition", { text = " ", texthl = "DapBreakpoint" })
-    vim.fn.sign_define("DapBreakpointRejected", { text = " ", texthl = "DapBreakpoint" })
     vim.fn.sign_define("DapLogPoint", { text = " ", texthl = "DapLogPoint" })
-    vim.fn.sign_define("DapStopped", { text = " ", texthl = "DapStopped" })
+    vim.fn.sign_define("DapStopped", { text = " 󰁕", texthl = "DapStopped" })
     vim.fn.sign_define("DapDisabled", { text = " ", texthl = "DapBreakpoint" })
+    vim.fn.sign_define("DapBreakpointRejected", { text = " ", texthl = "DapBreakpoint" })
+    vim.fn.sign_define("DapStoppedLine", { text = " 󰁕", texthl = "DapStoppedLine" })
   end,
 }

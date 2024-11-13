@@ -5,9 +5,9 @@ return {
   enabled = true,
   opts = {
     style = "darker", -- Choose between 'darker', 'deep', 'warmer'
-    transparent = true,
+    transparent = false,
     lualine = {
-      transparent = true, -- lualine center bar transparency
+      transparent = false, -- lualine center bar transparency
     },
     colors = {}, -- Override default colors
     highlights = {

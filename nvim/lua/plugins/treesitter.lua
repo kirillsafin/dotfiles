@@ -87,12 +87,26 @@ return {
     opt.foldexpr = "nvim_treesitter#foldexpr()"
 
     -- save and restore folds
-    local fold_augroup = vim.api.nvim_create_augroup("fold", { clear = true })
+    local function is_not_fold_buffer()
+      return vim.api.nvim_buf_get_name(0) == ""
+        or vim.bo.filetype == "toggleterm"
+        or vim.bo.filetype == "NvimTree"
+        or vim.bo.filetype == "dapui_console"
+        or vim.bo.filetype == "dapui_scopes"
+        or vim.bo.filetype == "dapui_breakpoints"
+        or vim.bo.filetype == "dapui_stacks"
+        or vim.bo.filetype == "dapui-repl"
+        or vim.bo.filetype == ""
+    end
+    local fold_augroup = vim.api.nvim_create_augroup("Folds", { clear = true })
 
     vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
       group = fold_augroup,
-      pattern = "?*",
+      pattern = "*",
       callback = function()
+        if is_not_fold_buffer() then
+          return
+        end
         vim.cmd("mkview")
       end,
     })
@@ -101,7 +115,10 @@ return {
       group = fold_augroup,
       pattern = "?*",
       callback = function()
-        vim.cmd("silent! loadview")
+        if is_not_fold_buffer() then
+          return
+        end
+        vim.cmd("loadview")
       end,
     })
 

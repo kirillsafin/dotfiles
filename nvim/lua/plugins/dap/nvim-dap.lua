@@ -1,5 +1,6 @@
 return {
   "mfussenegger/nvim-dap",
+  event = "VeryLazy",
   dependencies = {
     "rcarriga/cmp-dap",
     "nvim-neotest/nvim-nio",

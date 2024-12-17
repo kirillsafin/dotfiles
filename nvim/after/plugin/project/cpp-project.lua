@@ -60,7 +60,6 @@ local function write_to_makefile(project_name)
   makefile:write("clean:\n")
   makefile:write("\trm -rf build\n\n")
 
-
   makefile:write("setup-debug:\n")
   makefile:write("\tcmake -S . -DCMAKE_BUILD_TYPE:STRING=Debug -B ./build \n\n")
 
@@ -81,7 +80,7 @@ local function write_to_vcpkg_json(project_name)
   local vcpkg_obj = {
     name = project_name,
     version = "0.1.0",
-    dependencies = {}
+    dependencies = {},
   }
 
   vcpkg_json:write(vim.json.encode(vcpkg_obj))
@@ -124,6 +123,14 @@ local function write_to_main_cpp()
   main_cpp:close()
 end
 
+local function copy_cmake_presets_and_clang_format()
+  local dotfiles_dir = os.getenv("HOME") .. "/.dotfiles"
+
+  vim.uv.fs_copyfile(dotfiles_dir .. "/presets/.clang-format", vim.fn.getcwd() .. "/.clang-format")
+  vim.uv.fs_copyfile(dotfiles_dir .. "/presets/CMakePresets.json", vim.fn.getcwd() .. "/CMakePresets.json")
+  vim.uv.fs_copyfile(dotfiles_dir .. "/presets/.clangd", vim.fn.getcwd() .. "/.clangd")
+end
+
 local function create_cpp_project()
   --[[
   --  ROOT/
@@ -140,7 +147,7 @@ local function create_cpp_project()
   --  ├── vcpkg.json
   --  └── .clang-format
   --]]
-  local dotfiles_path = Path:new(os.getenv("HOME"))
+  local dotfiles_path = Path:new(os.getenv("HOME") .. "../.dotfiles")
   local cpp_project_path = Path:new(".")
   local cpp_project_splitted_path = vim.split(cpp_project_path:absolute(), "/")
   local cpp_project_name = cpp_project_splitted_path[#cpp_project_splitted_path]
@@ -160,7 +167,9 @@ local function create_cpp_project()
   vim.uv.fs_mkdir(cpp_project_path:absolute() .. "/src", 511)
   vim.uv.fs_mkdir(cpp_project_path:absolute() .. "/test", 511)
 
-  vim.uv.fs_copyfile(dotfiles_path .. "/.clang-format", cpp_project_path:absolute() .. "/.clang-format")
+  vim.uv.fs_copyfile(dotfiles_path .. "/presets/.clang-format", cpp_project_path:absolute() .. "/.clang-format")
+  vim.uv.fs_copyfile(dotfiles_path .. "/presets/CMakePresets.json", cpp_project_path:absolute() .. "/CMakePresets.json")
+  vim.uv.fs_copyfile(dotfiles_path .. "/presets/.clangd", cpp_project_path:absolute() .. "/.clangd")
 
   -- write to files
   --.gitingore
@@ -175,6 +184,8 @@ local function create_cpp_project()
   write_to_readme_md(cpp_project_name)
   -- main.cpp
   write_to_main_cpp()
+
+  copy_cmake_presets_and_clang_format()
 
   vim.cmd("NvimTreeRefresh")
 end

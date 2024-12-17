@@ -16,7 +16,7 @@ return {
         lualine_x = {
           {
             function()
-              local msg = "No LSP"
+              local msg = "No LSP Attached"
               local buf_ft = vim.api.nvim_get_option_value("filetype", { buf = 0 })
               local clients = vim.lsp.get_clients()
               if next(clients) == nil then
@@ -30,7 +30,7 @@ return {
               end
               return msg
             end,
-            icon = " LSP:",
+            icon = "",
             color = { fg = "#ccb3b3" },
             padding = 3,
           },
@@ -38,9 +38,11 @@ return {
             lazy_status.updates,
             cond = lazy_status.has_updates,
           },
-          { "encoding" }, { "fileformat" }, { "filetype" }
-        }
-      }
+          { "encoding" },
+          { "fileformat" },
+          { "filetype" },
+        },
+      },
     })
-  end
+  end,
 }

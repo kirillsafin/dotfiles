@@ -16,9 +16,6 @@ return {
     local lspconfig = require("lspconfig")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-    local arduino_util = require("utils.arduino")
-    local qt = require("utils.qt")
-
     local capabilities = cmp_nvim_lsp.default_capabilities()
     capabilities.workspace = { didChangeWatchedFiles = { dynamicRegistration = true } }
 
@@ -45,6 +42,17 @@ return {
     lspconfig.pyright.setup({
       cmd = { "pyright-langserver", "--stdio" },
       capabilities = capabilities,
+      flags = { debounce_text_changes = 300 },
+      root_dir = lspconfig.util.root_pattern("pyproject.toml", "pyrightconfig.json"),
+      settings = {
+        python = {
+          analysis = {
+            diagnosticMode = "openFilesOnly", -- Only analyze files that are open
+            autoSearchPaths = true,
+            useLibraryCodeForTypes = true,
+          },
+        },
+      },
     })
 
     -- Bash LSP npm install -g bash-language-server

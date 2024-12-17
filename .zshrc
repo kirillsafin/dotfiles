@@ -118,6 +118,7 @@ HISTFILE=~/.bash_history
 
 setopt histignoredups
 setopt APPEND_HISTORY
+setopt SHARE_HISTORY
 unsetopt extended_history
 
 
@@ -130,9 +131,13 @@ unsetopt extended_history
 
 XDG_CONFIG_HOME=$HOME/.config
 
+LS_COLORS="${LS_COLORS}:tw=30;103:ow=34;103"
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} "ma=48;5;103;38;5;255"
+
 JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
 JDTLS_HOME=${HOME}/prog/lsp/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/bin
 PATH=$PATH:$JDTLS_HOME
+
 
 # VCPKG
 if [ -d $HOME/prog/vcpkg ]; then

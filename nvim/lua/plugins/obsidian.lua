@@ -17,12 +17,12 @@ return {
         path = os.getenv("OBSIDIAN_VAULTS") .. "/CheatSheets",
       },
       {
-        name = "knowledge-base",
-        path = os.getenv("OBSIDIAN_VAULTS") .. "/KnowledgeBase",
-      },
-      {
         name = "wiederholen",
         path = os.getenv("OBSIDIAN_VAULTS") .. "/Wiederholen",
+      },
+      {
+        name = "keynotes",
+        path = os.getenv("OBSIDIAN_VAULTS") .. "/KeyNotes",
       },
     },
     mappings = {
@@ -39,7 +39,7 @@ return {
       folder = "$templates",
       date_format = "%d.%m.%Y",
       time_format = "%H:%M",
-      substitutions = {}, -- A map for custom variables, the key should be the variable and the value a function
+      substitutions = {{ }}, -- A map for custom variables, the key should be the variable and the value a function
     },
     attachments = {
       img_folder = "$assets/images",

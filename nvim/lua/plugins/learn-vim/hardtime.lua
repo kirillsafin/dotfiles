@@ -3,7 +3,7 @@ return {
   enabled = true,
   opts = {
     max_time = 1000,
-    max_count = 12,
+    max_count = 10,
     disable_mouse = false,
     hint = true,
     notification = true,

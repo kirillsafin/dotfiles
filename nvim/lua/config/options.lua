@@ -2,6 +2,9 @@ local opt = vim.opt
 
 opt.hidden = true
 
+-- disable vi compatibility
+opt.compatible = false
+
 opt.shell = "/usr/bin/zsh"
 opt.compatible = false
 
@@ -31,10 +34,10 @@ opt.linebreak = false
 -- search
 opt.ignorecase = true
 opt.smartcase = true
-opt.inccommand = "split"
+opt.inccommand = "nosplit"
 
 opt.cursorline = false
-opt.scrolloff = 20
+opt.scrolloff = 25
 opt.colorcolumn = "80"
 
 opt.history = 250
@@ -68,4 +71,4 @@ opt.filetype = "on"
 
 opt.conceallevel = 0
 
-vim.o.sessionoptions = "blank,buffers,curdir,tabpages,winsize,winpos,terminal,localoptions"
+opt.sessionoptions = "blank,buffers,curdir,tabpages,winsize,winpos,terminal,localoptions,folds"

@@ -96,43 +96,6 @@ return {
       },
     }
 
-    -- save and restore folds
-    local function is_not_fold_buffer()
-      return vim.api.nvim_buf_get_name(0) == ""
-        or vim.bo.filetype == "toggleterm"
-        or vim.bo.filetype == "NvimTree"
-        or vim.bo.filetype == "dapui_console"
-        or vim.bo.filetype == "dapui_scopes"
-        or vim.bo.filetype == "dapui_breakpoints"
-        or vim.bo.filetype == "dapui_stacks"
-        or vim.bo.filetype == "dapui-repl"
-        or vim.bo.filetype == ""
-        or vim.bo.filetype == "DiffviewFiles"
-    end
-    local fold_augroup = vim.api.nvim_create_augroup("Folds", { clear = true })
-
-    vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
-      group = fold_augroup,
-      pattern = "*",
-      callback = function()
-        if is_not_fold_buffer() then
-          return
-        end
-        vim.cmd("mkview")
-      end,
-    })
-
-    vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-      group = fold_augroup,
-      pattern = "?*",
-      callback = function()
-        if is_not_fold_buffer() then
-          return
-        end
-        vim.cmd("silent! loadview")
-      end,
-    })
-
     vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
       pattern = "*.hbs",
       command = "set filetype=html",

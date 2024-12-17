@@ -123,6 +123,14 @@ local function write_to_main_cpp()
   main_cpp:close()
 end
 
+local function copy_cmake_presets_and_clang_format()
+  local dotfiles_dir = os.getenv("HOME") .. "/.dotfiles"
+
+  vim.uv.fs_copyfile(dotfiles_dir .. "/presets/.clang-format", vim.fn.getcwd() .. "/.clang-format")
+  vim.uv.fs_copyfile(dotfiles_dir .. "/presets/CMakePresets.json", vim.fn.getcwd() .. "/CMakePresets.json")
+  vim.uv.fs_copyfile(dotfiles_dir .. "/presets/.clangd", vim.fn.getcwd() .. "/.clangd")
+end
+
 local function create_cpp_project()
   --[[
   --  ROOT/
@@ -139,8 +147,10 @@ local function create_cpp_project()
   --  ├── vcpkg.json
   --  └── .clang-format
   --]]
-  local dotfiles_path = Path:new(os.getenv("HOME"))
-  vim.inspect(dotfiles_path)
+  local dotfiles_path = Path:new(os.getenv("HOME") .. "../.dotfiles")
+
+  -- vim.print(vim.inspect(dotfiles_path))
+
   local cpp_project_path = Path:new(".")
   local cpp_project_splitted_path = vim.split(cpp_project_path:absolute(), "/")
   local cpp_project_name = cpp_project_splitted_path[#cpp_project_splitted_path]
@@ -160,9 +170,9 @@ local function create_cpp_project()
   vim.uv.fs_mkdir(cpp_project_path:absolute() .. "/src", 511)
   vim.uv.fs_mkdir(cpp_project_path:absolute() .. "/test", 511)
 
-  vim.uv.fs_copyfile(dotfiles_path .. "/.clang-format", cpp_project_path:absolute() .. "/presets/.clang-format")
-  vim.uv.fs_copyfile(dotfiles_path .. "/CMakePresets.json", cpp_project_path:absolute() .. "/presets/CMakePresets.json")
-  vim.uv.fs_copyfile(dotfiles_path .. "/.clangd", cpp_project_path:absolute() .. "/presets/.clangd")
+  vim.uv.fs_copyfile(dotfiles_path .. "/presets/.clang-format", cpp_project_path:absolute() .. "/.clang-format")
+  vim.uv.fs_copyfile(dotfiles_path .. "/presets/CMakePresets.json", cpp_project_path:absolute() .. "/CMakePresets.json")
+  vim.uv.fs_copyfile(dotfiles_path .. "/presets/.clangd", cpp_project_path:absolute() .. "/.clangd")
 
   -- write to files
   --.gitingore
@@ -178,15 +188,9 @@ local function create_cpp_project()
   -- main.cpp
   write_to_main_cpp()
 
+  copy_cmake_presets_and_clang_format()
+
   vim.cmd("NvimTreeRefresh")
-end
-
-local function copy_cmake_presets_and_clang_format()
-  local dotfiles_dir = os.getenv("HOME") .. "/.dotfiles"
-
-  vim.uv.fs_copyfile(dotfiles_dir .. "/.clang-format", vim.fn.getcwd() .. "/presets/.clang-format")
-  vim.uv.fs_copyfile(dotfiles_dir .. "/CMakePresets.json", vim.fn.getcwd() .. "/presets/CMakePresets.json")
-  vim.uv.fs_copyfile(dotfiles_dir .. "/.clangd", vim.fn.getcwd() .. "/presets/.clangd")
 end
 
 api.nvim_create_user_command("CreateCppProject", create_cpp_project, {})

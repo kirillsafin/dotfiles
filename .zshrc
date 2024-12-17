@@ -82,7 +82,11 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
 # zstyle ':omz:alpha:lib:git' async-prompt no
 
 source $ZSH/oh-my-zsh.sh
@@ -118,6 +122,7 @@ HISTFILE=~/.bash_history
 
 setopt histignoredups
 setopt APPEND_HISTORY
+setopt SHARE_HISTORY
 unsetopt extended_history
 
 
@@ -127,6 +132,9 @@ unsetopt extended_history
 
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 [[ -f ~/.bash_aliases ]] && source $HOME/.bash_aliases
+
+LS_COLORS="${LS_COLORS}:tw=30;103:ow=34;103"
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} "ma=48;5;103;38;5;255"
 
 XDG_CONFIG_HOME=$HOME/.config
 
@@ -186,3 +194,17 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias please="sudo"
+
+alias -s txt=nvim
+alias -s py=nvim
+alias -s json=nvim
+
+# grep $2 on man $1
+find_man() {
+  man $1 | grep -- $2
+}
+
+#IBUS
+export GTK_IM_MODULE=ibus  #Fix for Chrome
+export QT_IM_MODULE=ibus   #Not sure if this works or not, but whatever
+export XMODIFIERS=@im=ibus

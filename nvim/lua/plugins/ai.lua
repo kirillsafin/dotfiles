@@ -2,6 +2,7 @@ return {
   {
     "github/copilot.vim",
     enabled = true,
+    event = "VeryLazy",
     init = function()
       vim.g.copilot_filetypes = { markdown = true, DressingInput = false }
       vim.g.copilot_no_tab_map = true
@@ -18,11 +19,13 @@ return {
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
+    event = "VeryLazy",
     enabled = true,
-    branch = "canary",
-    opts = {
-      context = "buffer",
+    branch = "main",
+    dependencies = {
+      "github/copilot.vim",
     },
+    opts = {},
     init = function()
       vim.keymap.set("n", "<leader>cc", ":CopilotChatToggle<CR>")
     end,
@@ -30,10 +33,10 @@ return {
   {
     "yetone/avante.nvim",
     enabled = false,
-    dev = true,
-    dir = os.getenv("CODING") .. "/Projects/Nvim Plugins/avante.nvim",
+    -- dev = true,
+    -- dir = os.getenv("CODING") .. "/Projects/Nvim Plugins/avante.nvim",
     event = "VeryLazy",
-    build = "make BUILD_FROM_SOURCE=true luajit",
+    build = "make",
     opts = {
       provider = "copilot",
       copilot = {
@@ -51,11 +54,16 @@ return {
       "stevearc/dressing.nvim",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
+      {
+        "MeanderingProgrammer/render-markdown.nvim",
+        ft = { "markdown", "Avante" },
+      },
     },
   },
   {
     "robitx/gp.nvim",
     enabled = true,
+    event = "VeryLazy",
     config = function()
       local conf = {
         providers = {
@@ -77,17 +85,13 @@ return {
             -- string with model name or table with model name and parameters
             model = { model = "gpt-4o", temperature = 1.0, top_p = 1, n = 1 },
             -- system prompt (use this to specify the persona/role of the AI)
-            system_prompt = "Responses should be short. Responses should be casual. Responses can have opinion. Don't provide code if not explicitly asked.",
+            system_prompt = "Response must be short. Response must be casual. Response can have opinion. Response don't contain code, if not explicitly asked for code.",
           },
         },
         hooks = {
           Translator = function(gp, params)
             local chat_system_prompt = "You are a Translator, please translate between English and Chinese."
             gp.cmd.ChatNew(params, chat_system_prompt)
-
-            -- -- you can also create a chat with a specific fixed agent like this:
-            -- local agent = gp.get_chat_agent("ChatGPT4o")
-            -- gp.cmd.ChatNew(params, chat_system_prompt, agent)
           end,
           -- example of adding command which writes unit tests for the selected code
           UnitTests = function(gp, params)
@@ -134,7 +138,7 @@ return {
                 .. "Please also print out thsi question."
               local agent = gp.get_chat_agent()
               print(template)
-              gp.Prompt(params, gp.Target.popup("markdown"), agent, template)
+              gp.Prompt(params, gp.Target.enew("markdown"), agent, template)
             else
               print("No diagnostics on this line.")
             end
@@ -144,5 +148,16 @@ return {
 
       require("gp").setup(conf)
     end,
+  },
+  {
+    "olimorris/codecompanion.nvim",
+    enabled = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    opts = {
+      adapters = { copilot = "copilot" },
+    },
   },
 }

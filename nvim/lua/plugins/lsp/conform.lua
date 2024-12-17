@@ -16,7 +16,7 @@ return {
         python = { "isort", "black" },
         c = { "clang-format" },
         cpp = { "clang-format" },
-        markdown = { "prettier" },
+        -- markdown = { "prettier" },
         lua = { "stylua" },
       },
     })

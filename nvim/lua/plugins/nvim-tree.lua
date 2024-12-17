@@ -60,7 +60,7 @@ return {
         width = 40,
       },
       trash = {
-        cmd = "trash",
+        cmd = "gio trash",
         require_confirm = true,
       },
     })

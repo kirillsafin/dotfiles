@@ -10,7 +10,7 @@ function PythonUtil.get_python_venv_path()
   local exists = vim.loop.fs_stat(cwd .. "/.venv")
 
   if exists ~= nil then
-    return cwd .. "/venv"
+    return cwd .. "/.venv"
   end
 
   return ""

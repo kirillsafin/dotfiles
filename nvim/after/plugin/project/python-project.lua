@@ -14,7 +14,7 @@ local function write_to_pyrightconfig()
 
   local pyright_obj = {
     venvPath = ".",
-    venv = "venv"
+    venv = ".venv",
   }
 
   pyrightconfig:write(vim.json.encode(pyright_obj))
@@ -115,7 +115,6 @@ local function create_python_project()
   local project_name_splitted = vim.split(python_project_path:absolute(), "/")
   local project_name = project_name_splitted[#project_name_splitted]
   local project_src_folder_name = project_name:gsub("%s+", "_"):lower()
-
 
   local files = scan_dir.scan_dir(python_project_path:absolute(), { depth = 1, add_dirs = true })
 

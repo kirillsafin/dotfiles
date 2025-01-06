@@ -4,8 +4,9 @@ return {
   main = "ibl",
   config = function()
     local ibl = require("ibl")
-    local highlight = { "RainbowBlue" }
     local hooks = require("ibl.hooks")
+
+    local highlight = { "RainbowBlue" }
 
     hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
       vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
@@ -60,14 +61,16 @@ return {
           "txt",
           "dashobard",
           "lspinfo",
-        }
+        },
       },
     })
+
+    hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
 
     local opt = vim.opt
 
     opt.list = true
     opt.listchars = { eol = "↴" }
     -- opt.listchars = { eol = "↴", space = "·" }
-  end
+  end,
 }

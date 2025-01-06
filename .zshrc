@@ -129,14 +129,11 @@ unsetopt extended_history
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 [[ -f ~/.bash_aliases ]] && source $HOME/.bash_aliases
 
-XDG_CONFIG_HOME=$HOME/.config
 
 LS_COLORS="${LS_COLORS}:tw=30;103:ow=34;103"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} "ma=48;5;103;38;5;255"
 
-JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
-JDTLS_HOME=${HOME}/prog/lsp/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/bin
-PATH=$PATH:$JDTLS_HOME
+XDG_CONFIG_HOME=$HOME/.config
 
 
 # VCPKG
@@ -146,6 +143,8 @@ if [ -d $HOME/prog/vcpkg ]; then
   source $HOME/prog/vcpkg/scripts/vcpkg_completion.zsh
 fi
 
+export VCPKG_ROOT=~/prog/vcpkg
+export PATH=$VCPKG_ROOT:$PATH
 # PRIVATE VIM MODE
 export EDITOR="vim -u ~/.vimrcprivate"
 
@@ -155,3 +154,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias please="sudo"
+
+# grep $2 on man $1
+find_man() {
+  man $1 | grep -- $2
+}
+
+guifg= #54546d guibg=#16161d

@@ -1,0 +1,131 @@
+{
+  "version": 9,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 0,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "base-default-gcc",
+      "description": "GCC build using Ninja generator",
+      "generator": "Ninja",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_COLOR_DIAGNOSTICS": true,
+        "CMAKE_WARNINGS_ARE_ERRORS": true,
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++"
+      }
+    },
+    {
+      "name": "default-debug-gcc",
+      "displayName": "Default Debug Config",
+      "description": "Default Debug build using Ninja generator",
+      "inherits": ["base-default-gcc"],
+      "cacheVariables": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": true,
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "vcpkg-debug-gcc",
+      "inherits": ["default-debug-gcc"],
+      "displayName": "VCPKG Debug Config",
+      "binaryDir": "${sourceDir}/build/gcc",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "~/prog/vcpkg/scripts/buildsystems/vcpkg.cmake"
+      }
+    },
+    {
+      "name": "default-release-gcc",
+      "displayName": "Default Release Config",
+      "description": "Default Release build using Ninja generator",
+      "inherits": ["base-default-gcc"],
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "vcpkg-release-gcc",
+      "displayName": "VCPKG Release Config",
+      "description": "Default Release build using Ninja generator",
+      "inherits": ["vcpkg-debug-gcc"],
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "default-debug-gcc",
+      "configurePreset": "default-debug-gcc"
+    },
+    {
+      "name": "default-release-gcc",
+      "configurePreset": "default-release-gcc"
+    },
+    {
+      "name": "vcpkg-debug-gcc",
+      "configurePreset": "vcpkg-debug-gcc"
+    },
+    {
+      "name": "vcpkg-release-gcc",
+      "configurePreset": "vcpkg-release-gcc"
+    }
+  ],
+  "workflowPresets": [
+    {
+      "name": "default-debug-gcc",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "default-debug-gcc"
+        },
+        {
+          "type": "build",
+          "name": "default-debug-gcc"
+        }
+      ]
+    },
+    {
+      "name": "default-release-gcc",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "default-release-gcc"
+        },
+        {
+          "type": "build",
+          "name": "default-release-gcc"
+        }
+      ]
+    },
+    {
+      "name": "vcpkg-debug-gcc",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "vcpkg-debug-gcc"
+        },
+        {
+          "type": "build",
+          "name": "vcpkg-debug-gcc"
+        }
+      ]
+    },
+    {
+      "name": "vcpkg-release-gcc",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "vcpkg-release-gcc"
+        },
+        {
+          "type": "build",
+          "name": "vcpkg-release-gcc"
+        }
+      ]
+    }
+  ]
+}

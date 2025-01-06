@@ -204,7 +204,5 @@ find_man() {
   man $1 | grep -- $2
 }
 
-#IBUS
-export GTK_IM_MODULE=ibus  #Fix for Chrome
-export QT_IM_MODULE=ibus   #Not sure if this works or not, but whatever
-export XMODIFIERS=@im=ibus
+guifg= #54546d guibg=#16161d
+

@@ -47,6 +47,9 @@ command -v pipx &> /dev/null && pipx install virtualenv
   && tic -x -o ~/.terminfo "$tempfile" \
   && rm "$tempfile"
 
+# Kitty
+[ ! -d ~/.confg/kitty ] && ln -sv ~/.dotfiles/kitty ~/.config/kitty || echo "kitty config already exists"
+
 # Yazi
 [ ! -f ~/.config/yazi ] && mkdir ~/.config/yazi
 [ ! -f ~/.config/yazi/yazi.toml ] && ln -sv ~/.dotfiles/yazi/yazi.toml ~/.config/yazi/yazi.toml || echo "yazi config already exists"
@@ -55,3 +58,4 @@ command -v pipx &> /dev/null && pipx install virtualenv
 
 # Cheat Sheets
 [ ! -f ~/bin/cht ] && ln -sv ~/.dotfiles/scripts/cht.sh ~/bin/cht || echo "cht already exists"
+

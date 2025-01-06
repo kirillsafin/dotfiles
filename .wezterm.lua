@@ -52,27 +52,27 @@ config.font = wezterm.font_with_fallback({
     harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
   },
   -- {
-  --   family = "OverpassM Nerd Font Mono",
+  --   family = "M+1 Code Nerd Font Mono",
   --   weight = "Regular",
   --   harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
   -- },
   -- {
-  --   family = "IosevkaTerm Nerd Font Mono",
+  --   family = "RecMonoCasual Nerd Font",
   --   weight = "Regular",
   --   harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
   -- },
 })
 
 -- config.window_background_image = os.getenv("HOME") .. "/.dotfiles/term-backgrounds/dec/AOA3-scaled.png"
--- config.window_background_image_hsb = { brightness = 0.78 }
+-- config.window_background_image_hsb = { brightness = 0.82 }
 -- config.window_background_image = os.getenv("HOME") .. "/.dotfiles/term-backgrounds/dec/AOA6.png"
 -- config.window_background_image_hsb = { brightness = 0.29 }
 -- config.window_background_image = os.getenv("HOME") .. "/.dotfiles/term-backgrounds/dec/BESTie.png"
--- config.window_background_image_hsb = { brightness = 0.41 }
+-- config.window_background_image_hsb = { brightness = 0.55 }
 -- config.window_background_image = os.getenv("HOME") .. "/.dotfiles/term-backgrounds/dec/red-velvet1.jpg"
 -- config.window_background_image_hsb = { brightness = 0.027 }
 -- config.window_background_image = os.getenv("HOME") .. "/.dotfiles/term-backgrounds/dec/red-velvet2.jpg"
--- config.window_background_image_hsb = { brightness = 0.034 }
+-- config.window_background_image_hsb = { brightness = 0.031 }
 -- config.window_background_image = os.getenv("HOME") .. "/.dotfiles/term-backgrounds/dec/sunmi1.png"
 -- config.window_background_image_hsb = { brightness = 0.31 }
 -- config.window_background_image = os.getenv("HOME") .. "/.dotfiles/term-backgrounds/dec/sunmi2.png"
@@ -81,8 +81,10 @@ config.font = wezterm.font_with_fallback({
 -- config.window_background_image_hsb = { brightness = 0.016 }
 -- config.window_background_image = os.getenv("HOME") .. "/Pictures/Wallpapers/Rescene/RESCENE-2-darken.png"
 -- config.window_background_image_hsb = { brightness = 0.28 }
-config.window_background_image = os.getenv("HOME") .. "/Pictures/Wallpapers/4 minute/4minute-2.png"
-config.window_background_image_hsb = { brightness = 0.45 }
+config.window_background_image = os.getenv("HOME") .. "/Pictures/Wallpapers/4 minute/4minute-2_16-9.png"
+config.window_background_image_hsb = { brightness = 0.40 }
+-- config.window_background_image = os.getenv("HOME") .. "/Pictures/Wallpapers/4 minute/4minute-2_16-10.png"
+-- config.window_background_image_hsb = { brightness = 0.40 }
 
 -- # initial padding otherwise resizing doesn't work properly (Who knows why?)
 config.window_padding = {
@@ -102,10 +104,10 @@ config.keys = {
     key = "F11",
     action = wezterm.action.ToggleFullScreen,
   },
-  -- { key = "h", mods = "CTRL", action = wezterm.action({ SendKey = { key = "h", mods = "CTRL" } }) },
-  -- { key = "j", mods = "CTRL", action = wezterm.action({ SendKey = { key = "j", mods = "CTRL" } }) },
-  -- { key = "k", mods = "CTRL", action = wezterm.action({ SendKey = { key = "k", mods = "CTRL" } }) },
-  -- { key = "l", mods = "CTRL", action = wezterm.action({ SendKey = { key = "l", mods = "CTRL" } }) },
+  { key = "h", mods = "ALT", action = wezterm.action({ SendKey = { key = "h", mods = "ALT" } }) },
+  { key = "j", mods = "ALT", action = wezterm.action({ SendKey = { key = "j", mods = "ALT" } }) },
+  { key = "k", mods = "ALT", action = wezterm.action({ SendKey = { key = "k", mods = "ALT" } }) },
+  { key = "l", mods = "ALT", action = wezterm.action({ SendKey = { key = "l", mods = "ALT" } }) },
 }
 
 config.colors = {

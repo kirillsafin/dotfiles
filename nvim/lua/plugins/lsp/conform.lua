@@ -13,7 +13,7 @@ return {
         html = { "prettier" },
         json = { "prettier" },
         yaml = { "prettier" },
-        python = { "isort", "black" },
+        python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
         c = { "clang-format" },
         cpp = { "clang-format" },
         -- markdown = { "prettier" },

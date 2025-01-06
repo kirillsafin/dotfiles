@@ -8,8 +8,11 @@ return {
       cursorline = false,
       transparency = true,
       terminal_colors = true,
-      lualine_transparency = false,
+      lualine_transparency = true,
       highlight_inactive_windows = true,
+    },
+    highlights = {
+      WinSeparator = { fg = "#808080" },
     },
   },
   init = function()

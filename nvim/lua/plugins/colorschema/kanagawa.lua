@@ -33,6 +33,7 @@ return {
         NvimTreeImageFile = { bold = false },
         NvimTreeSpecialFile = { bold = false },
         Directory = { bold = true },
+        WinSeparator = { fg = "#808080" },
       }
     end,
     theme = "wave", -- Load "wave" theme when 'background' option is not set

@@ -29,7 +29,7 @@ return {
       },
     })
 
-    -- LSP Servers Config
+    -- LSP Servers
 
     -- Lua LSP: install lua lsp server; official installation guide for sumneko_l
     lspconfig.lua_ls.setup({
@@ -44,7 +44,7 @@ return {
         plugins = {
           {
             name = "@vue/typescript-plugin",
-            location = os.getenv("HOME") .. "/.nvm/versions/node/v20.16.0/lib/node_modules/@vue/language-server",
+            location = os.getenv("HOME") .. "/.nvm/versions/node/v22.9.0/lib/node_modules/@vue/language-server/",
             languages = { "vue" },
           },
         },
@@ -128,9 +128,6 @@ return {
         },
       },
     })
-
-    -- Salt
-    lspconfig.salt_ls.setup({})
 
     -- Arduino LSP: go install github.com/arduino/arduino-language-server@latest; install arduino-cli
     -- local fqbn = "esp8266:esp8266:d1_mini_pro"

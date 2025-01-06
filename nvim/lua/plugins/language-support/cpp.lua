@@ -49,7 +49,7 @@ return {
             auto_close_when_success = true,
           },
           toggleterm = {
-            direction = "float",
+            direction = "horizontal",
             close_on_exit = false,
             auto_scroll = true,
             singleton = true,

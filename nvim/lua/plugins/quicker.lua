@@ -22,19 +22,19 @@ return {
   keys = {
     {
       "<leader>qn",
-      "<cmd>cnext",
+      "<cmd>cnext<CR>",
       mode = "n",
       desc = "Next Quickfix Entry",
     },
     {
       "<leader>qp",
-      "<cmd>cprevious",
+      "<cmd>cprevious<CR>",
       mode = "n",
       desc = "Previous Quickfix Entry",
     },
     {
       "<leader>qc",
-      "<cmd>cclose",
+      "<cmd>cclose<CR>",
       mode = "n",
       desc = "Close Quickfix",
     },

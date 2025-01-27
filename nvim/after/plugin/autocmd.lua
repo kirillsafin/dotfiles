@@ -25,6 +25,8 @@ local function is_not_fold_buffer()
     or vim.bo.filetype == "dapui-repl"
     or vim.bo.filetype == "DiffviewFiles"
     or vim.bo.filetype == "help"
+    or vim.bo.filetype == "dbout"
+    or vim.bo.filetype == "dbui"
 end
 local fold_augroup = vim.api.nvim_create_augroup("Folds", { clear = true })
 

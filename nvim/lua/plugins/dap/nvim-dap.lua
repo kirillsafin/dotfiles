@@ -7,7 +7,6 @@ return {
     "rcarriga/nvim-dap-ui",
     "theHamsta/nvim-dap-virtual-text",
     "nvim-telescope/telescope-dap.nvim",
-    "mxsdev/nvim-dap-vscode-js",
   },
   config = function()
     local python_util = require("utils.python")

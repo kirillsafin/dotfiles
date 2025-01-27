@@ -5,7 +5,8 @@ opt.hidden = true
 -- disable vi compatibility
 opt.compatible = false
 
-opt.shell = "/usr/bin/zsh"
+opt.shell = vim.fn.filereadable("/usr/bin/zsh") == 1 and "/usr/bin/zsh" or "/usr/bin/bash"
+
 opt.compatible = false
 
 opt.swapfile = false
@@ -60,7 +61,7 @@ opt.splitbelow = true
 opt.encoding = "utf-8"
 opt.spell = true
 opt.spelllang = { "en_us", "de_de" }
-opt.syntax = "off"
+opt.syntax = "on"
 
 opt.scrollbind = false
 opt.cursorbind = false

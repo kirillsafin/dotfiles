@@ -22,7 +22,7 @@ Before Installation:
 After Installation
 
 1. create `spell` folder in `.dotfiles/nvim`
-2. download spell file from https://ftp.nluug.nl/pub/vim/runtime/spell/
+2. download spell file from <https://ftp.nluug.nl/pub/vim/runtime/spell/>
 3. move this file to `spell` folder
 
 # Overview
@@ -79,6 +79,11 @@ After Installation
 `L3MON4D3/LuaSnip`
 `rafamadriz/friendly-snippets`
 `saadparwaiz1/cmp_luasnip`
+
+Mappings:
+
+* `Tab`
+* `Ctrl+e` = select snippet
 
 #### Languages
 

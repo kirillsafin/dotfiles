@@ -12,10 +12,9 @@ return {
       auto_session_allowed_dirs = {
         "~/.dotfiles",
         "/media/" .. os.getenv("ME") .. "/WindowsD/vaults/*",
-        "/media/" .. os.getenv("ME") .. "/WindowsD/Coding/Hands-On/Js-And-Ts/Projects/*",
-        "/media/" .. os.getenv("ME") .. "/WindowsD/Coding/Hands-On/Python/*",
-        os.getenv("HOME") .. "/Desktop/EDA/Code/Training/*",
-        os.getenv("HOME") .. "/Desktop/EDA/Code/Crescendo-Player",
+
+        os.getenv("HOME") .. "/Desktop/EDA/Code/*",
+        "/media/" .. os.getenv("ME") .. "/WindowsD/Coding/Projects/PLAYAREA-Spotify/*",
       },
       cwd_change_handling = true,
     })

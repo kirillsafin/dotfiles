@@ -1,0 +1,362 @@
+# Quit - ctrl+q
+[[keymaps.me-myself-and-i]]
+keys="ctrl+q"
+action="quit"
+key_display="^q"
+
+# Help - f1
+# Focus Next - tab
+# Focus Previous - shift+tab
+
+# Focus Query Editor - f2
+[[keymaps.me-myself-and-i]]
+keys="ctrl+e"
+action="focus_query_editor"
+key_display="^q"
+
+# Focus Results Viewer - f5
+[[keymaps.me-myself-and-i]]
+keys="ctrl+r"
+action="focus_results_viewer"
+key_display="^r"
+
+# Focus Data Catalog - f6
+[[keymaps.me-myself-and-i]]
+keys="ctrl+d"
+action="focus_data_catalog"
+key_display="^d"
+
+# Toggle Sidebar - ctrl+b,f9
+[[keymaps.me-myself-and-i]]
+keys="ctrl+s"
+action="toggle_sidebar"
+key_display="^s"
+
+# Toggle Full Screen - f10
+# Show Query History - f8
+# Show Data Exporter - ctrl+e
+# Refresh Catalog - ctrl+r
+# Run Query
+# Cancel Query
+# Code Editor: New Buffer - ctrl+n
+[[keymaps.me-myself-and-i]]
+keys="ctrl+n"
+action="code_editor.new_buffer"
+key_display="^n"
+
+# Code Editor: Close Buffer - ctrl+w
+[[keymaps.me-myself-and-i]]
+keys="ctrl+w"
+action="code_editor.close_buffer"
+key_display="^w"
+
+# Code Editor: Next Buffer - ctrl+k
+[[keymaps.me-myself-and-i]]
+keys="ctrl+k"
+action="code_editor.next_buffer"
+key_display="^k"
+
+# Code Editor: Run Query - ctrl+enter,ctrl+j
+[[keymaps.me-myself-and-i]]
+keys="ctrl+j, ctrl+enter"
+action="code_editor.run_query"
+key_display="^⏎/^j"
+
+# Code Editor: Format Buffer - f4
+# Code Editor: Save Buffer - ctrl+s
+[[keymaps.me-myself-and-i]]
+keys="ctrl+s"
+action="code_editor.save_buffer"
+key_display="➡/^s"
+
+# Code Editor: Load Buffer - ctrl+o
+[[keymaps.me-myself-and-i]]
+keys="ctrl+o"
+action="code_editor.load_buffer"
+key_display="^o"
+
+# Code Editor: Find - ctrl+f
+[[keymaps.me-myself-and-i]]
+keys="ctrl+f"
+action="code_editor.find"
+key_display="^f"
+
+# Code Editor: Find Next - f3
+# Code Editor: Goto Line - ctrl+g
+# Code Editor: Cursor Up - up
+[[keymaps.me-myself-and-i]]
+keys="up"
+action="code_editor.cursor_up"
+key_display="⬆"
+
+# Code Editor: Cursor Down - down
+[[keymaps.me-myself-and-i]]
+keys="down"
+action="code_editor.cursor_down"
+key_display="⬇"
+
+# Code Editor: Cursor Left - left
+[[keymaps.me-myself-and-i]]
+keys="left"
+action="code_editor.cursor_left"
+key_display="⬅"
+
+# Code Editor: Cursor Right -  right
+[[keymaps.me-myself-and-i]]
+keys="right"
+action="code_editor.cursor_right"
+key_display="➡"
+
+# Code Editor: Cursor Word Left - ctrl+left
+# Code Editor: Cursor Word Right - ctrl+right
+# Code Editor: Cursor Line Start - home
+# Code Editor: Cursor Line End - end
+# Code Editor: Cursor Doc Start - ctrl+home
+# Code Editor: Cursor Doc End -  ctrl+end
+# Code Editor: Cursor Page Up - pageup
+# Code Editor: Cursor Page Down - pagedown
+
+# Code Editor: Select Up - shift+up
+[[keymaps.me-myself-and-i]]
+keys="shfit+up"
+action="code_editor.select_up"
+key_display=""
+
+# Code Editor: Select Down - shift+down
+[[keymaps.me-myself-and-i]]
+keys="shift+down"
+action="code_editor.select_down"
+key_display=""
+
+# Code Editor: Select Left - shift+left
+[[keymaps.me-myself-and-i]]
+keys="shift+left"
+action="code_editor.select_left"
+key_display=""
+
+# Code Editor: Select Right - shift+right
+[[keymaps.me-myself-and-i]]
+keys="shift+right"
+action="code_editor.select_right"
+key_display=""
+
+# Code Editor: Select Word Left - ctrl+shift+left
+# Code Editor: Select Word Right - ctrl+shift+right
+# Code Editor: Select Line Start - shift+home
+# Code Editor: Select Line End - shift+end
+# Code Editor: Select Doc Start - ctrl+shift+home
+# Code Editor: Select Doc End - ctrl+shift+end
+# Code Editor: Select Word
+# Code Editor: Select Line
+# Code Editor: Select All- ctrl+a
+# Code Editor: Scroll Up One - ctrl+up
+# Code Editor: Scroll Down One - ctrl+down
+# Code Editor: Toggle Comment - ctrl+underscore
+
+# Code Editor: Cut - ctrl+x
+[[keymaps.me-myself-and-i]]
+keys="ctrl+x"
+action="code_editor.cut"
+key_display="^x"
+
+# Code Editor: Copy - ctrl+c
+[[keymaps.me-myself-and-i]]
+keys="ctrl+c"
+action="code_editor.copy"
+key_display="^c"
+
+# Code Editor: Paste - ctrl+u,ctrl+v,shift+insert
+[[keymaps.me-myself-and-i]]
+keys="ctrl+v"
+action="code_editor.paste"
+key_display="^v"
+
+# Code Editor: Undo - ctrl+z
+[[keymaps.me-myself-and-i]]
+keys="ctrl+z"
+action="code_editor.undo"
+key_display="^z"
+
+# Code Editor: Redo - ctrl+y
+[[keymaps.me-myself-and-i]]
+keys="ctrl+y"
+action="code_editor.redo"
+key_display="^y"
+
+# Code Editor: Delete Left - backspace
+[[keymaps.me-myself-and-i]]
+keys="backspace"
+action="code_editor.delete_left"
+key_display="<"
+
+# Code Editor: Delete Right             delete
+[[keymaps.me-myself-and-i]]
+keys="delete"
+action="code_editor.delete_right"
+key_display=">"
+
+# Code Editor: Delete Word Left
+# Code Editor: Delete Word Right
+# Code Editor: Delete Line              shift+delete
+# Code Editor: Delete To Start Of Line
+# Code Editor: Delete To End Of Line
+# Code Editor: Focus Results Viewer
+# Code Editor: Focus Data Catalog
+
+# Data Catalog: Previous Tab - j
+[[keymaps.me-myself-and-i]]
+keys="j"
+action="data_catalog.previous_tab"
+key_display="j"
+
+# Data Catalog: Next Tab - k
+[[keymaps.me-myself-and-i]]
+keys="k"
+action="data_catalog.next_tab"
+key_display="k"
+
+# Data Catalog: Insert Name - ctrl+enter,ctrl+j
+# Data Catalog: Copy Name - ctrl+c
+
+# Data Catalog: Select Cursor - enter
+[[keymaps.me-myself-and-i]]
+keys="enter"
+action="data_catalog.select_cursor"
+key_display="⏎"
+
+# Data Catalog: Toggle Node - space
+[[keymaps.me-myself-and-i]]
+keys="space"
+action="data_catalog.toggle_node"
+key_display="space"
+
+# Data Catalog: Cursor Up - up
+[[keymaps.me-myself-and-i]]
+keys="up"
+action="data_catalog.cursor_up"
+key_display="⬆"
+
+# Data Catalog: Cursor Down - down
+[[keymaps.me-myself-and-i]]
+keys="down"
+action="data_catalog.cursor_down"
+key_display="⬇"
+
+# Data Catalog: Focus Query Editor
+# Data Catalog: Focus Results Viewer
+# Data Catalog: Show Context Menu       full_stop
+# Data Catalog: Hide Context Menu       escape
+
+# Results Viewer: Previous Tab - j
+[[keymaps.me-myself-and-i]]
+keys="j"
+action="results_viewer.previous_tab"
+key_display="j"
+
+# Results Viewer: Next Tab - k
+[[keymaps.me-myself-and-i]]
+keys="k"
+action="results_viewer.next_tab"
+key_display="k"
+
+# Results Viewer: Copy Selection - ctrl+c
+[[keymaps.me-myself-and-i]]
+keys="ctrl+c"
+action="results_viewer.copy_selection"
+key_display="^c"
+
+# Results Viewer: Select Cursor - enter
+[[keymaps.me-myself-and-i]]
+keys="enter"
+action="results_viewer.select_cursor"
+key_display="⏎"
+
+# Results Viewer: Cursor Up - up
+[[keymaps.me-myself-and-i]]
+keys="up"
+action="results_viewer.cursor_up"
+key_display="⬆"
+
+# Results Viewer: Cursor Down - down
+[[keymaps.me-myself-and-i]]
+keys="down"
+action="results_viewer.cursor_down"
+key_display="⬇"
+
+# Results Viewer: Cursor Left - left
+[[keymaps.me-myself-and-i]]
+keys="left"
+action="results_viewer.cursor_left"
+key_display="⬅"
+
+# Results Viewer: Cursor Right - right
+[[keymaps.me-myself-and-i]]
+keys="right"
+action="results_viewer.cursor_right"
+key_display="➡"
+
+# Results Viewer: Cursor Row Start - ctrl+left
+# Results Viewer: Cursor Row End - ctrl+right
+# Results Viewer: Cursor Column Start - ctrl+up,home
+# Results Viewer: Cursor Column End - ctrl+down,end
+
+# Results Viewer: Cursor Next Cell - tab
+[[keymaps.me-myself-and-i]]
+keys="tab"
+action="results_viewer.cursor_next_cell"
+key_display=""
+
+# Results Viewer: Cursor Previous Cell - shift+tab
+[[keymaps.me-myself-and-i]]
+keys="shift-tab"
+action="results_viewer.cursor_previous_cell"
+key_display=""
+
+# Results Viewer: Cursor Page Up - pageup
+# Results Viewer: Cursor Page Down - pagedown
+# Results Viewer: Cursor Table Start - ctrl+home
+# Results Viewer: Cursor Table End - ctrl+end
+
+# Results Viewer: Select Up - shift+up
+[[keymaps.me-myself-and-i]]
+keys="shift+up"
+action="results_viewer.select_up"
+key_display=""
+
+# Results Viewer: Select Down - shift+down
+[[keymaps.me-myself-and-i]]
+keys="shift+down"
+action="results_viewer.select_down"
+key_display=""
+
+# Results Viewer: Select Left - shift+left
+[[keymaps.me-myself-and-i]]
+keys="shift+left"
+action="results_viewer.select_left"
+key_display=""
+
+# Results Viewer: Select Right          shift+right
+[[keymaps.me-myself-and-i]]
+keys="shift+right"
+action="results_viewer.select_right"
+key_display=""
+
+# Results Viewer: Select Row Start - ctrl+shift+left
+# Results Viewer: Select Row End - ctrl+shift+right
+# Results Viewer: Select Column Start - ctrl+shift+up,shift+home
+# Results Viewer: Select Column End - ctrl+shift+down,shift+end
+# Results Viewer: Select Page Up - shift+pageup
+# Results Viewer: Select Page Down - shift+pagedown
+# Results Viewer: Select Table Start - ctrl+shift+home
+# Results Viewer: Select Table End - ctrl+shift+end
+
+# Results Viewer: Select All - ctrl+a
+[[keymaps.me-myself-and-i]]
+keys="ctrl+a"
+action="results_viewer.select_all"
+key_display="➡/^r"
+
+# Results Viewer: Focus Query Editor
+# Results Viewer: Focus Data Catalog
+# History Screen: Select Query - enter
+# History Screen: Cancel - escape

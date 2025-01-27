@@ -68,9 +68,8 @@ return {
     -- keymaps
     local keymap = vim.keymap
 
-    keymap.set("n", "<leader>b", "<cmd>NvimTreeToggle<CR>")
+    keymap.set("n", "<leader>et", "<cmd>NvimTreeToggle<CR>")
     keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>")
-    keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFile<CR>")
-    keymap.set("n", "<leader>et", "<cmd>NvimTreeFindFileToggle<CR>") -- opens nvim-tree and finds the file currently being edited
+    keymap.set("n", "<leader>eff", "<cmd>NvimTreeFindFileToggle<CR>") -- opens nvim-tree and finds the file currently being edited
   end,
 }

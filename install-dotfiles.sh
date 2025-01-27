@@ -30,6 +30,8 @@ command -v pipx &> /dev/null && pipx install ninja
 command -v pipx &> /dev/null && pipx install pylint
 command -v pipx &> /dev/null && pipx install tldr
 command -v pipx &> /dev/null && pipx install virtualenv
+command -v pipx &> /dev/null && pipx install harlequin
+command -v pipx &> /dev/null && pipx inject harlequin harlequin-postgres
 
 
 # SETTINGS
@@ -50,12 +52,14 @@ command -v pipx &> /dev/null && pipx install virtualenv
 # Kitty
 [ ! -d ~/.confg/kitty ] && ln -sv ~/.dotfiles/kitty ~/.config/kitty || echo "kitty config already exists"
 
-# Yazi
-[ ! -f ~/.config/yazi ] && mkdir ~/.config/yazi
-[ ! -f ~/.config/yazi/yazi.toml ] && ln -sv ~/.dotfiles/yazi/yazi.toml ~/.config/yazi/yazi.toml || echo "yazi config already exists"
-[ ! -f ~/.config/yazi/keymap.toml ] && ln -sv ~/.dotfiles/yazi/keymap.toml ~/.config/yazi/keymap.toml || echo "yazi keymap already exists"
-[ ! -f ~/.config/yazi/theme.toml ] && ln -sv ~/.dotfiles/yazi/theme.toml ~/.config/yazi/theme.toml || echo "yazi theme already exists"
+# Ghostty
+[ ! -d ~/.config/ghostty ] && ln -sv ./dotfiles/ghostty ~/.config/ghostty || echo "ghostty config already exists"
 
+# Yazi
+[ ! -d ~/.config/yazi ] && ln -sv ~/.dotfiles/yazi ~/.config/yazi || echo "yazi already exists"
+
+# Harleaquin
+[ ! -d ~/.config/harlequin ] && ln -sv ~/.dotfiles/harlequin ~/.config/harlequin || echo "harlequin already exists"
 # Cheat Sheets
 [ ! -f ~/bin/cht ] && ln -sv ~/.dotfiles/scripts/cht.sh ~/bin/cht || echo "cht already exists"
 

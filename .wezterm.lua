@@ -52,6 +52,11 @@ config.font = wezterm.font_with_fallback({
     harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
   },
   -- {
+  --   family = "FiraMono Nerd Font Mono",
+  --   weight = "Regular",
+  --   harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
+  -- },
+  -- {
   --   family = "M+1 Code Nerd Font Mono",
   --   weight = "Regular",
   --   harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
@@ -82,9 +87,9 @@ config.font = wezterm.font_with_fallback({
 -- config.window_background_image = os.getenv("HOME") .. "/Pictures/Wallpapers/Rescene/RESCENE-2-darken.png"
 -- config.window_background_image_hsb = { brightness = 0.28 }
 config.window_background_image = os.getenv("HOME") .. "/Pictures/Wallpapers/4 minute/4minute-2_16-9.png"
-config.window_background_image_hsb = { brightness = 0.40 }
+config.window_background_image_hsb = { brightness = 0.5 }
 -- config.window_background_image = os.getenv("HOME") .. "/Pictures/Wallpapers/4 minute/4minute-2_16-10.png"
--- config.window_background_image_hsb = { brightness = 0.40 }
+-- config.window_background_image_hsb = { brightness = 0.50 }
 
 -- # initial padding otherwise resizing doesn't work properly (Who knows why?)
 config.window_padding = {

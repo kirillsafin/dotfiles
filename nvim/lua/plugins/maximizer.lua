@@ -1,13 +1,5 @@
 return {
   {
-    "szw/vim-maximizer",
-    lazy = false,
-    enabled = false,
-    keys = {
-      { "<leader>mm", "<cmd>MaximizerToggle<CR>", desc = "Maximize/minimize a split" },
-    },
-  },
-  {
      'declancm/maximize.nvim',
      enabled = false,
      opts = {

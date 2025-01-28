@@ -1,11 +1,9 @@
 return {
   {
-
     "windwp/nvim-autopairs",
     event = { "InsertEnter" },
-    dependencies = {
-      "hrsh7th/nvim-cmp",
-    },
+    enabled = false,
+    dependencies = { "hrsh7th/nvim-cmp" },
     config = function()
       local autopairs = require("nvim-autopairs")
       local cmp_autopairs = require("nvim-autopairs.completion.cmp")
@@ -25,11 +23,16 @@ return {
   },
   {
     "windwp/nvim-ts-autotag",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-    },
+    enabled = false,
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
     event = { "InsertEnter" },
-    opts = {}
-
+    config = true
   },
+  {
+    "echasnovski/mini.surround",
+    enabled = true,
+    event = { "InsertEnter" },
+    version = false,
+    opts = {},
+  }
 }

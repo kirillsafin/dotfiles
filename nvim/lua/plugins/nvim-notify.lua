@@ -25,6 +25,6 @@ return {
     vim.notify = require("notify")
     vim.print = require("notify")
 
-    vim.keymap.set("n", "<leader>nc", notify.dismiss, { desc = "Close Notify Popups" })
+    vim.keymap.set("n", "<leader>nc", notify.dismiss, { desc = "[N]otify [C]lose Popups" })
   end,
 }

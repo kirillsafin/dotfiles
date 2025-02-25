@@ -12,7 +12,7 @@ return {
       auto_session_allowed_dirs = {
         "~/.dotfiles",
         "/media/" .. os.getenv("ME") .. "/WindowsD/vaults/*",
-
+        -- coding
         os.getenv("HOME") .. "/Desktop/EDA/Code/*",
         "/media/" .. os.getenv("ME") .. "/WindowsD/Coding/Projects/PLAYAREA-Spotify/*",
       },

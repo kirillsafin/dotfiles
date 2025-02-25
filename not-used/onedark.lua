@@ -12,15 +12,16 @@ return {
     colors = {}, -- Override default colors
     highlights = {
       DiagnosticHint = { fg = "#0093c4" },
+      WinSeparator = { fg = "#A0A0A0" },
     }, -- Override highlight groups
     diagnostics = {
-      darker = false, -- darker colors for diagnostic
+      darker = true, -- darker colors for diagnostic
       undercurl = true, -- use undercurl instead of underline for diagnostics
-      background = false, -- use background color for virtual text
+      background = true, -- use background color for virtual text
     },
   },
   init = function()
     require("onedark").load()
-    -- vim.cmd("colorscheme onedark"),
+    vim.cmd("colorscheme onedark")
   end,
 }

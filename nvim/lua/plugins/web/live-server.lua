@@ -1,7 +1,5 @@
---[[ requirements:
--- 1: npm install -g browser-sync
--- ]]
 return {
+  -- requires: npm install -g browser-sync
   "ray-x/web-tools.nvim",
   opts = {
     keymaps = {

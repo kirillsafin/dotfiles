@@ -4,7 +4,7 @@
 [ ! -f ~/.zshrc ] && ln -sv ~/.dotfiles/.zshrc ~/.zshrc || echo ".zshrc already set"
 [ ! -f '/usr/bin/zsh' ] && sudo apt install zsh -y || echo "zsh already installed"
 [ ! -d "${HOME}/.oh-my-zsh" ] && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || echo "oh-my-zsh already installed"
-[ -f ~/.zshrc.pre-oh-my-zsh ] && rm ~/zshrc && rm ~/.zshrc.pre-oh-my-zsh
+[ -f ~/.zshrc.pre-oh-my-zsh ] && rm ~/.zshrc && rm ~/.zshrc.pre-oh-my-zsh
 [ ! -f ~/.zshrc ] && ln -sv ~/.dotfiles/.zshrc ~/.zshrc || echo ".zshrc already set"
 [ ! -d "${HOME}/.oh-my-zsh/custom/themes/powerlevel10k" ] && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" || echo "powerlevel10k theme already exists"
 [ ! -f "${HOME}/.p10k.zsh" ] && ln -sv ~/.dotfiles/.p10k.zsh ~/.p10k.zsh
@@ -30,8 +30,6 @@ command -v pipx &> /dev/null && pipx install ninja
 command -v pipx &> /dev/null && pipx install pylint
 command -v pipx &> /dev/null && pipx install tldr
 command -v pipx &> /dev/null && pipx install virtualenv
-command -v pipx &> /dev/null && pipx install harlequin
-command -v pipx &> /dev/null && pipx inject harlequin harlequin-postgres
 
 
 # SETTINGS
@@ -44,6 +42,7 @@ command -v pipx &> /dev/null && pipx inject harlequin harlequin-postgres
 #
 # WezTerm
 [ ! -f ~/.wezterm.lua ] && ln -sv ~/.dotfiles/.wezterm.lua ~/.wezterm.lua || echo "wezterm config already exists"
+
 [ ! -d ~/.terminfo ] && tempfile=$(mktemp) \
   && curl -o "$tempfile" https://raw.githubusercontent.com/wez/wezterm/master/termwiz/data/wezterm.terminfo \
   && tic -x -o ~/.terminfo "$tempfile" \
@@ -53,13 +52,14 @@ command -v pipx &> /dev/null && pipx inject harlequin harlequin-postgres
 [ ! -d ~/.confg/kitty ] && ln -sv ~/.dotfiles/kitty ~/.config/kitty || echo "kitty config already exists"
 
 # Ghostty
-[ ! -d ~/.config/ghostty ] && ln -sv ./dotfiles/ghostty ~/.config/ghostty || echo "ghostty config already exists"
+[ ! -d ~/.config/ghostty ] && ln -sv ~/.dotfiles/ghostty ~/.config/ghostty || echo "ghostty config already exists"
 
 # Yazi
 [ ! -d ~/.config/yazi ] && ln -sv ~/.dotfiles/yazi ~/.config/yazi || echo "yazi already exists"
 
 # Harleaquin
 [ ! -d ~/.config/harlequin ] && ln -sv ~/.dotfiles/harlequin ~/.config/harlequin || echo "harlequin already exists"
+
 # Cheat Sheets
 [ ! -f ~/bin/cht ] && ln -sv ~/.dotfiles/scripts/cht.sh ~/bin/cht || echo "cht already exists"
 

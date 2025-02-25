@@ -14,10 +14,7 @@ return {
       cmake_soft_link_compile_commands = true,
       cmake_compile_commands_from_lsp = true,
       cmake_kits_path = os.getenv("HOME") .. "/.local/share/CMakeTools/cmake-tools-kits.json",
-      cmake_variants_message = {
-        short = { show = true },
-        long = { show = true, max_length = 40 },
-      },
+      cmake_variants_message = { short = { show = true }, long = { show = true, max_length = 40 } },
       cmake_executor = {
         name = "toggleterm",
         opts = {},

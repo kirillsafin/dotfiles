@@ -5,7 +5,7 @@ return {
     event = "VeryLazy",
     opts = {
       outline_window = {
-        position = 'right',
+        position = "right",
       },
     },
   },
@@ -14,5 +14,5 @@ return {
     enabled = false,
     event = "VeryLazy",
     opts = {},
-  }
+  },
 }

@@ -4,13 +4,13 @@ return {
     opts = {},
   },
   {
-    'brenoprata10/nvim-highlight-colors',
-    enabled = false,
+    "brenoprata10/nvim-highlight-colors",
+    enabled = true,
     opts = {
       render = "virtual",
-      virtual_symbol_position = 'eow',
-      virtual_symbol_prefix = ' ',
-      virtual_symbol_suffix = '',
+      virtual_symbol_position = "eow",
+      virtual_symbol_prefix = " ",
+      virtual_symbol_suffix = "",
       exclude_filetypes = { "lazy" },
       enable_var_usage = false,
     },
@@ -19,5 +19,5 @@ return {
     "norcalli/nvim-colorizer.lua",
     enabled = true,
     opts = {},
-  }
+  },
 }

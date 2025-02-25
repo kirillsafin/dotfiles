@@ -12,7 +12,7 @@ key_display="^q"
 [[keymaps.me-myself-and-i]]
 keys="ctrl+e"
 action="focus_query_editor"
-key_display="^q"
+key_display="^e"
 
 # Focus Results Viewer - f5
 [[keymaps.me-myself-and-i]]

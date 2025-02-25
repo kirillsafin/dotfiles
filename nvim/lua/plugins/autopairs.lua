@@ -26,7 +26,7 @@ return {
     enabled = false,
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     event = { "InsertEnter" },
-    config = true
+    config = true,
   },
   {
     "echasnovski/mini.surround",
@@ -34,5 +34,5 @@ return {
     event = { "InsertEnter" },
     version = false,
     opts = {},
-  }
+  },
 }

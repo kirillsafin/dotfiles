@@ -15,7 +15,7 @@ return {
       TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
       DONE = { icon = "✔ ", color = "info", alt = { "COMPLETE", "FINISH" } },
       TRASH = { icon = " ", color = "info", alt = { "DELETE", "REMOVE", "DISP", "DISPENSABLE" } },
-      WHY = { icon = " ", color = "warning", alt = { "HELP", "QUESTION" } },
+      WHY = { icon = " ", color = "warning", alt = { "HELP", "QUESTION", "THINK-ABOUT-IT" } },
     },
   },
 }

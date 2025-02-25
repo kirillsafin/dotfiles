@@ -5,17 +5,18 @@ return {
   enabled = false,
   opts = {
     options = {
-      cursorline = false,
+      cursorline = true,
       transparency = true,
       terminal_colors = true,
       lualine_transparency = true,
-      highlight_inactive_windows = true,
+      highlight_inactive_windows = false,
     },
     highlights = {
-      WinSeparator = { fg = "#808080" },
+      WinSeparator = { fg = "#A0A0A0" },
+      TabLineSel = { bg = "#AAAAAA" },
     },
   },
   init = function()
-    vim.cmd("colorscheme onedark")
+    vim.cmd("colorscheme onedark_vivid")
   end,
 }

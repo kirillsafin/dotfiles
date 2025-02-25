@@ -3,12 +3,9 @@ package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/shar
 
 return {
   {
-
     "OXY2DEV/markview.nvim",
     enabled = false,
-    dependencies = {
-      "nvim-tree/nvim-web-devicons", -- Used by the code blocks
-    },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {},
   },
   {
@@ -16,7 +13,7 @@ return {
     enabled = true,
     event = "VeryLazy",
     dependencies = {
-      "nvim-tree/nvim-web-devicons", -- Used by the code blocks
+      "nvim-tree/nvim-web-devicons",
       "nvim-treesitter/nvim-treesitter",
     },
     config = true,
@@ -37,12 +34,8 @@ return {
           only_render_image_at_cursor = true,
           filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
         },
-        html = {
-          enabled = false,
-        },
-        css = {
-          enabled = false,
-        },
+        html = { enabled = false },
+        css = { enabled = false },
       },
       max_width = nil,
       max_height = nil,
@@ -50,17 +43,18 @@ return {
       max_height_window_percentage = 60,
       window_overlap_clear_enabled = true, -- toggles images when windows are overlapped
       window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "" },
-      editor_only_render_when_focused = false, -- auto show/hide images when the editor gains/looses focus
+      editor_only_render_when_focused = true, -- auto show/hide images when the editor gains/looses focus
       tmux_show_only_in_active_window = true, -- auto show/hide images in the correct Tmux window (needs visual-activity off)
       hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif" }, -- render image files as images when opened
     },
     keys = {
       {
-        "<leader>ic",
+        "<leader>ici",
         function()
           require("image").clear()
         end,
-        desc = "Clear Image",
+        desc = "[C]lear [I]mage",
+        silent = false,
       },
     },
   },
@@ -68,17 +62,25 @@ return {
     "3rd/diagram.nvim",
     enabled = true,
     event = "VeryLazy",
-    dependencies = {
-      "3rd/image.nvim",
-    },
+    dependencies = { "3rd/image.nvim" },
     branch = "feature/toggle",
     opts = {
       renderer_options = {
         mermaid = {
           background = '"#888888 "',
           theme = "dark",
-          scale = 3,
+          scale = 1,
         },
+      },
+    },
+    keys = {
+      {
+        "<leader>icd",
+        function()
+          vim.notify(require("diagram").get_cache_dir())
+        end,
+        desc = "Get [C]ache [D]ir",
+        silent = false,
       },
     },
   },

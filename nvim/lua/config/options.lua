@@ -38,7 +38,7 @@ opt.smartcase = true
 opt.inccommand = "nosplit"
 
 opt.cursorline = false
-opt.scrolloff = 25
+opt.scrolloff = 22
 opt.colorcolumn = "80"
 
 opt.history = 250
@@ -73,6 +73,5 @@ opt.filetype = "on"
 
 opt.conceallevel = 0
 
-opt.sessionoptions = "blank,buffers,curdir,tabpages,winsize,winpos,terminal,localoptions,folds"
-
+opt.sessionoptions = "blank,buffers,curdir,tabpages,winsize,winpos,terminal,localoptions"
 opt.laststatus = 3

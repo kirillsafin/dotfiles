@@ -17,8 +17,7 @@ return {
           file_ignore_patterns = {
             "node_modules/",
             "dist/",
-            "venv",
-            ".venv",
+            ".venv/",
             "plugged/",
             "undodir/",
             "%.git/",
@@ -41,12 +40,9 @@ return {
           },
           layout_strategy = "center",
           layout_config = { height = 0.35, width = 0.55 }, --center
-          -- layout_config = { height = 0.90, width = 0.55 }, -- vertical
           prompt_position = "bottom",
         },
-        pickers = {
-          find_files = { hidden = true },
-        },
+        pickers = { find_files = { hidden = true } },
         extensions = {
           live_grep_args = {
             auto_quoting = false,
@@ -61,8 +57,7 @@ return {
             fuzzy = false, -- false will only do exact matching
             override_generic_sorter = true, -- override the generic sorter
             override_file_sorter = true, -- override the file sorter
-            case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-            -- the default case_mode is "smart_case"
+            case_mode = "smart_case", -- or "ignore_case" or "respect_case" the default case_mode is "smart_case"
           },
         },
       })
@@ -71,25 +66,28 @@ return {
       require("telescope").load_extension("notify")
 
       local keymap = vim.keymap
-      keymap.set("n", "<C-p>", ":Telescope find_files<CR>", { desc = "Find files" })
-      keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", { desc = "Live grep" })
-      keymap.set("n", "<leader>fS", ":Telescope grep_string<CR>", { desc = "Grep string" })
-      keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { desc = "Buffers" })
-      keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>", { desc = "Help tags" })
-      keymap.set("n", "<leader>fl", ":Telescope lsp_document_symbols<CR>", { desc = "LSP document symbols" })
-      keymap.set("n", "<leader>fs", ":Telescope lsp_workspace_symbols<CR>", { desc = "LSP workspace symbols" })
-      keymap.set("n", "<leader>ft", ":Telescope treesitter<CR>", { desc = "Treesitter" })
-      keymap.set("n", "<leader>fd", ":Telescope lsp_definitions<CR>", { desc = "LSP definitions" })
-      keymap.set("n", "<leader>fr", ":Telescope lsp_references<CR>", { desc = "LSP references" })
-      keymap.set("n", "<leader>fw", ":Telescope grep_string<CR>", { desc = "Grep string" })
-      keymap.set("n", "<leader>fd", ":Telescope diagnostics<CR>", { desc = "Diagnostics" })
-      keymap.set("n", "<leader>fc", ":Telescope commands<CR>", { desc = "Commands" })
-      keymap.set("n", "<leader>fo", ":Telescope lsp_outgoing_calls<CR>", { desc = "Outgoing calls" })
-      keymap.set("n", "<leader>fi", ":Telescope lsp_incoming_calls<CR>", { desc = "Outgoing calls" })
-      keymap.set("n", "<leader>ff", ":Telescope current_buffer_fuzzy_find<CR>", { desc = "Current buffer fuzzy find" })
-      keymap.set("n", "<leader>fG", ":Telescope live_grep_args<CR>", { desc = "Live grep args" })
-      keymap.set("n", "<leader>fS", ":Telescope grep_string<CR>", { desc = "Grep string" })
+      keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "[F]ind Files" })
+      keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>", { desc = "[H]elp [T]ags" })
+      keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { desc = "[B]uffers" })
+      keymap.set("n", "<leader>fB", ":Telescope current_buffer_fuzzy_find<CR>", { desc = "Current [B]uffer Fuzzy" })
+
+      keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", { desc = "[G]rep Live" })
+      keymap.set("n", "<leader>fa", ":Telescope live_grep_args<CR>", { desc = "Grep Live [A]rgs" })
+
+      keymap.set("n", "<leader>fs", ":Telescope grep_string<CR>", { desc = "Grep [S]tring" })
+
+      keymap.set("n", "<leader>fd", ":Telescope lsp_definitions<CR>", { desc = "LSP [D]efinitions" })
+      keymap.set("n", "<leader>fD", ":Telescope lsp_type_definitions", { desc = "Go to declaration " })
+      keymap.set("n", "<leader>fr", ":Telescope lsp_references<CR>", { desc = "LSP [R]eferences" })
+      keymap.set("n", "<leader>fI", "Telescope lsp_implementations<CR>", { desc = "Go to implementations" })
+      keymap.set("n", "<leader>fo", ":Telescope lsp_outgoing_calls<CR>", { desc = "[O]utgoing calls" })
+      keymap.set("n", "<leader>fi", ":Telescope lsp_incoming_calls<CR>", { desc = "[I]ncoming calls" })
+
+      keymap.set("n", "<leader>vq", ":Telescope quickfix<CR>", { desc = "See available code actions" })
+      keymap.set("n", "<leader>vt", ":Telescope diagnostics bufnr=0<CR>")
+
+      keymap.set("n", "<leader>ft", ":Telescope treesitter<CR>", { desc = "[T]reesitter" })
+      keymap.set("n", "<leader>fc", ":Telescope commands<CR>", { desc = "[C]ommands" })
     end,
   },
-  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 }

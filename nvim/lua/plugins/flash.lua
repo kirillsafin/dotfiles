@@ -4,28 +4,36 @@ return {
   event = "VeryLazy",
   keys = {
     {
-      "<leader>js",
+      "<leader>jv",
       mode = { "n", "x", "o" },
-      function() require("flash").jump() end,
-      desc = "Flash"
+      function()
+        require("flash").jump()
+      end,
+      desc = "Flash [J]ump inside [V]iew",
     },
     {
-      "<leader>jm",
+      "<leader>jt",
       mode = { "n", "x", "o" },
-      function() require("flash").treesitter() end,
-      desc = "Flash Treesitter"
+      function()
+        require("flash").treesitter()
+      end,
+      desc = "Flash [J]ump inside [T]reesitter",
     },
     {
-      "<leader>jR",
+      "<leader>jr",
       mode = "o",
-      function() require("flash").remote() end,
-      desc = "Remote Flash"
+      function()
+        require("flash").remote()
+      end,
+      desc = "Flash [J]ump [R]emote",
     },
     {
-      "<leader>jM",
+      "<leader>js",
       mode = { "o", "x" },
-      function() require("flash").treesitter_search() end,
-      desc = "Treesitter Search"
+      function()
+        require("flash").treesitter_search()
+      end,
+      desc = "Flash [J]ump [S]earch",
     },
   },
 }

@@ -2,12 +2,10 @@ return {
   "mfussenegger/nvim-dap",
   event = "VeryLazy",
   dependencies = {
-    "rcarriga/cmp-dap",
     "nvim-neotest/nvim-nio",
     "rcarriga/nvim-dap-ui",
     "theHamsta/nvim-dap-virtual-text",
     "nvim-telescope/telescope-dap.nvim",
-    --"mxsdev/nvim-dap-vscode-js",
   },
   config = function()
     local python_util = require("utils.python")
@@ -52,7 +50,7 @@ return {
     -- TODO: JAVA
 
     -- TYPESCRIPT AND JAVASCRIPT
-    for _, adapter in ipairs({ "pwa-node", "pwa-chrome"}) do
+    for _, adapter in ipairs({ "pwa-node", "pwa-chrome" }) do
       require("dap").adapters[adapter] = {
         type = "server",
         host = "localhost",
@@ -66,18 +64,11 @@ return {
 
     require("dap.ext.vscode").load_launchjs(".nvim/launch.json", {
       ["pwa-node"] = { "javascript", "typescript", "vue" },
-      ["pwa-chrome"] = { "javascript", "typescript", "vue"},
+      ["pwa-chrome"] = { "javascript", "typescript", "vue" },
       cppdbg = { "cpp", "c" },
     })
 
     require("nvim-dap-virtual-text").setup({})
-
-    require("cmp").setup({
-      enabled = function()
-        -- return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
-      return vim.api.nvim_get_option_info2("buftype", {}) ~= "prompt" or require("cmp_dap").is_dap_buffer()
-      end,
-    })
 
     local dapui = require("dapui")
     local dapui_widgets = require("dap.ui.widgets")
@@ -94,12 +85,6 @@ return {
     dap.listeners.before.event_exited["dapui_config"] = function()
       dapui.close()
     end
-
-    require("cmp").setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
-      sources = {
-        { name = "dap" },
-      },
-    })
 
     local keymap = vim.keymap
 

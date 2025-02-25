@@ -14,5 +14,8 @@ return {
     vim.g.edge_float_style = "bright"
 
     vim.cmd("colorscheme edge")
+
+    vim.api.nvim_set_hl(0, "TabLine", { fg = "#FFFFFF", bg = "#FFFFFF", ctermbg = 50, ctermfg = 50 })
+    vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#A0A0A0" })
   end,
 }

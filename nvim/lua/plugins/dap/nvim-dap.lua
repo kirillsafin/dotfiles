@@ -2,7 +2,6 @@ return {
   "mfussenegger/nvim-dap",
   event = "VeryLazy",
   dependencies = {
-    "rcarriga/cmp-dap",
     "nvim-neotest/nvim-nio",
     "rcarriga/nvim-dap-ui",
     "theHamsta/nvim-dap-virtual-text",
@@ -71,12 +70,6 @@ return {
 
     require("nvim-dap-virtual-text").setup()
 
-    require("cmp").setup({
-      enabled = function()
-        return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
-      end,
-    })
-
     local dapui = require("dapui")
     local dapui_widgets = require("dap.ui.widgets")
     dapui.setup()
@@ -92,12 +85,6 @@ return {
     dap.listeners.before.event_exited["dapui_config"] = function()
       dapui.close()
     end
-
-    require("cmp").setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
-      sources = {
-        { name = "dap" },
-      },
-    })
 
     local keymap = vim.keymap
 

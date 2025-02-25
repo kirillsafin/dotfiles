@@ -20,39 +20,20 @@ return {
     },
   },
   keys = {
-    {
-      "<leader>qn",
-      "<cmd>cnext",
-      mode = "n",
-      desc = "Next Quickfix Entry",
-    },
-    {
-      "<leader>qp",
-      "<cmd>cprevious",
-      mode = "n",
-      desc = "Previous Quickfix Entry",
-    },
-    {
-      "<leader>qc",
-      "<cmd>cclose",
-      mode = "n",
-      desc = "Close Quickfix",
-    },
+    { "<leader>qn", "<cmd>cnext<CR>", mode = "n", desc = "Next Quickfix Entry" },
+    { "<leader>qp", "<cmd>cprevious<CR>", mode = "n", desc = "Previous Quickfix Entry" },
+    { "<leader>qc", "<cmd>cclose<CR>", mode = "n", desc = "Close Quickfix" },
   },
   init = function()
     local keymap = vim.keymap
     local quicker = require("quicker")
 
-    keymap.set("n", "<leader>qb", function()
-      quicker.toggle()
-    end, { desc = "Toggle(Basic) Quickfix" })
+    keymap.set("n", "<leader>qb", quicker.toggle, { desc = "[Quickfix] Toggle([B]asic)" })
 
     keymap.set("n", "<leader>ql", function()
       quicker.toggle({ loclist = true })
-    end, { desc = "Toggle(Loclist) Quickfix" })
+    end, { desc = "Quickfix Toggle([L]oclist)" })
 
-    keymap.set("n", "<leader>qr", function()
-      quicker.refresh()
-    end, { desc = "Refresh Quickfix" })
+    keymap.set("n", "<leader>qr", quicker.refresh, { desc = "Quickfix [R]efresh" })
   end,
 }
